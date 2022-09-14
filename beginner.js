@@ -92,4 +92,20 @@ function getTheVowels(word) {
         // synthax Math.pow(base, exponent)
         return (array.length <= n) ? -1 : Math.pow(array[n], n) 
       }
+
+      // SIMPLE FUN **SEATS IN THEATRE** 8KATA CODEWARS
+      function seatsInTheater(nCols, nRows, col, row) {
+        //coding and coding..
+        let blockedCols = (nCols - col + 1);
+        let blockedRows = (nRows - row)
+        return blockedCols * blockedRows
+        
+      };
+
+      // SIMPLE FUN **INVITE MORE WOMEN*** 8KATA CODEWARS
+      function inviteMoreWomen(L) {
+        //coding and coding..
+        return L.reduce((a, b) => a + b,0) > 0 
+        
+      };
    
