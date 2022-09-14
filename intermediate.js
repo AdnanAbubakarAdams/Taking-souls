@@ -7,3 +7,10 @@ function sortMyString(S) {
   
 };
 
+// MAXIMUM MULTIPLE 7KATA CODE WARS
+function maxMultiple(divisor, bound){
+    //your code here
+    let N = bound % divisor
+    return bound - N
+  }
+

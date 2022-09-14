@@ -68,4 +68,28 @@ function getTheVowels(word) {
     // sorting the new array alphabetically
     return newArray.sort((a, b) => a[0] > b[0]);
   };
+
+
+  // IS DIVISIBLE BY X AND Y 8KATA CODEWARS
+  function isDivisible(n, x, y) {
+    //   if (n % x == 0 && n % y == 0) {
+    //     return true;
+    //   }
+    //   else  {
+    //     return false;
+    //   }
+      return n % x == 0 && n % y == 0 ? true : false
+    };
+
+    // N-TH POWER 
+    function index(array, n){
+        //your code here
+      //   if (array.length <= n) {
+      //     return -1;
+      //   } else {
+      //     Math.pow(array[n])
+      //   }
+        // synthax Math.pow(base, exponent)
+        return (array.length <= n) ? -1 : Math.pow(array[n], n) 
+      }
    
