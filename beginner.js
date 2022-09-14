@@ -102,10 +102,26 @@ function getTheVowels(word) {
         
       };
 
+      // NAME ON BILLBOARD ***8KATA***CODEWARS
+      function billboard(name, price = 30){
+        let totalCostofName = 0;
+          for (let i = 0; i < name.length; i++) {
+            totalCostofName += price
+          }
+          return totalCostofName
+        };
+
       // SIMPLE FUN **INVITE MORE WOMEN*** 8KATA CODEWARS
       function inviteMoreWomen(L) {
         //coding and coding..
         return L.reduce((a, b) => a + b,0) > 0 
         
+      };
+
+      // SUM OF ODD NUMBERS  ***8KATA** CODEWARS
+      function rowSumOddNumbers(n) {
+        // TODO
+        return n ** 3
+      //   return Math.pow(n, 3)
       };
    
