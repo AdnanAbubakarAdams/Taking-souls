@@ -50,4 +50,22 @@ function getTheVowels(word) {
            }
      
    };
+
+   // CONVERT HASH TO AN ARRAY IN ALPHABETICAL ORDER
+   function convertHashToArray(hash){
+    //your code here - sort the keys!
+    console.log(hash)
+    // declaring vars (Object is a reserved word)
+    let obj = Object;
+    let newArray = []
+    let key = obj.keys(hash)
+    let value = obj.values(hash)
+    // Doing a for in loop of the values
+    for (let i in value) {
+      // pushing the key value pair into the new array
+      newArray.push([key[i], value[i]]);
+    }
+    // sorting the new array alphabetically
+    return newArray.sort((a, b) => a[0] > b[0]);
+  };
    
