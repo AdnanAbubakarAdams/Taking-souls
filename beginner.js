@@ -124,4 +124,36 @@ function getTheVowels(word) {
         return n ** 3
       //   return Math.pow(n, 3)
       };
+
+      // COLORED TRIANGLE ***7KATA** CODEWARS
+      function triangle(row) {
+        // Return the answer
+          let totalColor = "";
+          //condition to return the color if its the only color inputed
+          if (row.length == 1) {
+            totalColor = row;
+          }
+          for (let i = 0; i < row.length - 1; i++) {
+            if(row[i] == row[i + 1]) {
+              totalColor += row[i]
+            } else {
+              totalColor += "RGB".replace(row[i],"").replace(row[i + 1],"")
+            }
+          }
+          // using recussion
+          if (totalColor.length > 1) {
+            return triangle(totalColor)
+          } else {
+            return totalColor;
+          }
+        };
+
+        // IF YOU CANT SLEEP? JUST COUNT SHEEP ****8KATA*** CODEWARS
+        var countSheep = function (num){
+          let string = "";
+          for(let i = 1; i <= num; i++) {
+            string += `${i} sheep...`;
+          }
+          return string;
+        }
    
