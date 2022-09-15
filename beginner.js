@@ -207,3 +207,18 @@ function unusualFive() {
   return name.length;
 };
 
+// REMOVE FIRST AND LAST CHARACTER ***8KATA*** CODEWARS
+function removeChar(str) {
+   let newStr = str.slice(1, -1);
+   return newStr;
+ };
+
+ // To square(root) or not to square(root) ***8KATA*** CODEWARS
+ function squareOrSquareRoot(array) {
+  return array.map(arr => Math.sqrt(arr) % 1 ? arr * arr : Math.sqrt(arr))
+}; 
+
+// ARRAY PLUS ARRAY
+function arrayPlusArray(arr1, arr2) {
+  return arr1.concat(arr2).reduce((prev,curr) => prev + curr);
+}
