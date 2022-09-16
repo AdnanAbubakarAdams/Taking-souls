@@ -270,3 +270,30 @@ function check(a, x) {
   return a.includes(x)
 }
 
+// TRANSPORTATION ON VACATION 8KATA CODEWARS
+function rentalCarCost(d) {
+  // Your solution here
+  let totalDays = d * 40;
+  if (d >= 7) {
+    return totalDays -= 50
+  }
+  if (d >= 3) {
+    return totalDays -= 20
+  }
+  return totalDays;
+}
+
+// DO I GET A BONUS 
+function bonusTime(salary, bonus) {
+  // your code here
+    let total = 0;
+    if (bonus){
+      total += salary * 10
+    } else {
+      return  "£" + salary;
+    }
+    return "£" + total
+    //  return bonus ? `£${10 * salary}` : `£${salary}`;
+  }
+
+
