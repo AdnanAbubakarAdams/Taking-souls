@@ -205,51 +205,51 @@ function addLetters(...letters) {
 function unusualFive() {
   let name = "Adnan";
   return name.length;
-};
+}
 
 // REMOVE FIRST AND LAST CHARACTER ***8KATA*** CODEWARS
 function removeChar(str) {
-   let newStr = str.slice(1, -1);
-   return newStr;
- };
+  let newStr = str.slice(1, -1);
+  return newStr;
+}
 
- // To square(root) or not to square(root) ***8KATA*** CODEWARS
- function squareOrSquareRoot(array) {
-  return array.map(arr => Math.sqrt(arr) % 1 ? arr * arr : Math.sqrt(arr))
-}; 
+// To square(root) or not to square(root) ***8KATA*** CODEWARS
+function squareOrSquareRoot(array) {
+  return array.map((arr) => (Math.sqrt(arr) % 1 ? arr * arr : Math.sqrt(arr)));
+}
 
 // ARRAY PLUS ARRAY
 function arrayPlusArray(arr1, arr2) {
-  return arr1.concat(arr2).reduce((prev,curr) => prev + curr);
+  return arr1.concat(arr2).reduce((prev, curr) => prev + curr);
 }
 
 // BASIC MATHEMATICAL OPERATIONS
 function basicOp(operation, value1, value2) {
-  if(operation === "+") {
-    return value1 + value2
+  if (operation === "+") {
+    return value1 + value2;
   }
   if (operation === "-") {
-    return value1 - value2
+    return value1 - value2;
   }
   if (operation === "*") {
-    return value1 * value2
+    return value1 * value2;
   }
   if (operation === "/") {
-    return value1 / value2
+    return value1 / value2;
   }
 
-//   switch (operation) {
-//     case '+':
-//         return value1 + value2;
-//     case '-':
-//         return value1 - value2;
-//     case '*':
-//         return value1 * value2;
-//     case '/':
-//         return value1 / value2;
-//     default:
-//         return 0;
-// }
+  //   switch (operation) {
+  //     case '+':
+  //         return value1 + value2;
+  //     case '-':
+  //         return value1 - value2;
+  //     case '*':
+  //         return value1 * value2;
+  //     case '/':
+  //         return value1 / value2;
+  //     default:
+  //         return 0;
+  // }
 }
 
 // BEGINNER SERIES #1 SCHOOL PAPERWORK
@@ -257,7 +257,7 @@ function paperwork(n, m) {
   let classmates = n;
   let paperwork = m;
   if (classmates < 0 || paperwork < 0) {
-    return 0
+    return 0;
   } else {
     return classmates * paperwork;
   }
@@ -267,7 +267,7 @@ function paperwork(n, m) {
 // YOU ONLY NEED ONE - BEGINNER
 function check(a, x) {
   // your code here
-  return a.includes(x)
+  return a.includes(x);
 }
 
 // TRANSPORTATION ON VACATION 8KATA CODEWARS
@@ -275,25 +275,56 @@ function rentalCarCost(d) {
   // Your solution here
   let totalDays = d * 40;
   if (d >= 7) {
-    return totalDays -= 50
+    return (totalDays -= 50);
   }
   if (d >= 3) {
-    return totalDays -= 20
+    return (totalDays -= 20);
   }
   return totalDays;
 }
 
-// DO I GET A BONUS 
+// DO I GET A BONUS
 function bonusTime(salary, bonus) {
   // your code here
-    let total = 0;
-    if (bonus){
-      total += salary * 10
-    } else {
-      return  "£" + salary;
-    }
-    return "£" + total
-    //  return bonus ? `£${10 * salary}` : `£${salary}`;
+  let total = 0;
+  if (bonus) {
+    total += salary * 10;
+  } else {
+    return "£" + salary;
   }
+  return "£" + total;
+  //  return bonus ? `£${10 * salary}` : `£${salary}`;
+}
 
+// RETURNING STRINGS 8KATA
+function greet(name){
+  //your code here
+  return `Hello, ${name} how are you doing today?`
+}
+// greet("Adnan")
 
+// ABBREVIATE A TWO WORD NAME ***8KATA**
+function abbrevName(name){
+  [firstName, lastName] = name.toUpperCase().split(" ");
+  return firstName[0] + "." + lastName[0];
+}
+
+//  REMOVE DUPLICATES FROM LIST
+function distinct(a) {
+  let newArr = [];
+  for (let i = 0; i < a.length; i++) {
+    if(newArr.indexOf(a[i]) == -1) {
+      newArr.push(a[i])
+    }
+  }
+  return newArr;
+
+//   let res = []; 
+  
+//   for(let i = 0; i < arr.length; i++){
+//     if(!res.includes(arr[i])){
+//       res.push(arr[i]);
+//     }
+// }
+// return res
+}
