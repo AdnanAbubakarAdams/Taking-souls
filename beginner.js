@@ -222,3 +222,51 @@ function removeChar(str) {
 function arrayPlusArray(arr1, arr2) {
   return arr1.concat(arr2).reduce((prev,curr) => prev + curr);
 }
+
+// BASIC MATHEMATICAL OPERATIONS
+function basicOp(operation, value1, value2) {
+  if(operation === "+") {
+    return value1 + value2
+  }
+  if (operation === "-") {
+    return value1 - value2
+  }
+  if (operation === "*") {
+    return value1 * value2
+  }
+  if (operation === "/") {
+    return value1 / value2
+  }
+
+//   switch (operation) {
+//     case '+':
+//         return value1 + value2;
+//     case '-':
+//         return value1 - value2;
+//     case '*':
+//         return value1 * value2;
+//     case '/':
+//         return value1 / value2;
+//     default:
+//         return 0;
+// }
+}
+
+// BEGINNER SERIES #1 SCHOOL PAPERWORK
+function paperwork(n, m) {
+  let classmates = n;
+  let paperwork = m;
+  if (classmates < 0 || paperwork < 0) {
+    return 0
+  } else {
+    return classmates * paperwork;
+  }
+  // return n > 0 && m > 0 ? n * m : 0;
+}
+
+// YOU ONLY NEED ONE - BEGINNER
+function check(a, x) {
+  // your code here
+  return a.includes(x)
+}
+
