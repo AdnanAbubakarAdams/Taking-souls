@@ -362,3 +362,12 @@ function mouthSize(animal) {
 function grow(x){
   return x.reduce((prev, curr) => prev * curr);                           
 }
+
+// FILLING ARRAY PART 1
+const arr = (n) => {
+  let newArray = [];
+  for(let i = 0; i < n; i++) {
+    newArray.push(i)
+  }
+  return newArray;
+}
