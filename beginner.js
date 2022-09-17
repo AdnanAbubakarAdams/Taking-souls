@@ -297,14 +297,14 @@ function bonusTime(salary, bonus) {
 }
 
 // RETURNING STRINGS 8KATA
-function greet(name){
+function greet(name) {
   //your code here
-  return `Hello, ${name} how are you doing today?`
+  return `Hello, ${name} how are you doing today?`;
 }
 // greet("Adnan")
 
 // ABBREVIATE A TWO WORD NAME ***8KATA**
-function abbrevName(name){
+function abbrevName(name) {
   [firstName, lastName] = name.toUpperCase().split(" ");
   return firstName[0] + "." + lastName[0];
 }
@@ -313,18 +313,47 @@ function abbrevName(name){
 function distinct(a) {
   let newArr = [];
   for (let i = 0; i < a.length; i++) {
-    if(newArr.indexOf(a[i]) == -1) {
-      newArr.push(a[i])
+    if (newArr.indexOf(a[i]) == -1) {
+      newArr.push(a[i]);
     }
   }
   return newArr;
 
-//   let res = []; 
-  
-//   for(let i = 0; i < arr.length; i++){
-//     if(!res.includes(arr[i])){
-//       res.push(arr[i]);
-//     }
-// }
-// return res
+  //   let res = [];
+
+  //   for(let i = 0; i < arr.length; i++){
+  //     if(!res.includes(arr[i])){
+  //       res.push(arr[i]);
+  //     }
+  // }
+  // return res
+}
+
+// SIMPLE MULTIPLICATION
+function simpleMultiplication(number) {
+  // your code........
+  if (number % 2 === 0) {
+    return number * 8;
+  } else {
+    return number * 9;
+  }
+  // return n % 2 == 0 ? n * 8 : n * 9
+}
+
+// FOR TWINS TYPES
+function typeValidation(variable, type) {
+  // Your code should be here ;) 
+  return typeof variable === type ?  true : false;
+}
+
+// THE WIDE-MOUTHED FROG
+function mouthSize(animal) {
+  // code here
+  let newAni = animal.toLowerCase();
+  if (newAni == "alligator") {
+    return "small";
+  } else {
+    return "wide";
+  }
+  // return newAni === "alligator" ? "small" : "wide"
 }
