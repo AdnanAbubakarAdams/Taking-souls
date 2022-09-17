@@ -357,3 +357,8 @@ function mouthSize(animal) {
   }
   // return newAni === "alligator" ? "small" : "wide"
 }
+
+// REDUCE BUT GROW 
+function grow(x){
+  return x.reduce((prev, curr) => prev * curr);                           
+}
