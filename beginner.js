@@ -371,3 +371,75 @@ const arr = (n) => {
   }
   return newArray;
 }
+
+// POWER OF 2
+function powersOfTwo(n){
+  let newArr = [];
+   for (let i = 0; i <= n; i++) {
+     newArr[i] = 2**i ;
+   }
+   return newArr;
+ }
+
+ // REMOVE AN EXCLAMATION MARK FROM THE END OF A STRING
+ function remove (string) {
+  // using regex
+//   For the $ quantifier it will search Exclamation mark at the end of the string.
+// Tip: Use the ^n quantifier to match any string with n at the BEGINNING of it.
+  return string.replace(/!$/, "")
+}
+
+// WILSON PRIMES 
+FACTORIALS 
+function amIWilson(p) {
+  // check if prime is Wilson
+  // return (Array.from({length: p -1}, (_, index) => index +1).reduce((prev,curr) => prev * curr, 1) + 1) / (p * p) % 1 == 0
+  const factorial = (a) => {
+    return a <= 1 ? 1 : a * factorial(a -1)
+  }
+  return (factorial(p - 1) + 1) / (p * p) % 1 === 0;
+
+//   const factorial = (a) => {
+//     return a <= 1 ? 1 : a * factorial(a -1)
+//   }
+//  if (((factorial(p - 1) + 1) % (p * p)) == 0) {
+//    return true;
+//  } else {
+//    return fals
+}
+
+// COUNT ODD NUMBERS BELOW N 
+function oddCount(n){
+  // your code here
+  let newArr = [];
+  for (let i = 0; i < n; i++) {
+    if (i % 2 != 0) {
+      newArr.push(i)
+    }
+  }
+  return newArr.length;
+}
+
+// REMOVE EXCLAMATION MARK 
+function removeExclamationMarks(s) {
+  return s.replace(/!/g, "")
+}
+
+// OPPOSITE NUMBER 
+function opposite(number) {
+  //your code here
+  return - number;
+}
+
+// SAFEN USER INPUT PART 1- HTMLINSPECIALCHARS
+function htmlspecialchars(formData) {
+  // Insert your code here
+  return formData.replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/>/g, "&gt;");
+  
+}
+
+// ADD ITEM TO AN ARRAY
+websites.push("codewars")
