@@ -489,3 +489,9 @@ function past(h, m, s){
   // new Date()
 //   When called as a constructor, returns a new Date object.
 };
+
+// BIN TO DECIMAL
+function binToDec(bin){
+  // ...
+  return parseInt(bin, 2);
+}
