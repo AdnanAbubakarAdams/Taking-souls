@@ -418,18 +418,18 @@ function oddCount(n){
     }
   }
   return newArr.length;
-}
+};
 
 // REMOVE EXCLAMATION MARK 
 function removeExclamationMarks(s) {
   return s.replace(/!/g, "")
-}
+};
 
 // OPPOSITE NUMBER 
 function opposite(number) {
   //your code here
   return - number;
-}
+};
 
 // SAFEN USER INPUT PART 1- HTMLINSPECIALCHARS
 function htmlspecialchars(formData) {
@@ -439,7 +439,53 @@ function htmlspecialchars(formData) {
                  .replace(/"/g, "&quot;")
                  .replace(/>/g, "&gt;");
   
-}
+};
 
 // ADD ITEM TO AN ARRAY
 websites.push("codewars")
+
+// MR.FREEZE
+// mark the MrFreeze object instance as frozen
+Object.freeze(MrFreeze);
+
+// CONVERT A STRING INTO AN ARRAY 
+function stringToArray(string){
+
+	// code code code
+  return string.split(" ")
+
+};
+
+// COUNT BY X
+function countBy(x, n) {
+  let z = [];
+  for(let i = 1; i <= n; i++) {
+       z.push(i * x)
+  }
+  return z;
+};
+
+// CVS REPRESENTATION OF ARRAY
+function toCsvText(array) {
+  // good luck
+ return array.join("\n")
+};
+
+// CONVERT NUUMBER TO REVERSED ARRAY OF DIGITS
+function digitize(n) {
+  //code here
+  console.log(n)
+  let arr = n.toString().split("");
+  return arr.map(Number).reverse();
+};
+
+// BEGINNER SERIES #2 CLOCK
+function past(h, m, s){
+  //#Happy Coding! ^_^
+  console.log(h, m, s)
+  return new Date().setHours(h,m,s) - new Date().setHours(0,0,0);
+//   Date
+//   JavaScript Date objects represent a single moment in time in a platform-independent format. Date objects contain a Number that represents milliseconds since 1 January 1970 UTC.
+  // new Date()
+//   When called as a constructor, returns a new Date object.
+};
