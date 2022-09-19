@@ -494,4 +494,114 @@ function past(h, m, s){
 function binToDec(bin){
   // ...
   return parseInt(bin, 2);
+};
+
+// CENTURY FROM YEAR
+function century(year) {
+  // Finish this :)
+  // The Math.ceil() function always rounds up and returns the smaller integer greater than or equal to a given number.
+  console.log(year)
+  return Math.ceil(year / 100)
+};
+
+// WHAT IS BETWEEN
+function between(a, b) {
+  // your code here
+  console.log(a,b);
+  let newArr = [];
+  for(let i = a; i <= b; i++) {
+    newArr.push(i);
+  }
+  return newArr;
 }
+
+// FIND NUMBERS WHIICH ARE DIVISIBLE BY GIVEN NUMBER
+function divisibleBy(numbers, divisor){
+  let newArr = [];
+  for (let i = 0; i <= numbers.length; i++) {
+    if(numbers[i] % divisor === 0) {
+      newArr.push(numbers[i])
+    }
+  }
+  return newArr;
+
+}
+
+// SHORT LONG SHORT 
+function solution(a, b){
+  // your code here
+  if (a.length < b.length) {
+    return a + b + a;
+  }
+  else {
+    return b + a + b;
+  }
+}
+
+// FIND MULTIPLES OF A NUMBER
+function findMultiples(integer, limit) {
+  //your code here
+  let final = [];
+  for (let i = integer; i <= limit; i += integer) {
+    final.push(i)
+    }
+return final;
+}
+
+// SUM OF POSITIVES
+function positiveSum(arr) {
+  console.log(arr)
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= 0) {
+      total += arr[i]
+    }
+  }
+  return total;
+}
+
+// NAME SHUFFLER 
+function nameShuffler(str){
+  //Shuffle It
+  console.log(str)
+  // destructuring
+  let [firstName, lastName] = str.split(' ');
+  return lastName + " " + firstName;
+  
+}
+
+// INVERT VALUES
+function invert(array) {
+  let newArr = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] >= 0 || array[i] < 0) {
+      newArr.push(array[i] * -1)
+    } 
+  }
+  return newArr;
+
+  // return array.map((number) => number * -1)
+}
+
+// REVERSED SEQUENCE
+const reverseSeq = n => {
+  let finalRes = [];
+   for (let i = n; i > 0; i--) {
+     finalRes.push(i)
+   }
+   return finalRes;
+ };
+
+ // MAKE UPPERCASE
+ function makeUpperCase(str) {
+  // Code here
+  return str.toUpperCase()
+}
+
+// CONVERT A NUMBER TO A STRING
+function numberToString(num) {
+  // Return a string of the number here!
+  return num.toString()
+}
+
+
