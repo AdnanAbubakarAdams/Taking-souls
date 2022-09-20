@@ -683,61 +683,101 @@ function fixTheMeerkat(arr) {
 
 // BASIC DATA TYPES --NUMBER
 let v1 = 50,
-    v2 = 100,
-    v3 = 150,
-    v4 = 200,
-    v5 = 2,
-    v6 = 250;
+  v2 = 100,
+  v3 = 150,
+  v4 = 200,
+  v5 = 2,
+  v6 = 250;
 
-function equal1(){
-  let a = v1,   
-      b = v1;   
+function equal1() {
+  let a = v1,
+    b = v1;
   return a + b;
 }
 
 //Please refer to the example above to complete the following functions
-function equal2(){
-  let a = v3 , //set number value to a
-      b = v1 ; //set number value to b
+function equal2() {
+  let a = v3, //set number value to a
+    b = v1; //set number value to b
   return a - b;
 }
 
-function equal3(){
-  let a = v1 , //set number value to a
-      b = v5 ; //set number value to b
+function equal3() {
+  let a = v1, //set number value to a
+    b = v5; //set number value to b
   return a * b;
 }
 
-function equal4(){
-  let a = v4 , //set number value to a
-      b = v5 ; //set number value to b
+function equal4() {
+  let a = v4, //set number value to a
+    b = v5; //set number value to b
   return a / b;
 }
 
-function equal5(){
-  let a = v6 , //set number value to a
-      b = v3 ; //set number value to b
+function equal5() {
+  let a = v6, //set number value to a
+    b = v3; //set number value to b
   return a % b;
 }
 
 // GRAVITY FLIP
-const flip=(d, a)=>{
+const flip = (d, a) => {
   //TODO
-  return d === "R" ? a.sort((x, y) => x - y) : a.sort((x, y) => y - x)
-//   return d === "L" ? a.sort((x, y) => y - x) : a.sort((x, y) => x - y)
-}
+  return d === "R" ? a.sort((x, y) => x - y) : a.sort((x, y) => y - x);
+  //   return d === "L" ? a.sort((x, y) => y - x) : a.sort((x, y) => x - y)
+};
 
 // IS THIS MY TAIL
 function correctTail(body, tail) {
-  
-  sub = body.substr(body.length-(tail.length))
-  
-  if (sub === tail){
-    return true
-  }  else {
-    
-    return false
+  sub = body.substr(body.length - tail.length);
+
+  if (sub === tail) {
+    return true;
+  } else {
+    return false;
   }
 }
-  
+
+// PRE-FIZZBUZZ WORKOUT #1
+function preFizz(n) {
+  console.log(n);
+  let newArr = [];
+  let number = 1;
+  for (let i = 0; newArr.length < n; i++) {
+    newArr.push(number);
+    number += 1;
+  }
+  return newArr;
+  // var output = [];
+  // for (var i=1; i<=n; i++)
+  // {
+  // output.push(i);
+  // }
+  // return output;
+
+  // var output = [];
+  // for(var i = 0; i < n; i++){
+    // output.push(i+1);
+  // }
+  // return output
+}
+
+// FIZZ BUZZ
+// Return an array
+function fizzbuzz(n){
+  //
+  let newArr = []
+  for(let i = 1; i <= n; i++) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      newArr.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      newArr.push("Fizz");
+    } else if (i % 5 === 0) {
+      newArr.push("Buzz");
+    } else {
+      newArr.push(i)
+    }
+  }
+  return newArr;
+}
 
