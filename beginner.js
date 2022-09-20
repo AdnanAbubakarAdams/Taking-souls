@@ -654,3 +654,22 @@ function booleanToString(b){
       res =  /^[abcdefghijklmnopqrstuvwxyz\d_]{4,16}$/.test(username) 
       return res
     }
+
+    // CONTAMINATION #1 STRING
+    function contamination(text, char){
+      // Code here ;)
+      return char.repeat(text.length)
+      // REGEX return text.replace(/./g, char)
+    }
+
+    // DOUBLE CHAR
+    function doubleChar(str) {
+      // Your code here
+    //   console.log(str)
+      let newString = "";
+      for(let i = 0; i < str.length; i++) {
+        newString += str[i].repeat(2)
+      }
+      return newString;
+    }
+    
