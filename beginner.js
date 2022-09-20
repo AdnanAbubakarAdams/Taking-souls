@@ -630,7 +630,15 @@ function booleanToString(b){
   // CALCULATE AVERAGE
   function findAverage(array) {
     // your code here
-    
-  return array.reduce((a, b) => a + b, 0) / array.length;
+    if (array.length <= 0) {
+      return 0
+    }
+  return array.reduce((a, b) => a + b, 0) / array.length
+  // return array.length === 0 ? 0 : array.reduce((acc, ind)=> acc + ind, 0)/array.length
     
   }
+
+  // EVEN OR ODD
+  function even_or_odd(number) {
+    return number % 2 === 0 ? "Even" : "Odd"
+    }
