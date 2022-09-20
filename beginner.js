@@ -607,69 +607,137 @@ function maps(x) {
 // RETURN NEGATIVE
 function makeNegative(num) {
   // Code?
-  return num * -1
+  return num * -1;
 }
 
 // RETURN NEGATIVE
 function makeNegative(num) {
   // The Math.abs() function returns the absolute value of a number.
-  console.log(num)
-  return Math.abs(num) * - 1
+  console.log(num);
+  return Math.abs(num) * -1;
 }
 
-// CONVERT A BOOLEAN TO A STRING 
-function booleanToString(b){
+// CONVERT A BOOLEAN TO A STRING
+function booleanToString(b) {
   //   if (b){
   //     return "true"
   //   }else {
   //     return "false"
   //   }
-    return b ? "true" : "false"
-  }
+  return b ? "true" : "false";
+}
 
-  // CALCULATE AVERAGE
-  function findAverage(array) {
-    // your code here
-    if (array.length <= 0) {
-      return 0
-    }
-  return array.reduce((a, b) => a + b, 0) / array.length
+// CALCULATE AVERAGE
+function findAverage(array) {
+  // your code here
+  if (array.length <= 0) {
+    return 0;
+  }
+  return array.reduce((a, b) => a + b, 0) / array.length;
   // return array.length === 0 ? 0 : array.reduce((acc, ind)=> acc + ind, 0)/array.length
-    
+}
+
+// EVEN OR ODD
+function even_or_odd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
+// GET NTH EVEN NUMBER
+function nthEven(n) {
+  // your code here
+  return n * 2 - 2;
+}
+
+// SIMPLE VALIDATION OF USERNAME WITH REGEX
+function validateUsr(username) {
+  res = /^[abcdefghijklmnopqrstuvwxyz\d_]{4,16}$/.test(username);
+  return res;
+}
+
+// CONTAMINATION #1 STRING
+function contamination(text, char) {
+  // Code here ;)
+  return char.repeat(text.length);
+  // REGEX return text.replace(/./g, char)
+}
+
+// DOUBLE CHAR
+function doubleChar(str) {
+  // Your code here
+  //   console.log(str)
+  let newString = "";
+  for (let i = 0; i < str.length; i++) {
+    newString += str[i].repeat(2);
   }
+  return newString;
+}
 
-  // EVEN OR ODD
-  function even_or_odd(number) {
-    return number % 2 === 0 ? "Even" : "Odd"
-    }
+// MY HEAD IS AT THE WRONG END
+function fixTheMeerkat(arr) {
+  //your code here
+  let array = arr;
+  let indexes = [2, 1, 0];
+  return indexes.map((index) => array[index]);
+  // return arr.reverse()
+}
 
-    // GET NTH EVEN NUMBER
-    function nthEven(n){
-      // your code here
-      return n * 2 - 2
-    }
+// BASIC DATA TYPES --NUMBER
+let v1 = 50,
+    v2 = 100,
+    v3 = 150,
+    v4 = 200,
+    v5 = 2,
+    v6 = 250;
 
-    // SIMPLE VALIDATION OF USERNAME WITH REGEX
-    function validateUsr(username) {
-      res =  /^[abcdefghijklmnopqrstuvwxyz\d_]{4,16}$/.test(username) 
-      return res
-    }
+function equal1(){
+  let a = v1,   
+      b = v1;   
+  return a + b;
+}
 
-    // CONTAMINATION #1 STRING
-    function contamination(text, char){
-      // Code here ;)
-      return char.repeat(text.length)
-      // REGEX return text.replace(/./g, char)
-    }
+//Please refer to the example above to complete the following functions
+function equal2(){
+  let a = v3 , //set number value to a
+      b = v1 ; //set number value to b
+  return a - b;
+}
 
-    // DOUBLE CHAR
-    function doubleChar(str) {
-      // Your code here
-    //   console.log(str)
-      let newString = "";
-      for(let i = 0; i < str.length; i++) {
-        newString += str[i].repeat(2)
-      }
-      return newString;
-    }
+function equal3(){
+  let a = v1 , //set number value to a
+      b = v5 ; //set number value to b
+  return a * b;
+}
+
+function equal4(){
+  let a = v4 , //set number value to a
+      b = v5 ; //set number value to b
+  return a / b;
+}
+
+function equal5(){
+  let a = v6 , //set number value to a
+      b = v3 ; //set number value to b
+  return a % b;
+}
+
+// GRAVITY FLIP
+const flip=(d, a)=>{
+  //TODO
+  return d === "R" ? a.sort((x, y) => x - y) : a.sort((x, y) => y - x)
+//   return d === "L" ? a.sort((x, y) => y - x) : a.sort((x, y) => x - y)
+}
+
+// IS THIS MY TAIL
+function correctTail(body, tail) {
+  
+  sub = body.substr(body.length-(tail.length))
+  
+  if (sub === tail){
+    return true
+  }  else {
     
+    return false
+  }
+}
+  
+
