@@ -626,3 +626,11 @@ function booleanToString(b){
   //   }
     return b ? "true" : "false"
   }
+
+  // CALCULATE AVERAGE
+  function findAverage(array) {
+    // your code here
+    
+  return array.reduce((a, b) => a + b, 0) / array.length;
+    
+  }
