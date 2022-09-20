@@ -642,3 +642,15 @@ function booleanToString(b){
   function even_or_odd(number) {
     return number % 2 === 0 ? "Even" : "Odd"
     }
+
+    // GET NTH EVEN NUMBER
+    function nthEven(n){
+      // your code here
+      return n * 2 - 2
+    }
+
+    // SIMPLE VALIDATION OF USERNAME WITH REGEX
+    function validateUsr(username) {
+      res =  /^[abcdefghijklmnopqrstuvwxyz\d_]{4,16}$/.test(username) 
+      return res
+    }
