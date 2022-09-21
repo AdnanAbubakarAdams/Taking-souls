@@ -757,25 +757,25 @@ function preFizz(n) {
 
   // var output = [];
   // for(var i = 0; i < n; i++){
-    // output.push(i+1);
+  // output.push(i+1);
   // }
   // return output
 }
 
 // FIZZ BUZZ
 // Return an array
-function fizzbuzz(n){
+function fizzbuzz(n) {
   //
-  let newArr = []
-  for(let i = 1; i <= n; i++) {
-    if(i % 3 === 0 && i % 5 === 0) {
+  let newArr = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
       newArr.push("FizzBuzz");
     } else if (i % 3 === 0) {
       newArr.push("Fizz");
     } else if (i % 5 === 0) {
       newArr.push("Buzz");
     } else {
-      newArr.push(i)
+      newArr.push(i);
     }
   }
   return newArr;
@@ -784,7 +784,7 @@ function fizzbuzz(n){
 // HOW GOOD ARE YOU REALLY?
 function betterThanAverage(classPoints, yourPoints) {
   // Your code here
-//   console.log(classPoints)
+  //   console.log(classPoints)
   let average = classPoints.reduce((a, b) => a + b, 0) / classPoints.length;
   if (average < yourPoints) {
     return true;
@@ -794,15 +794,26 @@ function betterThanAverage(classPoints, yourPoints) {
   //return average < yourPoints ? true : false
 }
 
-
 // FIXME REPLACE ALL DOTS
 function replaceDots(str) {
-  return str.replace(/\./g, "-")
+  return str.replace(/\./g, "-");
 }
 
-// FIND THE POSITION 
-function position(letter){
+// FIND THE POSITION
+function position(letter) {
   //Write your own Code!
   let alphabets = "0abcdefghijklmnopqrstuvwxyz";
-    return `Position of alphabet: ${alphabets.indexOf(letter)}`
+  return `Position of alphabet: ${alphabets.indexOf(letter)}`;
+}
+
+// SUM WITHOUT THE HIGHEST AND LOWEST NUMBER
+function sumArray(array) {
+  // console.log(array)
+  if (!array) {
+    return 0;
   }
+  return array
+    .sort((a, b) => a - b)
+    .slice(1, -1)
+    .reduce((a, b) => (a += b), 0);
+}
