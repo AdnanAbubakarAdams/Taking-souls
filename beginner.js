@@ -781,3 +781,28 @@ function fizzbuzz(n){
   return newArr;
 }
 
+// HOW GOOD ARE YOU REALLY?
+function betterThanAverage(classPoints, yourPoints) {
+  // Your code here
+//   console.log(classPoints)
+  let average = classPoints.reduce((a, b) => a + b, 0) / classPoints.length;
+  if (average < yourPoints) {
+    return true;
+  } else {
+    return false;
+  }
+  //return average < yourPoints ? true : false
+}
+
+
+// FIXME REPLACE ALL DOTS
+function replaceDots(str) {
+  return str.replace(/\./g, "-")
+}
+
+// FIND THE POSITION 
+function position(letter){
+  //Write your own Code!
+  let alphabets = "0abcdefghijklmnopqrstuvwxyz";
+    return `Position of alphabet: ${alphabets.indexOf(letter)}`
+  }
