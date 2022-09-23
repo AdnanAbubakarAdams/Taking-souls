@@ -817,3 +817,18 @@ function sumArray(array) {
     .slice(1, -1)
     .reduce((a, b) => (a += b), 0);
 }
+
+
+// ISREALLYNaN
+const isReallyNaN = (val) => {
+  // return isNaN(val);  // wasn't working as planned :-(
+  return Number.isNaN(val) ? true : false;
+};
+
+// HOW MUCH WATER DO I NEED?
+function howMuchWater(water, load, clothes){
+  // Insert your brilliant code here
+  // The toFixed() method formats a number using fixed-point notation. Returns it in a string
+  //The unary plus operator (+) precedes its operand and evaluates to its operand but attempts to convert it into a number, if it isn't already.
+  return clothes < load ? "Not enough clothes" : clothes > 2 * load ? "Too much clothes" : +(water * 1.1 ** (clothes - load)).toFixed(2)
+}
