@@ -818,7 +818,6 @@ function sumArray(array) {
     .reduce((a, b) => (a += b), 0);
 }
 
-
 // ISREALLYNaN
 const isReallyNaN = (val) => {
   // return isNaN(val);  // wasn't working as planned :-(
@@ -826,9 +825,37 @@ const isReallyNaN = (val) => {
 };
 
 // HOW MUCH WATER DO I NEED?
-function howMuchWater(water, load, clothes){
+function howMuchWater(water, load, clothes) {
   // Insert your brilliant code here
   // The toFixed() method formats a number using fixed-point notation. Returns it in a string
   //The unary plus operator (+) precedes its operand and evaluates to its operand but attempts to convert it into a number, if it isn't already.
-  return clothes < load ? "Not enough clothes" : clothes > 2 * load ? "Too much clothes" : +(water * 1.1 ** (clothes - load)).toFixed(2)
+  return clothes < load
+    ? "Not enough clothes"
+    : clothes > 2 * load
+    ? "Too much clothes"
+    : +(water * 1.1 ** (clothes - load)).toFixed(2);
 }
+
+// REMOVE THE STRING SPACES
+function noSpace(x) {
+  return x.replace(/ /g, "");
+}
+
+// SUM ARRAYS
+// Sum Numbers
+function sum (numbers) {
+  //     "use strict";
+      if(!numbers) {
+        return 0;
+      }
+    return numbers.reduce((a, b) => a + b, 0)
+      
+  };
+
+  // GEOMETRY BASICS: DISTANCE BETWEEN POINTS IN 2D
+  function distanceBetweenPoints(a, b) {
+    // your code here
+   
+    return Math.hypot(a.x - b.x, a.y - b.y)
+    
+  }
