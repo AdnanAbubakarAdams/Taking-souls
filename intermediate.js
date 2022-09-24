@@ -27,3 +27,9 @@ function createPhoneNumber(numbers) {
 
   return phoneNumFormat;
 }
+
+// STOP gninnipS My sdroW! 
+function spinWords(string){
+  //TODO Have fun :)
+return string.length >= 5 ? string.split(" ").map((letter) => (letter.length >= 5 ? letter.split("").reverse().join("") : letter)).join(" ") : string;
+  }

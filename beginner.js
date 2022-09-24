@@ -859,3 +859,41 @@ function sum (numbers) {
     return Math.hypot(a.x - b.x, a.y - b.y)
     
   }
+
+  // COCKROACH
+  function cockroachSpeed(s) {
+    //Good Luck!
+    let secInHour = 3600;
+    let centiInKilo = 100000;
+    let speedOfRoach = Math.floor((s * centiInKilo) / secInHour)
+    return speedOfRoach;
+  }
+
+  // IS HE GONNA SURVIVE 
+  function hero(bullets, dragons){
+    //Get Coding!
+      return bullets >= 2 * dragons;
+     
+    }
+
+    // WILL THERE BE ENOUGH SPACE
+    function enough(cap, on, wait) {
+      // your code here
+      let difference = cap - on;
+      let cantFit = wait - difference;
+    
+      return wait <= difference ? 0 : cantFit;
+    }
+
+    // COUNTING SHEEP
+    function countSheeps(arrayOfSheep) {
+      // TODO May the force be with you
+      let total = 0;
+      for(let i = 0; i <= arrayOfSheep.length; i++) {
+        if (arrayOfSheep[i]) {
+          total ++
+        } 
+      }
+      return total;
+    }
+    
