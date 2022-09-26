@@ -895,5 +895,60 @@ function sum (numbers) {
         } 
       }
       return total;
-    }
+    };
+
+    // ROCK PAPER SCISSORS!
+    const rps = (p1, p2) => {
+      if (p1 === p2) {
+        return "Draw!";
+      }
+      let gameRules = {rock : "scissors", paper : "rock", scissors : "paper"};
+      if(p2 === gameRules[p1]) {
+        return "Player 1 won!";
+      } else {
+        return "Player 2 won!";
+      }
+    };
+
+    // REVERSE LIST ORDER
+    function reverseList(list) {
+      return list.reverse()
+    };
+
+    // SET ALARM
+    function setAlarm(employed, vacation){
+      // return employed ? true : false || vacation ? true : false;
+      //   if (employed && !vacation) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+        return employed && !vacation ? true : false;
+      }
     
+
+      // COMPARE WITHIN MARGIN
+      function closeCompare(a, b, margin=0){
+        // ...
+        // whether a is lower than, close to or higher than b,
+        // clse if margin is >= distance between a and b
+        // return 0 when a is close to b
+        // return -1 when a is less b
+        // when a is greater than b return 1
+        if (a < b - margin) {
+          return -1
+        }
+        if (a - margin > b){
+          return 1
+        }
+        return 0;
+        
+      }
+
+      // CONVERT A STRING TO A NUMBER!
+      const stringToNumber = function(str){
+        // put your code here
+      //   return Number(str);
+        return +str;
+      }
+      

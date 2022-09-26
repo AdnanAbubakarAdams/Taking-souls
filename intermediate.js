@@ -51,24 +51,94 @@ function gooseFilter(birds) {
 
 // ENUMERABLE MAGIC TRUE FOR ALL
 
-function all( arr, fun ){
+function all(arr, fun) {
   // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
 
   // The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value
- 
+
   // return arr.some(fun)
-  return arr.every(fun)
+  return arr.every(fun);
 }
 
 // ENUMERABLE MAGIC TRUE FOR NONE ?
-function none(arr, fun){
+function none(arr, fun) {
   // ...
-//   console.log(arr, fun)
-//   for(let i = 0; i < arr.length; i++){
-//     if(fun(arr[i])){
-//       return false;
-//     } 
-//     return true;
-//   }
-  return !arr.some(fun)
+  //   console.log(arr, fun)
+  //   for(let i = 0; i < arr.length; i++){
+  //     if(fun(arr[i])){
+  //       return false;
+  //     }
+  //     return true;
+  //   }
+  return !arr.some(fun);
 }
+
+// allWords.map(item => item.split("").reverse().join("")).join(" ")
+
+// REVERSE EVERY OTHER WORD IN THE STRING
+function reverse(str) {
+  //WRITE SOME MAGIC
+  // spliting string into an array
+  // reverse every other word
+  // take out all whitespaces
+  console.log(str);
+  //   return str.split(" ").map((word, i) => word[i] % 2 !== 0 ? word[i].split("").reverse().join("") : word[i]).join("");
+  //   console.log(newStr)
+  if (str.trim().length < 1) {
+    return "";
+  }
+  return str
+    .split(" ")
+    .map((word, i) => {
+      if (i % 2 !== 0) {
+        return word.split("").reverse().join("");
+      } else {
+        return word;
+      }
+    })
+    .join(" ");
+}
+
+// MAGIC INDEX
+// return the magic index
+function findMagic(arr){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === i){
+      return i;
+    }
+   }
+    return -1
+  }
+
+  // COMBINE OBJECTS
+  function combine() {
+    // Your code here
+   let arrOfObj = [...arguments];
+   let newObj = {};
+    for(let i = 0; i < arguments.length; i++) {
+      for(let key in arguments[i]) {
+        if(!newObj[key]) {
+          newObj[key] = arguments[i][key];
+        } else {
+          newObj[key] += arguments[i][key];
+        }
+      }
+    }
+    return newObj;
+  }
+
+  // JAVASCRIPT ARRAY FILTER
+  function getEvenNumbers(numbersArray){
+    // filter out the odd numbers
+    return numbersArray.filter((arr) => arr % 2 === 0)
+  }
+
+  // SORT NUMBERS
+  function solution(nums){
+    if(nums){
+      return nums.sort((a,b) => a - b);
+    } 
+    else if ( nums === null) {
+      return [];
+    }
+    }
