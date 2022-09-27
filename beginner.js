@@ -843,112 +843,144 @@ function noSpace(x) {
 
 // SUM ARRAYS
 // Sum Numbers
-function sum (numbers) {
+function sum(numbers) {
   //     "use strict";
-      if(!numbers) {
-        return 0;
-      }
-    return numbers.reduce((a, b) => a + b, 0)
-      
-  };
-
-  // GEOMETRY BASICS: DISTANCE BETWEEN POINTS IN 2D
-  function distanceBetweenPoints(a, b) {
-    // your code here
-   
-    return Math.hypot(a.x - b.x, a.y - b.y)
-    
+  if (!numbers) {
+    return 0;
   }
+  return numbers.reduce((a, b) => a + b, 0);
+}
 
-  // COCKROACH
-  function cockroachSpeed(s) {
-    //Good Luck!
-    let secInHour = 3600;
-    let centiInKilo = 100000;
-    let speedOfRoach = Math.floor((s * centiInKilo) / secInHour)
-    return speedOfRoach;
+// GEOMETRY BASICS: DISTANCE BETWEEN POINTS IN 2D
+function distanceBetweenPoints(a, b) {
+  // your code here
+
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+// COCKROACH
+function cockroachSpeed(s) {
+  //Good Luck!
+  let secInHour = 3600;
+  let centiInKilo = 100000;
+  let speedOfRoach = Math.floor((s * centiInKilo) / secInHour);
+  return speedOfRoach;
+}
+
+// IS HE GONNA SURVIVE
+function hero(bullets, dragons) {
+  //Get Coding!
+  return bullets >= 2 * dragons;
+}
+
+// WILL THERE BE ENOUGH SPACE
+function enough(cap, on, wait) {
+  // your code here
+  let difference = cap - on;
+  let cantFit = wait - difference;
+
+  return wait <= difference ? 0 : cantFit;
+}
+
+// COUNTING SHEEP
+function countSheeps(arrayOfSheep) {
+  // TODO May the force be with you
+  let total = 0;
+  for (let i = 0; i <= arrayOfSheep.length; i++) {
+    if (arrayOfSheep[i]) {
+      total++;
+    }
   }
+  return total;
+}
 
-  // IS HE GONNA SURVIVE 
-  function hero(bullets, dragons){
-    //Get Coding!
-      return bullets >= 2 * dragons;
-     
+// ROCK PAPER SCISSORS!
+const rps = (p1, p2) => {
+  if (p1 === p2) {
+    return "Draw!";
+  }
+  let gameRules = { rock: "scissors", paper: "rock", scissors: "paper" };
+  if (p2 === gameRules[p1]) {
+    return "Player 1 won!";
+  } else {
+    return "Player 2 won!";
+  }
+};
+
+// REVERSE LIST ORDER
+function reverseList(list) {
+  return list.reverse();
+}
+
+// SET ALARM
+function setAlarm(employed, vacation) {
+  // return employed ? true : false || vacation ? true : false;
+  //   if (employed && !vacation) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  return employed && !vacation ? true : false;
+}
+
+// COMPARE WITHIN MARGIN
+function closeCompare(a, b, margin = 0) {
+  // ...
+  // whether a is lower than, close to or higher than b,
+  // clse if margin is >= distance between a and b
+  // return 0 when a is close to b
+  // return -1 when a is less b
+  // when a is greater than b return 1
+  if (a < b - margin) {
+    return -1;
+  }
+  if (a - margin > b) {
+    return 1;
+  }
+  return 0;
+}
+
+// CONVERT A STRING TO A NUMBER!
+const stringToNumber = function (str) {
+  // put your code here
+  //   return Number(str);
+  return +str;
+};
+
+// CORRECT THE MISTAKES OF THE CHARACTER RECOGINITION SOFTWARE
+function correct(string) {
+  // your code here
+  //   return string.replace(/[/5/,/0/,/1/]/g, "S","O","I")
+  //   console.log(string.split(""))
+  let corString = string.split("");
+  for (let i = 0; i < corString.length; i++) {
+    if (corString[i] === "5") {
+      corString[i] = "S";
+    } else if (corString[i] === "1") {
+      corString[i] = "I";
+    } else if (corString[i] === "0") {
+      corString[i] = "O";
     }
+  }
+  return corString.join("");
 
-    // WILL THERE BE ENOUGH SPACE
-    function enough(cap, on, wait) {
-      // your code here
-      let difference = cap - on;
-      let cantFit = wait - difference;
-    
-      return wait <= difference ? 0 : cantFit;
-    }
+  //   let str = string.split('')
+  // return str.map(a => (a === '5')
+  //   ? 'S': (a === '0')
+  //   ? 'O': (a === '1')
+  //   ? 'I': a).join('')
+  //  }
+  // correct = s => s.replace(/0/g,'O').replace(/1/g,'I').replace(/5/g,'S')
+}
 
-    // COUNTING SHEEP
-    function countSheeps(arrayOfSheep) {
-      // TODO May the force be with you
-      let total = 0;
-      for(let i = 0; i <= arrayOfSheep.length; i++) {
-        if (arrayOfSheep[i]) {
-          total ++
-        } 
-      }
-      return total;
-    };
-
-    // ROCK PAPER SCISSORS!
-    const rps = (p1, p2) => {
-      if (p1 === p2) {
-        return "Draw!";
-      }
-      let gameRules = {rock : "scissors", paper : "rock", scissors : "paper"};
-      if(p2 === gameRules[p1]) {
-        return "Player 1 won!";
-      } else {
-        return "Player 2 won!";
-      }
-    };
-
-    // REVERSE LIST ORDER
-    function reverseList(list) {
-      return list.reverse()
-    };
-
-    // SET ALARM
-    function setAlarm(employed, vacation){
-      // return employed ? true : false || vacation ? true : false;
-      //   if (employed && !vacation) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-        return employed && !vacation ? true : false;
-      }
-    
-
-      // COMPARE WITHIN MARGIN
-      function closeCompare(a, b, margin=0){
-        // ...
-        // whether a is lower than, close to or higher than b,
-        // clse if margin is >= distance between a and b
-        // return 0 when a is close to b
-        // return -1 when a is less b
-        // when a is greater than b return 1
-        if (a < b - margin) {
-          return -1
-        }
-        if (a - margin > b){
-          return 1
-        }
-        return 0;
-        
-      }
-
-      // CONVERT A STRING TO A NUMBER!
-      const stringToNumber = function(str){
-        // put your code here
-      //   return Number(str);
-        return +str;
-      }
-      
+// A WOLF IN SHEEPS CLOTHING
+function warnTheSheep(queue) {
+  let wolfInd = queue.indexOf("wolf");
+  let sheepInd = queue.length - wolfInd -1
+  if(wolfInd === queue.length - 1) {
+    return "Pls go away and stop eating my sheep"
+  } else {
+    return `Oi! Sheep number ${sheepInd}! You are about to be eaten by a wolf!`
+  }
+  
+}
