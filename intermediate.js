@@ -166,3 +166,21 @@ function findMagic(arr){
     function disemvowel(str) {
       return str.replace(/[aieou]/gi, "");
     }
+
+    // NUMBERS TO OBJECTS
+    function numObj(s){
+      //   console.log(s)
+        let newArr = []
+        for (let num of s){
+        let numsCount = {}
+          if(!numsCount[num]) {
+            numsCount[num] = String.fromCharCode(num);
+      //       console.log(numsCount)
+            newArr.push(numsCount)
+          }
+        }
+      return newArr;
+      // return s.map(n => {
+    // return { [n]: String.fromCharCode(n) };
+  // });
+      }
