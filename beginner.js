@@ -984,3 +984,53 @@ function warnTheSheep(queue) {
   }
   
 };
+
+// STRING TEMPLATES - BUG FIXING#5
+function buildString(...template){
+  return `I like ${template.join(', ')}!`;
+}
+
+// FIND MAXIMUM AND MINIMUM VALUES OF A LIST
+var min = function(list){
+  //     console.log(list)
+      return Math.min(...list);
+  }
+  
+  var max = function(list){
+      
+      return Math.max(...list);
+  }
+
+  // WILL YOU MAKE IT?
+  const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+    // TODO
+    if(distanceToPump / fuelLeft > mpg) {
+      return false
+    } else {
+      return true
+    }
+    // => mpg * fuelLeft >= distanceToPump;
+  };
+
+  // EXCLUSIVE "OR" (XOR) LOGICAL OPERATOR
+  function xor(a, b) {
+    // TODO: Program Me
+    return a === b ? false : true
+  }
+
+  // WELCOME TO THE CITY
+  function sayHello( name, city, state ) {
+    return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`
+  }
+
+  // REMOVING ELEMENTS
+  function removeEveryOther(arr){
+    //your code here
+  return arr.filter((a, index) => index % 2 === 0) 
+    
+  }
+
+  function plural(n) {
+    // ...
+    return n !== 1
+  }
