@@ -142,3 +142,27 @@ function findMagic(arr){
       return [];
     }
     }
+
+    // DICTIONARY FROM TWO LIST
+    function createDict(keys, values){
+      // ...
+      let newObj = {};
+      for(let i = 0; i < keys.length; i++){
+      newObj[keys[i]] = values[i] != undefined ? values[i] : null
+      }
+      return newObj;
+
+  //     var result = {};
+  // for(var i = 0; i < keys.length; i++) {
+  //   if(values[i]==undefined)
+  //     result[keys[i]] = null;
+  //   else
+  //     result[keys[i]] = values[i];
+  // }
+  // return result;
+    }
+
+    // DISEMVOWEL TROLLS
+    function disemvowel(str) {
+      return str.replace(/[aieou]/gi, "");
+    }
