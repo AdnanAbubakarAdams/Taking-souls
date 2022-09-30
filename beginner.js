@@ -1032,5 +1032,20 @@ var min = function(list){
 
   function plural(n) {
     // ...
-    return n !== 1
+    return n !== 1 ? true : false
+  }
+
+  // Determine offspring sex based on genes XX and XY chromosomes
+  function chromosomeCheck(sperm) {
+    return sperm === "XY" ? "Congratulations! You're going to have a son." : "Congratulations! You're going to have a daughter."
+  }
+
+  // Enumerable Magic #20 - Cascading Subsets
+  function eachCons(array, n) {
+    console.log(array, n)
+  let subsetsArr = [];
+    for(let i = 0; i < array.length; i++) {
+      subsetsArr.push(array.slice(i, i + n));
+    }
+    return subsetsArr.filter(arr => arr.length === n);
   }
