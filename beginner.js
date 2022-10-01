@@ -976,76 +976,160 @@ function correct(string) {
 // A WOLF IN SHEEPS CLOTHING
 function warnTheSheep(queue) {
   let wolfInd = queue.indexOf("wolf");
-  let sheepInd = queue.length - wolfInd -1
-  if(wolfInd === queue.length - 1) {
-    return "Pls go away and stop eating my sheep"
+  let sheepInd = queue.length - wolfInd - 1;
+  if (wolfInd === queue.length - 1) {
+    return "Pls go away and stop eating my sheep";
   } else {
-    return `Oi! Sheep number ${sheepInd}! You are about to be eaten by a wolf!`
+    return `Oi! Sheep number ${sheepInd}! You are about to be eaten by a wolf!`;
   }
-  
-};
+}
 
 // STRING TEMPLATES - BUG FIXING#5
-function buildString(...template){
-  return `I like ${template.join(', ')}!`;
+function buildString(...template) {
+  return `I like ${template.join(", ")}!`;
 }
 
 // FIND MAXIMUM AND MINIMUM VALUES OF A LIST
-var min = function(list){
+var min = function (list) {
   //     console.log(list)
-      return Math.min(...list);
-  }
-  
-  var max = function(list){
-      
-      return Math.max(...list);
-  }
+  return Math.min(...list);
+};
 
-  // WILL YOU MAKE IT?
-  const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
-    // TODO
-    if(distanceToPump / fuelLeft > mpg) {
-      return false
-    } else {
-      return true
-    }
-    // => mpg * fuelLeft >= distanceToPump;
-  };
+var max = function (list) {
+  return Math.max(...list);
+};
 
-  // EXCLUSIVE "OR" (XOR) LOGICAL OPERATOR
-  function xor(a, b) {
-    // TODO: Program Me
-    return a === b ? false : true
+// WILL YOU MAKE IT?
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  // TODO
+  if (distanceToPump / fuelLeft > mpg) {
+    return false;
+  } else {
+    return true;
   }
+  // => mpg * fuelLeft >= distanceToPump;
+};
 
-  // WELCOME TO THE CITY
-  function sayHello( name, city, state ) {
-    return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`
-  }
+// EXCLUSIVE "OR" (XOR) LOGICAL OPERATOR
+function xor(a, b) {
+  // TODO: Program Me
+  return a === b ? false : true;
+}
 
-  // REMOVING ELEMENTS
-  function removeEveryOther(arr){
-    //your code here
-  return arr.filter((a, index) => index % 2 === 0) 
-    
-  }
+// WELCOME TO THE CITY
+function sayHello(name, city, state) {
+  return `Hello, ${name.join(" ")}! Welcome to ${city}, ${state}!`;
+}
 
-  function plural(n) {
-    // ...
-    return n !== 1 ? true : false
-  }
+// REMOVING ELEMENTS
+function removeEveryOther(arr) {
+  //your code here
+  return arr.filter((a, index) => index % 2 === 0);
+}
 
-  // Determine offspring sex based on genes XX and XY chromosomes
-  function chromosomeCheck(sperm) {
-    return sperm === "XY" ? "Congratulations! You're going to have a son." : "Congratulations! You're going to have a daughter."
-  }
+function plural(n) {
+  // ...
+  return n !== 1 ? true : false;
+}
 
-  // Enumerable Magic #20 - Cascading Subsets
-  function eachCons(array, n) {
-    console.log(array, n)
+// Determine offspring sex based on genes XX and XY chromosomes
+function chromosomeCheck(sperm) {
+  return sperm === "XY"
+    ? "Congratulations! You're going to have a son."
+    : "Congratulations! You're going to have a daughter.";
+}
+
+// Enumerable Magic #20 - Cascading Subsets
+function eachCons(array, n) {
+  console.log(array, n);
   let subsetsArr = [];
-    for(let i = 0; i < array.length; i++) {
-      subsetsArr.push(array.slice(i, i + n));
-    }
-    return subsetsArr.filter(arr => arr.length === n);
+  for (let i = 0; i < array.length; i++) {
+    subsetsArr.push(array.slice(i, i + n));
   }
+  return subsetsArr.filter((arr) => arr.length === n);
+}
+
+// HOW MANY STAIRS WILL SUZUKI CLIMB IN 2O YEARS?
+function stairsIn20(s) {
+  //your code here
+  //   console.log(s)
+  //   return s.forEach(element => element + element * 20 )
+  let total = s.map((el) => el.reduce((a, b) => a + b));
+  //   console.log(total)
+  return total.reduce((x, y) => x + y) * 20;
+}
+
+// SHARK PONTOON
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
+  if (pontoonDistance < sharkDistance || youSpeed > sharkSpeed) {
+    return "Alive!";
+  } else {
+    return "Shark Bait!";
+  }
+}
+
+// COUNT ODD NUMBERS BELOW N
+function oddCount(n) {
+  // your code here
+  //   console.log(n)
+  //   let newArr = [];
+  //   for (let i = 0; i < n; i++) {
+  //     if (i % 2 !== 0) {
+  //       newArr.push(i);
+  //     }
+  //   }
+
+  //   return newArr.length;
+  return Math.floor(n / 2);
+}
+
+// EXPRESSION MATTER
+function expressionMatter(a, b, c) {
+  //   console.log(a, b, c)
+  let newArr = [a * (b + c), a * b * c, a + b + c, a + b * c, (a + b) * c];
+  return Math.max(...newArr);
+}
+
+// HEX TO DECIMAL
+function hexToDec(hexString) {
+  //your code here
+  const hexToDecimal = (hex) => parseInt(hex, 16);
+  return hexToDecimal(hexString);
+}
+
+// TAKE THE DERIVATIVE
+function derive(coefficient, exponent) {
+  let newVar = coefficient * exponent;
+  //   console.log(newVar)
+  let substraction = exponent - 1;
+  console.log(substraction);
+  return newVar + "x" + "^" + substraction;
+}
+
+// VOLUME OF A CUBOID
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    // your code here
+    return length * width * height;
+  }
+}
+
+// MERGE TWO SORTED ARRAYS INTO ONE
+function mergeArrays(arr1, arr2) {
+  //   let newArr1 = arr1.sort((a, b) => a - b)
+  //   console.log(newArr1)
+  //    let newArr2 = arr2.sort((a, b) => a - b)
+  //    console.log(newArr2)
+  let newArr = [];
+  let bigArr = arr1.concat(arr2).sort((a, b) => a - b);
+  //    console.log(bigArr)
+  for (let i = 0; i < bigArr.length; i++) {
+    if (!newArr.includes(bigArr[i])) {
+      newArr.push(bigArr[i]);
+      //        console.log(bigArr[i])
+    } else {
+      newArr;
+    }
+  }
+  return newArr;
+}
