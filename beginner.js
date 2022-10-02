@@ -1133,3 +1133,25 @@ function mergeArrays(arr1, arr2) {
   }
   return newArr;
 }
+
+// SQUARE(N)SUM
+function squareSum(numbers) {
+  return numbers.reduce((a, b) => a + b ** 2, 0);
+}
+// FAKE BINARY
+function fakeBin(x) {
+  // return x.replace(/[1234]/g, '0').replace(/[56789]/g, '1');
+  let newDigit = "";
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] < "5") {
+      newDigit += "0";
+    } else if (x[i] >= "5") {
+      newDigit += "1";
+    }
+  }
+  return newDigit;
+}
+// CAPITALIZATION AND MUTABILITY
+function capitalizeWord(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
