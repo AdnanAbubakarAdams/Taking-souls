@@ -1159,66 +1159,145 @@ function capitalizeWord(word) {
 // SQUARING AN ARGUMENT
 // Write the "square"-function here
 const square = (num) => {
-  return num ** 2
-}
+  return num ** 2;
+};
 // square()
 
 // 101 DALMATIANS - SQUASH THE BUGS, NOT THE DOGS!
 function howManyDalmatians(number) {
-  var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
- 
-var respond = number <= 10 ? dogs[0] : number <= 50 ? dogs[1] : number >= 101 ? dogs[3] : dogs[2]
- 
-return respond;
+  var dogs = [
+    "Hardly any",
+    "More than a handful!",
+    "Woah that's a lot of dogs!",
+    "101 DALMATIANS!!!",
+  ];
+
+  var respond =
+    number <= 10
+      ? dogs[0]
+      : number <= 50
+      ? dogs[1]
+      : number >= 101
+      ? dogs[3]
+      : dogs[2];
+
+  return respond;
 }
- 
+
 // YOU CANT CODE UNDER PRESSURE
 function doubleInteger(i) {
   // i will be an integer. Double it and return it.
-  return i*2;
+  return i * 2;
 }
 
 // STRING CLEANING
-function stringClean(s){
+function stringClean(s) {
   // Function will return the cleaned string
-  return s.replace(/[0-9]/g, "")
+  return s.replace(/[0-9]/g, "");
 }
 
 // CREATE YOUR FIRST JS FUCTION AND PRINT HELLO WORLD
 
-
 // CHECK SAME CASE
-function sameCase(a, b){
-  if(a.toLowerCase() == a.toUpperCase() || b.toLowerCase() == b.toUpperCase()) {
-    return -1
-  } else if (a == a.toLowerCase() && b == b.toLowerCase() || a == a.toUpperCase() && b == b.toUpperCase()){
-    return 1
+function sameCase(a, b) {
+  if (
+    a.toLowerCase() == a.toUpperCase() ||
+    b.toLowerCase() == b.toUpperCase()
+  ) {
+    return -1;
+  } else if (
+    (a == a.toLowerCase() && b == b.toLowerCase()) ||
+    (a == a.toUpperCase() && b == b.toUpperCase())
+  ) {
+    return 1;
   }
-  return 0
+  return 0;
 }
-
 
 // FUNDAMENTALS RETURN
-function add(a,b){
-  return a + b
+function add(a, b) {
+  return a + b;
 }
 
-function divide(a,b){
-  return a / b
+function divide(a, b) {
+  return a / b;
 }
 
-function multiply(a,b){
-  return a * b
+function multiply(a, b) {
+  return a * b;
 }
 
-function mod(a,b){
-  return a % b
+function mod(a, b) {
+  return a % b;
 }
- 
-function exponent(a,b){
-  return a ** b
+
+function exponent(a, b) {
+  return a ** b;
 }
-  
-function subt(a,b){
-  return a - b
+
+function subt(a, b) {
+  return a - b;
+}
+
+// IS IT A PALINDROME ?
+function isPalindrome(x) {
+  // your code here
+  return x.toLowerCase() === x.toLowerCase().split("").reverse().join("")
+    ? true
+    : false;
+}
+// SENTENCE SMASH
+function smash(words) {
+  return words.join(" ");
+}
+
+// SUM OF DIFFERENCES IN ARRAY
+function sumOfDifferences(arr) {
+  const newArr = arr.sort((a, b) => b - a);
+  let sum = 0;
+  for (let i = 0; i < newArr.length - 1; i++) {
+    sum += newArr[i] - newArr[i + 1];
+  }
+  return sum;
+}
+
+// DIFFERENCE OF VOLUMES OF CUBOIDS
+function findDifference(a, b) {
+  //loading...
+  let sumOfA = a.reduce((a, b) => a * b);
+  let sumOfB = b.reduce((a, b) => a * b);
+  return sumOfA - sumOfB;
+}
+
+// AREA OF A PARIMETER
+const areaOrPerimeter = function (l, w) {
+  // Return your answer
+  if (l === w) {
+    return l * w;
+  } else {
+    return l * 2 + w * 2;
+  }
+};
+
+// HELLO, NAME OR WORLD
+function hello(name) {
+  // let newWord = name[0].toUpperCase() + name.slice(1).toLowerCase();
+  //   console.log(newWord)
+  //   return newWord ? `Hello, ${newWord}!`: "Hello, World!"
+  return `Hello, ${
+    name ? name[0].toUpperCase() + name.slice(1).toLowerCase() : "World"
+  }!`;
+}
+
+// DIFFERENCE OF VOLUMES OF CUBOIDS
+function findDifference(a, b) {
+  //loading...
+  let sumOfA = a.reduce((a, b) => a * b);
+  let sumOfB = b.reduce((a, b) => a * b);
+  return Math.abs(sumOfA - sumOfB);
+}
+
+// SUM THE STRINGS
+function sumStr(a, b) {
+  return Number(a) + Number(b) + "";
 }
