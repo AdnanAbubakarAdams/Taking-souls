@@ -1301,3 +1301,74 @@ function findDifference(a, b) {
 function sumStr(a, b) {
   return Number(a) + Number(b) + "";
 }
+
+// ENUMERABLE MAGIC#25- TAKE THE FIRST N ELEMENTS
+function take(arr, n) {
+  // Your code here
+  console.log(arr);
+  let newArr = arr.slice(0, n);
+  return newArr;
+}
+
+// DEFINE A CARD SUIT
+function defineSuit(card) {
+  // good luck
+  console.log(card);
+  if (card.includes("♣")) {
+    return "clubs";
+  }
+  if (card.includes("♦")) {
+    return "diamonds";
+  }
+  if (card.includes("♥")) {
+    return "hearts";
+  }
+  if (card.includes("♠")) {
+    return "spades";
+  }
+}
+
+// IS IT EVEN?
+function testEven(n) {
+  //Your awesome code here!
+  return n % 2 === 0 ? true : false;
+}
+
+//  QUARTER OF THE YEAR
+const quarterOf = (month) => {
+  // Your code here
+  console.log(month);
+  if (month <= 3) return 1;
+  if (month > 3 && month <= 6) return 2;
+  if (month > 6 && month <= 9) return 3;
+  if (month > 9 && month <= 12) return 4;
+  // return Math.ceil(month / 3)
+};
+
+// TRAFFIC LIGHT
+function updateLight(current) {
+  //your code here!
+  if (current === "green") return "yellow";
+  if (current === "yellow") return "red";
+  if (current === "red") return "green";
+}
+
+// LEAP YEARS
+function isLeapYear(year) {
+  // TODO
+
+  if (year % 400 === 0) return true;
+  if (year % 4 === 0 && year % 100 === 0) return false;
+  if (year % 4 === 0) return true;
+  return false;
+}
+
+// FIND THE NEAREST SQUARE NUMBER 
+function nearestSq(n){
+    // your code
+    // The Math.pow() method returns the value of a base raised to a power. 
+    // The Math.sqrt() function returns the square root of a number
+  console.log(n)
+  return  Math.pow(Math.round(Math.sqrt(n)), 2)
+ 
+ }
