@@ -1363,12 +1363,171 @@ function isLeapYear(year) {
   return false;
 }
 
-// FIND THE NEAREST SQUARE NUMBER 
-function nearestSq(n){
-    // your code
-    // The Math.pow() method returns the value of a base raised to a power. 
-    // The Math.sqrt() function returns the square root of a number
-  console.log(n)
-  return  Math.pow(Math.round(Math.sqrt(n)), 2)
- 
- }
+// FIND THE NEAREST SQUARE NUMBER
+function nearestSq(n) {
+  // your code
+  // The Math.pow() method returns the value of a base raised to a power.
+  // The Math.sqrt() function returns the square root of a number
+  console.log(n);
+  return Math.pow(Math.round(Math.sqrt(n)), 2);
+}
+
+// ONLINE RPG: PLAYER TO QUALIFYING STAGE?
+function playerRankUp(points) {
+  return points >= 100
+    ? "Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up."
+    : false;
+}
+
+// They say that only the name is long enough to attract attention. They also said that only a simple Kata will have someone to solve it. This is a sadly story #1: Are they opposite?
+function isOpposite(s1, s2) {
+  //coding here...
+
+  if (s1 === s2 || s1.toLowerCase() !== s2.toLowerCase()) return false;
+  for (let i = 0; i < s1.length; i++) {
+    if (s1.charAt(i) === s2.charAt(i)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// LARIO AND MUIGI PIPE PROBLEM
+function pipeFix(numbers) {
+  // return numbers.map((number) => number + 1, 0)
+  let sumArr = [];
+  for (let i = numbers[0]; i <= numbers[numbers.length - 1]; i++) {
+    sumArr.push(i);
+    //    console.log(sumArr)
+  }
+  return sumArr;
+}
+
+// PARSE NICE INT FROM CHAR PROBLEM
+function getAge(inputString) {
+  // return the girl's correct age as an integer. Happy coding :)
+  return Number(inputString[0]);
+}
+
+// DECIBEL SCALE
+function dBScale(intensity) {
+  return 10 * (12 + Math.log10(intensity));
+}
+
+// SEMI OPTIONAL
+function wrap(value) {
+  return {
+    value: value,
+  };
+}
+
+// USD => CNY
+function usdcny(usd) {
+  return (usd * 6.75).toFixed(2) + " " + "Chinese Yuan";
+}
+
+// Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+function remove(string) {
+  //coding and coding....
+  return `${string.replace(/!/g, "")}!`;
+}
+
+// Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+function remove(string) {
+  return string.replace(/!*$/g, "");
+}
+
+// ASCII TOTAL
+function uniTotal(string) {
+  // total up dem unicodes!
+  return string
+    .split("")
+    .map((str) => str.charCodeAt(0))
+    .reduce((a, b) => a + b, 0);
+}
+// HOLIDAY VII - DUTY FREE
+function dutyFree(normPrice, discount, hol) {
+  return Math.floor((hol / normPrice / discount) * 100);
+}
+
+// BASIC: MAKING SIX TOAST
+function sixToast(num) {
+  // you code here
+  console.log(num);
+  if (num < 6) {
+    return 6 - num;
+  } else {
+    return num - 6;
+  }
+}
+
+// CALCULATE BMI
+function bmi(weight, height) {
+  if (weight / height ** 2 <= 18.5) return "Underweight";
+  if (weight / height ** 2 <= 25.0) return "Normal";
+  if (weight / height ** 2 <= 30.0) return "Overweight";
+  if (weight / height ** 2 > 30) return "Obese";
+}
+
+// BASIC VARIABLE ASSIGNMENT
+var a = "code";
+var b = "wa.rs";
+var name = a + b;
+
+// DRINK ABOUT
+function peopleWithAgeDrink(old) {
+  if (old < 14) return "drink toddy";
+  if (old >= 14 && old < 18) return "drink coke";
+  if (old >= 18 && old < 21) return "drink beer";
+  if (old >= 21) return "drink whisky";
+}
+
+// SWITCH IT UP
+function switchItUp(number) {
+  //Write your own Code!
+  if (number === 1) return "One";
+  if (number === 2) return "Two";
+  if (number === 3) return "Three";
+  if (number === 4) return "Four";
+  if (number === 5) return "Five";
+  if (number === 6) return "Six";
+  if (number === 7) return "Seven";
+  if (number === 8) return "Eight";
+  if (number === 9) return "Nine";
+  if (number === 0) return "Zero";
+  //   if(number === 1) return "one";
+}
+
+// THIRD ANGLE OF A TRIANGLE
+function otherAngle(a, b) {
+  let result = a + b;
+  return 180 - result;
+}
+
+// KEEP HYDRATED
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+
+// HELLO WORLD
+// Write a function "greet" that returns "hello world!"
+const greet = () => `hello world!`;
+
+// KEEP UP THE HOOP
+function hoopCount(n) {
+  //your code goes here
+  return n >= 10
+    ? "Great, now move on to tricks"
+    : "Keep at it until you get it";
+}
+
+
+// ARE YOU PLAYING BANJO?
+function areYouPlayingBanjo(name) {
+  // Implement me
+ if(name.charAt(0) == "R" || name.charAt(0) == "r") {
+   return `${name} plays banjo`
+ } else {
+   return `${name} does not play banjo` 
+   }
+}
