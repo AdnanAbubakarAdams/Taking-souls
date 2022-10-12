@@ -1531,3 +1531,27 @@ function areYouPlayingBanjo(name) {
    return `${name} does not play banjo` 
    }
 }
+
+// RETURN TYPE OF SUM
+function typeOfSum(a, b) {
+  // good luck
+  return typeof(a + b)
+}
+
+// CONVERT TO BINARY
+function toBinary(n){
+  return +n.toString(2);
+}
+
+// SWITCH CASE BUG FIXES #6
+function evalObject(value){
+
+  switch(value.operation){
+    case'+': return  value.a + value.b;
+    case'-': return  value.a - value.b;
+    case'/': return  value.a / value.b;
+    case'*': return  value.a * value.b;
+    case'%': return  value.a % value.b;
+    case'^': return  Math.pow(value.a, value.b);
+  }
+}
