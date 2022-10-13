@@ -1521,37 +1521,107 @@ function hoopCount(n) {
     : "Keep at it until you get it";
 }
 
-
 // ARE YOU PLAYING BANJO?
 function areYouPlayingBanjo(name) {
   // Implement me
- if(name.charAt(0) == "R" || name.charAt(0) == "r") {
-   return `${name} plays banjo`
- } else {
-   return `${name} does not play banjo` 
-   }
+  if (name.charAt(0) == "R" || name.charAt(0) == "r") {
+    return `${name} plays banjo`;
+  } else {
+    return `${name} does not play banjo`;
+  }
 }
 
 // RETURN TYPE OF SUM
 function typeOfSum(a, b) {
   // good luck
-  return typeof(a + b)
+  return typeof (a + b);
 }
 
 // CONVERT TO BINARY
-function toBinary(n){
+function toBinary(n) {
   return +n.toString(2);
 }
 
 // SWITCH CASE BUG FIXES #6
-function evalObject(value){
-
-  switch(value.operation){
-    case'+': return  value.a + value.b;
-    case'-': return  value.a - value.b;
-    case'/': return  value.a / value.b;
-    case'*': return  value.a * value.b;
-    case'%': return  value.a % value.b;
-    case'^': return  Math.pow(value.a, value.b);
+function evalObject(value) {
+  switch (value.operation) {
+    case "+":
+      return value.a + value.b;
+    case "-":
+      return value.a - value.b;
+    case "/":
+      return value.a / value.b;
+    case "*":
+      return value.a * value.b;
+    case "%":
+      return value.a % value.b;
+    case "^":
+      return Math.pow(value.a, value.b);
   }
+}
+
+// SUBTRACT THE SUM
+function SubtractSum(n) {
+  return "apple";
+}
+
+// altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+String.prototype.toAlternatingCase = function () {
+  // Define your method here :)
+  return this.split("")
+    .map((a) => (a === a.toLowerCase() ? a.toUpperCase() : a.toLowerCase()))
+    .join("");
+};
+
+// CONDITIONAL STATEMENT -- SWITCH
+function howManydays(month) {
+  var days;
+  switch (month) {
+    case 1:
+      return 31;
+    case 2:
+      return 28;
+    case 3:
+      return 31;
+    case 4:
+      return 30;
+    case 5:
+      return 31;
+    case 6:
+      return 30;
+    case 7:
+      return 31;
+    case 8:
+      return 31;
+    case 9:
+      return 30;
+    case 10:
+      return 31;
+    case 11:
+      return 30;
+    case 12:
+      return 31;
+  }
+
+  //   switch (month){
+  //      case 2: return 28
+  //      case 4:
+  //      case 6:
+  //      case 9:
+  //      case 11: return 30
+  //   }
+  //   return 31
+  // }
+}
+
+
+// MULTIPLICATION TABLE FOR NUMBER
+function multiTable(number) {
+  // good luck
+  let tableArr = [1,2,3,4,5,6,7,8,9,10]
+//   for(let i = 0; i <= tableArr.length; i++) {
+//     return`${tableArr[i]} * ${number} = ${number*tableArr[i]+number}\n`
+//     return [...Array(10)].map((_,i)=>`${i+1} * ${n} = ${n*i+n}`).join('\n')
+//   }
+  return tableArr.map((_,index) => `${index + 1} * ${number} = ${number*index+number}`).join('\n')
 }
