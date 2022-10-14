@@ -1625,3 +1625,20 @@ function multiTable(number) {
 //   }
   return tableArr.map((_,index) => `${index + 1} * ${number} = ${number*index+number}`).join('\n')
 }
+
+// PLAYING WITH CUBES 
+// This Cube class needs help
+// Implement the constructor so that it can take an integer for the side or no args
+class Cube {
+  constructor(n=0) {
+//     this.side = side;
+    this.setSide(n)
+  }
+  getSide() {
+    return this.side; 
+  }
+  setSide(n) {
+    if(typeof n !== "number") return "only numbers allowed"
+    this.side = Math.abs(n);
+  }
+}
