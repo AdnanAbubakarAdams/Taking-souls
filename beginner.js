@@ -1614,31 +1614,78 @@ function howManydays(month) {
   // }
 }
 
-
 // MULTIPLICATION TABLE FOR NUMBER
 function multiTable(number) {
   // good luck
-  let tableArr = [1,2,3,4,5,6,7,8,9,10]
-//   for(let i = 0; i <= tableArr.length; i++) {
-//     return`${tableArr[i]} * ${number} = ${number*tableArr[i]+number}\n`
-//     return [...Array(10)].map((_,i)=>`${i+1} * ${n} = ${n*i+n}`).join('\n')
-//   }
-  return tableArr.map((_,index) => `${index + 1} * ${number} = ${number*index+number}`).join('\n')
+  let tableArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  //   for(let i = 0; i <= tableArr.length; i++) {
+  //     return`${tableArr[i]} * ${number} = ${number*tableArr[i]+number}\n`
+  //     return [...Array(10)].map((_,i)=>`${i+1} * ${n} = ${n*i+n}`).join('\n')
+  //   }
+  return tableArr
+    .map((_, index) => `${index + 1} * ${number} = ${number * index + number}`)
+    .join("\n");
 }
 
-// PLAYING WITH CUBES 
+// PLAYING WITH CUBES
 // This Cube class needs help
 // Implement the constructor so that it can take an integer for the side or no args
 class Cube {
-  constructor(n=0) {
-//     this.side = side;
-    this.setSide(n)
+  constructor(n = 0) {
+    //     this.side = side;
+    this.setSide(n);
   }
   getSide() {
-    return this.side; 
+    return this.side;
   }
   setSide(n) {
-    if(typeof n !== "number") return "only numbers allowed"
+    if (typeof n !== "number") return "only numbers allowed";
     this.side = Math.abs(n);
   }
+}
+
+// LOOP STATEMENT WHILE AND DO WHILE
+function padIt(str, n) {
+  //coding here
+  while (n > 0) {
+    if (n % 2 !== 0) {
+      str = "*" + str;
+    } else {
+      str = str + "*";
+    }
+    n--;
+  }
+  return str;
+}
+
+// LOOP STATEMENT FOR LOOP
+function pickIt(arr) {
+  var odd = [],
+    even = [];
+  //coding here
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      even.push(arr[i]);
+    } else {
+      odd.push(arr[i]);
+    }
+  }
+
+  return [odd, even];
+}
+
+// ALL STAR CODE CHALLENGE #18
+function strCount(str, letter){  
+  //code here
+  let count = 0;
+  let string = str.split("")
+  console.log(string)
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].includes(letter)) {
+      count += 1;
+    } else {
+      count;
+    }
+  }
+  return count;
 }

@@ -101,56 +101,55 @@ function reverse(str) {
 
 // MAGIC INDEX
 // return the magic index
-function findMagic(arr){
+function findMagic(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === i){
+    if (arr[i] === i) {
       return i;
     }
-   }
-    return -1
   }
+  return -1;
+}
 
-  // COMBINE OBJECTS
-  function combine() {
-    // Your code here
-   let arrOfObj = [...arguments];
-   let newObj = {};
-    for(let i = 0; i < arguments.length; i++) {
-      for(let key in arguments[i]) {
-        if(!newObj[key]) {
-          newObj[key] = arguments[i][key];
-        } else {
-          newObj[key] += arguments[i][key];
-        }
+// COMBINE OBJECTS
+function combine() {
+  // Your code here
+  let arrOfObj = [...arguments];
+  let newObj = {};
+  for (let i = 0; i < arguments.length; i++) {
+    for (let key in arguments[i]) {
+      if (!newObj[key]) {
+        newObj[key] = arguments[i][key];
+      } else {
+        newObj[key] += arguments[i][key];
       }
     }
-    return newObj;
   }
+  return newObj;
+}
 
-  // JAVASCRIPT ARRAY FILTER
-  function getEvenNumbers(numbersArray){
-    // filter out the odd numbers
-    return numbersArray.filter((arr) => arr % 2 === 0)
+// JAVASCRIPT ARRAY FILTER
+function getEvenNumbers(numbersArray) {
+  // filter out the odd numbers
+  return numbersArray.filter((arr) => arr % 2 === 0);
+}
+
+// SORT NUMBERS
+function solution(nums) {
+  if (nums) {
+    return nums.sort((a, b) => a - b);
+  } else if (nums === null) {
+    return [];
   }
+}
 
-  // SORT NUMBERS
-  function solution(nums){
-    if(nums){
-      return nums.sort((a,b) => a - b);
-    } 
-    else if ( nums === null) {
-      return [];
-    }
-    }
-
-    // DICTIONARY FROM TWO LIST
-    function createDict(keys, values){
-      // ...
-      let newObj = {};
-      for(let i = 0; i < keys.length; i++){
-      newObj[keys[i]] = values[i] != undefined ? values[i] : null
-      }
-      return newObj;
+// DICTIONARY FROM TWO LIST
+function createDict(keys, values) {
+  // ...
+  let newObj = {};
+  for (let i = 0; i < keys.length; i++) {
+    newObj[keys[i]] = values[i] != undefined ? values[i] : null;
+  }
+  return newObj;
 
   //     var result = {};
   // for(var i = 0; i < keys.length; i++) {
@@ -160,27 +159,40 @@ function findMagic(arr){
   //     result[keys[i]] = values[i];
   // }
   // return result;
-    }
+}
 
-    // DISEMVOWEL TROLLS
-    function disemvowel(str) {
-      return str.replace(/[aieou]/gi, "");
-    }
+// DISEMVOWEL TROLLS
+function disemvowel(str) {
+  return str.replace(/[aieou]/gi, "");
+}
 
-    // NUMBERS TO OBJECTS
-    function numObj(s){
-      //   console.log(s)
-        let newArr = []
-        for (let num of s){
-        let numsCount = {}
-          if(!numsCount[num]) {
-            numsCount[num] = String.fromCharCode(num);
+// NUMBERS TO OBJECTS
+function numObj(s) {
+  //   console.log(s)
+  let newArr = [];
+  for (let num of s) {
+    let numsCount = {};
+    if (!numsCount[num]) {
+      numsCount[num] = String.fromCharCode(num);
       //       console.log(numsCount)
-            newArr.push(numsCount)
-          }
-        }
-      return newArr;
-      // return s.map(n => {
-    // return { [n]: String.fromCharCode(n) };
+      newArr.push(numsCount);
+    }
+  }
+  return newArr;
+  // return s.map(n => {
+  // return { [n]: String.fromCharCode(n) };
   // });
-      }
+}
+
+// ESPECIALLY JOYFUL NUMBERS
+function numberJoy(n) {
+  // your code
+
+let sum = n.toString().split("").reduce((a, b) => Number(a) + Number(b),0)
+//   console.log(newN)
+let reversed = sum.toString().split("").reverse().join("")
+//   console.log(reversed)
+let product = sum * reversed;
+//   console.log(product)
+return product === n ? true : false
+}
