@@ -1689,3 +1689,15 @@ function strCount(str, letter){
   }
   return count;
 }
+
+// REGEX BASICS - IS IT A DIGIT?
+String.prototype.digit = function() {
+  return /^[0-9]$/.test(this)
+  }
+  
+  // FREUDIAN TRANSLATOR
+  function toFreud(string) {
+    //   console.log(string)
+    return string.replace(/\S+/g,"sex");
+      
+    }
