@@ -1675,11 +1675,11 @@ function pickIt(arr) {
 }
 
 // ALL STAR CODE CHALLENGE #18
-function strCount(str, letter){  
+function strCount(str, letter) {
   //code here
   let count = 0;
-  let string = str.split("")
-  console.log(string)
+  let string = str.split("");
+  console.log(string);
   for (let i = 0; i < string.length; i++) {
     if (string[i].includes(letter)) {
       count += 1;
@@ -1691,13 +1691,72 @@ function strCount(str, letter){
 }
 
 // REGEX BASICS - IS IT A DIGIT?
-String.prototype.digit = function() {
-  return /^[0-9]$/.test(this)
+String.prototype.digit = function () {
+  return /^[0-9]$/.test(this);
+};
+
+// FREUDIAN TRANSLATOR
+function toFreud(string) {
+  //   console.log(string)
+  return string.replace(/\S+/g, "sex");
+}
+
+// TRAINING JS #12..FOR IN LOOP
+function giveMeFive(obj) {
+  //coding here
+  let newArr = [];
+  for (let key in obj) {
+    if (key.length == 5) newArr.push(key);
+    if (obj[key].length == 5) newArr.push(obj[key]);
   }
-  
-  // FREUDIAN TRANSLATOR
-  function toFreud(string) {
-    //   console.log(string)
-    return string.replace(/\S+/g,"sex");
-      
+  //   console.log(newArr);
+  return newArr;
+}
+
+// POWER
+function numberToPower(number, power){
+  // Code here
+//   return number ** power;
+//   return Math.pow(number, power)
+  let res = 1;
+  for(let i = 1; i <= power; i++) {
+    res *= number;
+  }
+  return res;
+}
+
+// MULTIPLW OF INDEX
+function multipleOfIndex(array) {
+  // good luck
+  let newArr = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % i === 0) {
+      newArr.push(array[i])
     }
+  }
+  return newArr
+}
+
+
+// HOLIDAY VI - SHARK PONTOON
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin){
+  if (dolphin) {
+    sharkSpeed /= 2
+  }
+   if (pontoonDistance/youSpeed < sharkDistance/sharkSpeed  ){
+    return "Alive!"
+  } else {
+    return "Shark Bait!"
+  }
+ }
+
+ // THINKFUL- NUMBER DRILLS BLUE AND RED MARBLES
+ function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  // Your code here.
+  return (blueStart - bluePulled) / ((redStart - redPulled) + (blueStart - bluePulled))
+}
+
+// HELP THE ELITE SQUAD OF BRAZILIAN FORCES BOPE
+function magNumber(info){
+  return Math.ceil(info[1] * 3/ {"PT92": 17, "M4A1": 30, "M16A2": 30, "PSG1": 5}[info[0]])
+}
