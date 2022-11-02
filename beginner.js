@@ -1714,12 +1714,12 @@ function giveMeFive(obj) {
 }
 
 // POWER
-function numberToPower(number, power){
+function numberToPower(number, power) {
   // Code here
-//   return number ** power;
-//   return Math.pow(number, power)
+  //   return number ** power;
+  //   return Math.pow(number, power)
   let res = 1;
-  for(let i = 1; i <= power; i++) {
+  for (let i = 1; i <= power; i++) {
     res *= number;
   }
   return res;
@@ -1728,35 +1728,97 @@ function numberToPower(number, power){
 // MULTIPLW OF INDEX
 function multipleOfIndex(array) {
   // good luck
-  let newArr = []
+  let newArr = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] % i === 0) {
-      newArr.push(array[i])
+      newArr.push(array[i]);
     }
   }
-  return newArr
+  return newArr;
 }
 
-
 // HOLIDAY VI - SHARK PONTOON
-function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin){
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
   if (dolphin) {
-    sharkSpeed /= 2
+    sharkSpeed /= 2;
   }
-   if (pontoonDistance/youSpeed < sharkDistance/sharkSpeed  ){
-    return "Alive!"
+  if (pontoonDistance / youSpeed < sharkDistance / sharkSpeed) {
+    return "Alive!";
   } else {
-    return "Shark Bait!"
+    return "Shark Bait!";
   }
- }
+}
 
- // THINKFUL- NUMBER DRILLS BLUE AND RED MARBLES
- function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+// THINKFUL- NUMBER DRILLS BLUE AND RED MARBLES
+function guessBlue(blueStart, redStart, bluePulled, redPulled) {
   // Your code here.
-  return (blueStart - bluePulled) / ((redStart - redPulled) + (blueStart - bluePulled))
+  return (
+    (blueStart - bluePulled) / (redStart - redPulled + (blueStart - bluePulled))
+  );
 }
 
 // HELP THE ELITE SQUAD OF BRAZILIAN FORCES BOPE
-function magNumber(info){
-  return Math.ceil(info[1] * 3/ {"PT92": 17, "M4A1": 30, "M16A2": 30, "PSG1": 5}[info[0]])
+function magNumber(info) {
+  return Math.ceil(
+    (info[1] * 3) / { PT92: 17, M4A1: 30, M16A2: 30, PSG1: 5 }[info[0]]
+  );
+}
+
+// pick a set of first elements
+function first(arr, n) {
+  // return arr;
+  return n == undefined ? arr.slice(0, 1) : arr.slice(0, n);
+}
+
+// RETURN THE DAY
+function whatday(num) {
+  // put your code here
+  let day = num;
+  switch (day) {
+    case 1:
+      return "Sunday";
+      break;
+    case 2:
+      return "Monday";
+      break;
+    case 3:
+      return "Tuesday";
+      break;
+    case 4:
+      return "Wednesday";
+      break;
+    case 5:
+      return "Thursday";
+      break;
+    case 6:
+      return "Friday";
+      break;
+    case 7:
+      return "Saturday";
+      break;
+    default:
+      return "Wrong, please enter a number between 1 and 7";
+      break;
+  }
+}
+
+// Calculate Price Excluding VAT
+//return price without vat
+function excludingVatPrice(price) {
+  // your code
+  if (price === null) return -1;
+  let discPrice = price / 1.15;
+  //   return Number((discPrice).toFixed(2))
+  return +discPrice.toFixed(2);
+}
+
+// No Loops 2 - You only need one
+function check(a,x){
+  return a.includes(x) ? true : false
+};
+
+//Enumerable Magic - Does My List Include This?
+function include(arr, item){
+  // ...
+  return arr.includes(item) ? true : false;
 }

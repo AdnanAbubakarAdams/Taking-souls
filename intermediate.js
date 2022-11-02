@@ -219,3 +219,8 @@ chained = push(chained, 2)
 chained = push(chained, 1)
   return chained
 };
+
+// No Loops 1 - Small enough?
+function smallEnough(a, limit){
+  return a.every((x) => x <= limit ) ? true : false
+  }
