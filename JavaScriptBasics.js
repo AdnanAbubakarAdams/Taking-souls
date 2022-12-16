@@ -52,4 +52,8 @@ let fullName = firstName + " " + lastName;
 
 // STRING METHODS => methods are built-in actions we can perform with individual strings
 // they help us do things like ==> searching within a string, replacing part of a string, changing the casing of a string
-
+example 
+let msg = " coding is fun and it will be more fun when it starts to pay"
+console.log(msg.toUpperCase());
+console.log(msg.trim()); // takes out white spaces from both ends
+console.log(msg.indexOf("it"));  
