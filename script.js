@@ -40,7 +40,7 @@ if (age < 5) {
 }
 
 // const password = prompt("please enter a new password");
-
+const password = "";
 // pass must be 6+ characters
 if (password.length >= 6) {
     // password cannot include space
@@ -84,3 +84,33 @@ if (ageOf >= 0 && ageOf < 5 || ageOf >= 65) {
 !null // true
 ! (0 === 0) // false
 ! (3 <= 4) // false
+
+// SWITCH STATEMENTS
+// The switch statement is another control-flow statement that can replace multiple statements
+// syntax => 
+const day = 2;
+switch (day) {
+    case 1: 
+    console.log("monday");
+    break;
+    case 2: 
+    console.log("tuesday");
+    break;
+    case 3: 
+    console.log("wednesday");
+    break;
+    case 4: 
+    console.log("thursday");
+    break;
+    case 5: 
+    console.log("friday");
+    break;
+    case 6: 
+    console.log("saturday");
+    break;
+    case 7: 
+    console.log("sunday");
+    break;
+    default: 
+    console.log("invalid number");
+}
