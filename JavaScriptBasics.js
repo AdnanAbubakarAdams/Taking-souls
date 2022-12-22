@@ -57,3 +57,34 @@ let msg = " coding is fun and it will be more fun when it starts to pay"
 console.log(msg.toUpperCase());
 console.log(msg.trim()); // takes out white spaces from both ends
 console.log(msg.indexOf("it"));  
+console.log(msg.slice(5, 10));  
+console.log(msg.slice(-3)); 
+
+// TEMPLATE LITERALS => Template literals are strings that allow embedded expressions, which will be evaluated and then turned into a resulting string
+example
+let product = "Pen";
+let qty = 5;
+let price = 3.99;
+console.log(`You bought ${qty} ${product}'s and the total is: $${price * qty}`);
+
+// Math Object => contains properties and methods for mathematical constants and functions
+Math.ceil;
+Math.PI;
+Math.random()
+
+// DECISION MAKING WITH CODE
+// COMPARISONS
+// > greater than
+// < less than
+// >= greater than or equal to
+// <= less than or equal to
+// == equality => checks for the equality of value, but not equality of type. coerces both values to same type and compares them. can also lead to some unexpected results
+// != not equal => does not care about type
+// === strict equality => does really care about type
+// !== strict non-equality => does really care about type
+
+// TRUTHY AND FALSY VALUES
+// All js values have an inherent truthyness or falsyness about them
+// falsy values are => false, 0, empty string(""), null, undefined, NaN, 
+// Everything else is truthy!
+
