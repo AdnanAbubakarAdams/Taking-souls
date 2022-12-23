@@ -1,6 +1,6 @@
 // CONDITIONALS
 console.log("its me again");
-console.log("BEFORE CONDITIONAL");
+// console.log("BEFORE CONDITIONAL");
 let randomNum = Math.random();
 if (randomNum < 0.5) {
     console.log('YOUR NUMBER IS LESS THAN 0.5!')
@@ -9,7 +9,7 @@ if (randomNum < 0.5) {
     console.log("YOUR NUMBER IS GREATER THAN 0.5")
     console.log(randomNum);
 }
-console.log("AFTER CONDITIONAL");
+// console.log("AFTER CONDITIONAL");
 
 // const dayOfWeek = prompt("ENTER A DAY").toLowerCase();
 // if (dayOfWeek === "Monday") {
@@ -60,9 +60,9 @@ if (password.indexOf(" ") === -1) {
 9 > 10 && 9 >= 9; // false
 "abc".length === 3 && 1+1 === 4; // false
 if (password.length >= 6 && password.indexOf(" ") === -1) {
-    console.log("Valid Password");
+    // console.log("Valid Password");
 } else {
-    console.log("Invalid Password");
+    // console.log("Invalid Password");
 }
 
 // || OR => if one side is true, the entire thing is true, only one side needs to be true
@@ -77,7 +77,7 @@ if (ageOf >= 0 && ageOf < 5 || ageOf >= 65) {
 } else if (ageOf >= 10 && ageOf < 65) {
     console.log("$20");
 } else {
-    console.log("INVALID AGE");
+    // console.log("INVALID AGE");
 }
 
 // ! NOT => ! expression returns true if expression is false
@@ -114,3 +114,94 @@ switch (day) {
     default: 
     console.log("invalid number");
 }
+
+// ARRAYS
+// => Ordered collections of values, Like list of comments on IG, Collection of levels in a game, songs in a playlist. Arrays have length properties and are zero indexed. Also remember the length is always 1 greater than the maximum index.
+// METHODS 
+// push => add to the end
+// pop => remove from end
+// shift => remove from start
+// unshift => add to start
+
+// concat => merges arrays
+// includes => look for a value
+// indexOf => just like string.indexOf
+// join => creates a string from an array
+// reverse => reverses an array
+// slice => copies a portion on an array
+// splice => removes/ replaces elements
+// sort => sorts an array
+
+
+// PUSH AND POP
+let line = ["adnan", "baba"]
+line.push("muba", "jafar");
+console.log(line);
+let removedPerson = line.pop()
+console.log(removedPerson)
+console.log(line)
+
+let meAtGym = [];
+meAtGym.push(45);
+meAtGym.push(25);
+meAtGym.push(10);
+console.log(meAtGym);
+let meDone = meAtGym.pop()
+console.log(meDone)
+
+// SHIFT AND UNSHIFT
+let removedFront = line.shift();
+console.log(removedFront);
+let addedFront = line.unshift("Adnan");
+console.log(addedFront);
+console.log(line)
+
+// CONCAT AND INDEXOF AND INCLUDES AND REVERSE
+// concat
+let pets = ["fish", "dogs", "cats"];
+let wild = ["lion", "leopard", "tiger"]
+let combo = pets.concat(wild);
+console.log(combo);
+// includes returns boolean values
+console.log(pets.includes("fish"))
+// indexOf
+console.log(combo.indexOf("lion"));
+// reverse
+console.log(combo.reverse())
+
+// SLICE AND SPLICE
+let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple'];
+console.log(colors);
+// slice
+console.log(colors.slice(2,5)) // starts at index 2 and stops at 5 but 5th index is exclusive
+let coolColors = colors.slice(3);
+console.log(coolColors);
+let warmColors = colors.slice(0,3);
+console.log(warmColors);
+// splice
+console.log(colors.splice(5,1));
+let newColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple'];
+let addCol = newColors.splice(1,0,'red-orange');
+console.log(addCol, newColors)
+
+// SORT 
+
+// ARRAYS ARE REFERENCE TYPES AND 2 ARRAYS DO NOT REFER TO SAME SPACE IN MEMORY
+
+// CONST AND ARRAYS => ARRAY VALUES CAN BE CHANGED OR MODIFIED BUT THE VARIABLE NAME OF THAT ARRAY CANNOT BE CHANGED...AS LONG AS THE REFERENCE REMAINS THE SAME
+
+// MULTI-DIMENSIONAL ARRAYS ==> NESTED ARRAYS we can store arrays inside other arrays!
+const nextedColors = [
+    ['red', 'crimson'],
+    ['orange', 'dark orange'], 
+    ['yellow', 'golden rod'],
+    ['green', 'olive'], 
+    ['blue', 'navy blue'],
+    ['purple', 'orchid']
+]
+
+
+
+
+
+
