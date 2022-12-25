@@ -1813,12 +1813,45 @@ function excludingVatPrice(price) {
 }
 
 // No Loops 2 - You only need one
-function check(a,x){
-  return a.includes(x) ? true : false
-};
+function check(a, x) {
+  return a.includes(x) ? true : false;
+}
 
 //Enumerable Magic - Does My List Include This?
-function include(arr, item){
+function include(arr, item) {
   // ...
   return arr.includes(item) ? true : false;
+}
+
+// Collatz Conjucture (3n+1)
+const hotpo = (n) => {
+  if (n <= 1) {
+    return 0; //Optional Handler to n = 0
+  } else {
+    // recursively calling hotpo
+    return hotpo(n % 2 === 0 ? n / 2 : 3 * n + 1) + 1;
+  }
+  // const hotpo = n => n === 1 ? 0 : 1 + hotpo(n % 2 ? (n * 3 + 1) : n / 2)
+  // const hotpo = n => n < 2 ? 0 : hotpo(n % 2 ? 3 * n + 1 : n / 2) + 1
+};
+
+// Get the mean of an array
+function getAverage(marks){
+  //TODO : calculate the downward rounded average of the marks array
+  console.log(marks)
+  return Math.floor(marks.reduce((a, b) => a + b, 0) / marks.length.toFixed(0))
+}
+
+// Super Duper Easy 
+function problem(x){
+  //your code here
+  console.log(x)
+  if(typeof x === "string") return "Error";
+  return x * 50 + 6;
+  
+}
+
+// Training JS#7 IF ELSE AND TERNARY OPERATOR
+function saleHotdogs(n){
+  return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n >= 10 ? n * 90 : n
 }
