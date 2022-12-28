@@ -1855,3 +1855,38 @@ function problem(x){
 function saleHotdogs(n){
   return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n >= 10 ? n * 90 : n
 }
+
+// IS THERE A VOWEL IN THERE?
+function isVow(vows) {
+  console.log(vows)
+   return vows.map(vow => /[aeiou]/.test(String.fromCharCode(vow)) ? String.fromCharCode(vow) : vow )
+ }
+
+ // COUNT THE MONKEYS
+ function monkeyCount(n) {
+  // your code here
+    console.log(n);
+    let newArr = [];
+    for (let i = 1; i < n+1; i++) {
+      newArr.push(i);
+    }
+    return newArr;
+  }
+
+  // TOTAL AMOUNT OF POINTS
+  function points(games) {
+    // your code here
+    console.log(games)
+    let totalPoints = 0;
+    games.forEach((game) => {
+      const [h,a] = game.split(":").map(Number) // turns them to an array of strings => 1:0 = ["1", "0"]
+      if (h > a) {
+        totalPoints +=3;
+      } else if (h === a) {
+        totalPoints += 1;
+      } else {
+        totalPoints += 0;
+      }
+    })
+    return totalPoints;
+  }
