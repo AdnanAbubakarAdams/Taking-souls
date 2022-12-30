@@ -224,3 +224,50 @@ chained = push(chained, 1)
 function smallEnough(a, limit){
   return a.every((x) => x <= limit ) ? true : false
   }
+
+// HURRY UP THE WALLS ARE CLOSING IN!
+function canEscape(walls) {
+  // TODO: your code ..
+  console.log(walls)
+  for (let i = 0; i < walls.length; i++) {
+    console.log(walls[i])
+    if (Math.min(...walls[i]) - i < 2) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// SHORTEST WORDS
+function findShort(s){
+  console.log(s);
+  let words = s.split(" ");
+  let shortest = words.reduce((a,b) => a.length <= b.length ? a : b);
+  return shortest.length;
+}
+
+// HEX  HASH SUM
+function hexHash(code){
+  //magic
+  console.log(code);
+  let convert = code.replace(/./g, con => con.charCodeAt().toString(16))
+//   console.log(convert)
+                    .replace(/\D/g, '').split("")
+//   console.log(convert)
+                    .reduce((a,b) => Number(a) + Number(b), 0)
+//   console.log(convert)
+  return convert;
+}
+
+// PREVIOUS  MULTIPLE OF THREE
+const prevMultOfThree = n => {
+  //   n % 3 === 0 &&  n > 0 ? return n :  n = Math.floor(n / 10) : null;
+    
+    while(n > 0){
+     if(n % 3 === 0) return n
+  //    let lastDigit = n % 10  
+  //    if(lastDigit % 3 === 0) return lastDigit
+    n = Math.floor(n / 10)
+    }
+    return null
+  } 
