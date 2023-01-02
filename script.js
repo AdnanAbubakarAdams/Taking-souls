@@ -590,12 +590,37 @@ while (count < 10) {
     console.log(count);
 }
 
-const secret = "AdnanRondo";
-let guess = prompt("enter the secret code...");
-while (guess !== secret) {
-   guess = prompt("enter the secret code...");
+// const secret = "AdnanRondo";/
+// let guess = prompt("enter the secret code...");
+// while (guess !== secret) {
+//    guess = prompt("enter the secret code...");
+// }
+// console.log("congrats you got the secret now");
+
+// Building a guessing game
+let maximum = parseInt(prompt("Enter the maximum number!"));
+while (!maximum) {
+    maximum = parseInt(prompt("Enter a valid number!"))
 }
-console.log("congrats you got the secret now");
+const targetNum = Math.floor(Math.random() * maximum) + 1;
+let guess = parseInt(prompt("Enter your first guess!"));
+let attempts = 1;
+// console.log(targetNum);
+while (parseInt(guess) !== targetNum) {
+    if (guess === "q") break;
+    attempts ++;
+    if (guess > targetNum) {
+        guess = prompt ("Too high! Enter a new guess:");
+    } else {
+        guess = prompt("Too low! Enter a new guess:")
+    }
+}
+if (guess === "q") {
+    console.log("OK, YOU QUIT")
+} else {
+    console.log("CONGRATS YOU WIN");
+    console.log(`You got it! It took you ${attempts} guesses`);
+}
 
 
 
