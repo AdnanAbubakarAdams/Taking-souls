@@ -271,3 +271,57 @@ const prevMultOfThree = n => {
     }
     return null
   } 
+
+  // CATS AND SHELVES 
+function solution(start, finish) 
+{
+  let diff = finish - start;
+  console.log(start, finish, diff);
+  return Math.floor(diff / 3) + diff % 3;
+}
+
+// BALL AND CUPS
+function cupAndBalls(b, arr){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][1] === b) {
+      b = arr[i][0];
+    } else if (arr[i][0] === b) {
+      b = arr[i][1];
+    }
+  }
+  return b;
+  // arr.reduce((b, [x, y]) => x == b ? y : y == b ? x : b, b)
+  };
+
+// PERPENDICULAR LINES
+function maxBisectors(n) {
+  if (n <= 1) return 0;
+  return Math.floor(n ** 2 / 4)
+}
+
+// DEUTSCHTUNDE
+function derDieDas(wort){
+  //Du kannst es schaffen!
+   console.log(wort);
+   let vowels = "aeiouäöü";
+   let counter = 0;
+   for (let word of wort) {
+     if (vowels.includes(word.toLowerCase())){
+       counter += 1;
+ //       console.log(word, word, counter)
+     }
+   }
+   if (counter < 2) {
+     return `das ${wort}`;
+   } else if (counter <= 3){
+     return `die ${wort}`
+   }
+   return `der ${wort}`
+ }
+
+ // WALKING IN THE HALL WAY
+ function contact(hallway) {
+  //  console.log(hallway);
+    let steps = hallway.match(/>-*</g)
+    return steps ? Math.floor(Math.min(...steps.map(step => step.length)) / 2) : -1;
+  }
