@@ -188,13 +188,16 @@ function numObj(s) {
 function numberJoy(n) {
   // your code
 
-let sum = n.toString().split("").reduce((a, b) => Number(a) + Number(b),0)
-//   console.log(newN)
-let reversed = sum.toString().split("").reverse().join("")
-//   console.log(reversed)
-let product = sum * reversed;
-//   console.log(product)
-return product === n ? true : false
+  let sum = n
+    .toString()
+    .split("")
+    .reduce((a, b) => Number(a) + Number(b), 0);
+  //   console.log(newN)
+  let reversed = sum.toString().split("").reverse().join("");
+  //   console.log(reversed)
+  let product = sum * reversed;
+  //   console.log(product)
+  return product === n ? true : false;
 }
 
 // LINKED LIST - PUSH & BUILDONETWOTHREE
@@ -207,30 +210,29 @@ class Node {
 
 function push(head, data) {
   const newNode = new Node(data);
-  newNode.next = head
-  return newNode
+  newNode.next = head;
+  return newNode;
 }
 
-
 function buildOneTwoThree() {
- var chained = null
-chained = push(chained, 3)
-chained = push(chained, 2)
-chained = push(chained, 1)
-  return chained
-};
+  var chained = null;
+  chained = push(chained, 3);
+  chained = push(chained, 2);
+  chained = push(chained, 1);
+  return chained;
+}
 
 // No Loops 1 - Small enough?
-function smallEnough(a, limit){
-  return a.every((x) => x <= limit ) ? true : false
-  }
+function smallEnough(a, limit) {
+  return a.every((x) => x <= limit) ? true : false;
+}
 
 // HURRY UP THE WALLS ARE CLOSING IN!
 function canEscape(walls) {
   // TODO: your code ..
-  console.log(walls)
+  console.log(walls);
   for (let i = 0; i < walls.length; i++) {
-    console.log(walls[i])
+    console.log(walls[i]);
     if (Math.min(...walls[i]) - i < 2) {
       return false;
     }
@@ -239,49 +241,50 @@ function canEscape(walls) {
 }
 
 // SHORTEST WORDS
-function findShort(s){
+function findShort(s) {
   console.log(s);
   let words = s.split(" ");
-  let shortest = words.reduce((a,b) => a.length <= b.length ? a : b);
+  let shortest = words.reduce((a, b) => (a.length <= b.length ? a : b));
   return shortest.length;
 }
 
 // HEX  HASH SUM
-function hexHash(code){
+function hexHash(code) {
   //magic
   console.log(code);
-  let convert = code.replace(/./g, con => con.charCodeAt().toString(16))
-//   console.log(convert)
-                    .replace(/\D/g, '').split("")
-//   console.log(convert)
-                    .reduce((a,b) => Number(a) + Number(b), 0)
-//   console.log(convert)
+  let convert = code
+    .replace(/./g, (con) => con.charCodeAt().toString(16))
+    //   console.log(convert)
+    .replace(/\D/g, "")
+    .split("")
+    //   console.log(convert)
+    .reduce((a, b) => Number(a) + Number(b), 0);
+  //   console.log(convert)
   return convert;
 }
 
 // PREVIOUS  MULTIPLE OF THREE
-const prevMultOfThree = n => {
+const prevMultOfThree = (n) => {
   //   n % 3 === 0 &&  n > 0 ? return n :  n = Math.floor(n / 10) : null;
-    
-    while(n > 0){
-     if(n % 3 === 0) return n
-  //    let lastDigit = n % 10  
-  //    if(lastDigit % 3 === 0) return lastDigit
-    n = Math.floor(n / 10)
-    }
-    return null
-  } 
 
-  // CATS AND SHELVES 
-function solution(start, finish) 
-{
+  while (n > 0) {
+    if (n % 3 === 0) return n;
+    //    let lastDigit = n % 10
+    //    if(lastDigit % 3 === 0) return lastDigit
+    n = Math.floor(n / 10);
+  }
+  return null;
+};
+
+// CATS AND SHELVES
+function solution(start, finish) {
   let diff = finish - start;
   console.log(start, finish, diff);
-  return Math.floor(diff / 3) + diff % 3;
+  return Math.floor(diff / 3) + (diff % 3);
 }
 
 // BALL AND CUPS
-function cupAndBalls(b, arr){
+function cupAndBalls(b, arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i][1] === b) {
       b = arr[i][0];
@@ -291,62 +294,92 @@ function cupAndBalls(b, arr){
   }
   return b;
   // arr.reduce((b, [x, y]) => x == b ? y : y == b ? x : b, b)
-  };
+}
 
 // PERPENDICULAR LINES
 function maxBisectors(n) {
   if (n <= 1) return 0;
-  return Math.floor(n ** 2 / 4)
+  return Math.floor(n ** 2 / 4);
 }
 
 // DEUTSCHTUNDE
-function derDieDas(wort){
+function derDieDas(wort) {
   //Du kannst es schaffen!
-   console.log(wort);
-   let vowels = "aeiouäöü";
-   let counter = 0;
-   for (let word of wort) {
-     if (vowels.includes(word.toLowerCase())){
-       counter += 1;
- //       console.log(word, word, counter)
-     }
-   }
-   if (counter < 2) {
-     return `das ${wort}`;
-   } else if (counter <= 3){
-     return `die ${wort}`
-   }
-   return `der ${wort}`
- }
-
- // WALKING IN THE HALL WAY
- function contact(hallway) {
-  //  console.log(hallway);
-    let steps = hallway.match(/>-*</g)
-    return steps ? Math.floor(Math.min(...steps.map(step => step.length)) / 2) : -1;
+  console.log(wort);
+  let vowels = "aeiouäöü";
+  let counter = 0;
+  for (let word of wort) {
+    if (vowels.includes(word.toLowerCase())) {
+      counter += 1;
+      //       console.log(word, word, counter)
+    }
   }
+  if (counter < 2) {
+    return `das ${wort}`;
+  } else if (counter <= 3) {
+    return `die ${wort}`;
+  }
+  return `der ${wort}`;
+}
+
+// WALKING IN THE HALL WAY
+function contact(hallway) {
+  //  console.log(hallway);
+  let steps = hallway.match(/>-*</g);
+  return steps
+    ? Math.floor(Math.min(...steps.map((step) => step.length)) / 2)
+    : -1;
+}
 
 // ISOGRAMS
-function isIsogram(str){
+function isIsogram(str) {
   return new Set(str.toLowerCase()).size === str.length;
 }
 
 // FIND THE STRAY NUMBER
 function stray(numbers) {
   //   console.log(numbers)
-    let newNum = numbers.sort();
-    if(newNum[0] != newNum[1]) {
-       return newNum[0];
-    }
-    return newNum[newNum.length - 1]
+  let newNum = numbers.sort();
+  if (newNum[0] != newNum[1]) {
+    return newNum[0];
   }
+  return newNum[newNum.length - 1];
+}
 
 // ANAGRAM DETECTION
 // write the function isAnagram
-var isAnagram = function(test, original) { 
+var isAnagram = function (test, original) {
   let first = test.toLowerCase().split("").sort().join();
   let second = original.toLowerCase().split("").sort().join();
-    console.log(first, second)
-    return first === second ? true : false
-  };
-  
+  console.log(first, second);
+  return first === second ? true : false;
+};
+
+// BEGINNER SERIES #3 SUM OF NUMBERS
+function getSum( a,b )
+{
+ let max = Math.max(a,b)
+ let min = Math.min(a,b)
+ return (max - min + 1) * (max + min) / 2
+}
+
+// LIST FILTERING
+function filter_list(l) {
+  // Return a new array with the strings filtered out
+  let filteredArray = [];
+  for (let i = 0; i < l.length; i++) {
+    if (Number.isInteger(l[i])) {
+      filteredArray.push(l[i])
+    }
+  }
+  return filteredArray;
+  // l.filter(n => typeof n === "number")
+}
+
+// JADEN CASING STRINGS
+String.prototype.toJadenCase = function () {
+  return this
+             .split(" ")
+             .map((sentence) => sentence[0].toUpperCase() + sentence.slice(1))
+             .join(" ")
+};
