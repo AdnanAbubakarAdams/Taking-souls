@@ -325,3 +325,28 @@ function derDieDas(wort){
     let steps = hallway.match(/>-*</g)
     return steps ? Math.floor(Math.min(...steps.map(step => step.length)) / 2) : -1;
   }
+
+// ISOGRAMS
+function isIsogram(str){
+  return new Set(str.toLowerCase()).size === str.length;
+}
+
+// FIND THE STRAY NUMBER
+function stray(numbers) {
+  //   console.log(numbers)
+    let newNum = numbers.sort();
+    if(newNum[0] != newNum[1]) {
+       return newNum[0];
+    }
+    return newNum[newNum.length - 1]
+  }
+
+// ANAGRAM DETECTION
+// write the function isAnagram
+var isAnagram = function(test, original) { 
+  let first = test.toLowerCase().split("").sort().join();
+  let second = original.toLowerCase().split("").sort().join();
+    console.log(first, second)
+    return first === second ? true : false
+  };
+  
