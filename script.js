@@ -598,29 +598,78 @@ while (count < 10) {
 // console.log("congrats you got the secret now");
 
 // Building a guessing game
-let maximum = parseInt(prompt("Enter the maximum number!"));
-while (!maximum) {
-    maximum = parseInt(prompt("Enter a valid number!"))
+// let maximum = parseInt(prompt("Enter the maximum number!"));
+// while (!maximum) {
+//     maximum = parseInt(prompt("Enter a valid number!"))
+// }
+// const targetNum = Math.floor(Math.random() * maximum) + 1;
+// let guess = parseInt(prompt("Enter your first guess!"));
+// let attempts = 1;
+// // console.log(targetNum);
+// while (parseInt(guess) !== targetNum) {
+//     if (guess === "q") break;
+//     attempts ++;
+//     if (guess > targetNum) {
+//         guess = prompt ("Too high! Enter a new guess:");
+//     } else {
+//         guess = prompt("Too low! Enter a new guess:")
+//     }
+// }
+// if (guess === "q") {
+//     console.log("OK, YOU QUIT")
+// } else {
+//     console.log("CONGRATS YOU WIN");
+//     console.log(`You got it! It took you ${attempts} guesses`);
+// }
+
+
+// FOR..OF LOOP 
+// A nice and easy way of iterating over arrays (or other iterable objects)
+const subreddits = ['cringe', 'books', 'chickens', 'funny', 'pics', 'soccer', 'basketball']
+for (let sub of subreddits) {
+    console.log(`visit reddit.com/r/${sub}`)
 }
-const targetNum = Math.floor(Math.random() * maximum) + 1;
-let guess = parseInt(prompt("Enter your first guess!"));
-let attempts = 1;
-// console.log(targetNum);
-while (parseInt(guess) !== targetNum) {
-    if (guess === "q") break;
-    attempts ++;
-    if (guess > targetNum) {
-        guess = prompt ("Too high! Enter a new guess:");
-    } else {
-        guess = prompt("Too low! Enter a new guess:")
+
+const eightPointFour = [
+    ['Adnan', 'John', 'Mason', 'Ola'],
+    ['Kalilah', 'Sam', 'Kenyatta', 'Zane'],
+    ['Ametza', 'George', 'Ziq', 'T.k']
+]
+
+for (let row of eightPointFour) {
+    for (let student of row) {
+        console.log(student)
     }
 }
-if (guess === "q") {
-    console.log("OK, YOU QUIT")
-} else {
-    console.log("CONGRATS YOU WIN");
-    console.log(`You got it! It took you ${attempts} guesses`);
+// using for of to iterate over a string 
+for (let char of "Abubakar Adnan Adams") {
+    console.log(char)
 }
 
+// FOR IN LOOP => MAINLY USED TO ITERATE OVER OBJECTS WITH KEY VALUE PAIRS
+const testScores = {
+    Adnan : 95,
+    Ibrahim : 91,
+    Brown : 94,
+    Slow : 90,
+    Robert : 92,
+    Escoba : 93,
+    Seth : 93,
+    Julius : 88,
+    coolio : 85
+}
+for (let gees in testScores ) {
+    console.log(`${gees} got ${testScores[gees]} in our end of sem`)
+}
+// NEW OBJECT METHODS 
+console.log(Object.keys(testScores)) // returns all the keys of an object
+console.log(Object.values(testScores)) // returns all the values of an object
+console.log(Object.entries(testScores)) // returns nested array of key value pairs
 
+let total = 0;
+let scores = Object.values(testScores);
+for (let score of scores) {
+    total += score;
+}
+console.log(total / scores.length)
 
