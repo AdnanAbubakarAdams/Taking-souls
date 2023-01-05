@@ -62,3 +62,26 @@ console.log(getKeysOfValue({"a" : 4, "g" : 2, "f" : 5, "p" : 2}, 2 )) // ["g", "
 
 // 3. Write a function so that it handles objects at any depth
 // ({"a" : 4, "g" : 2, "f" : 5, "r" : {"l" : 2}}, 2 ) returns ["g", "r", "l"]
+
+
+
+
+// Maria has n dollars to deposit in a savings account. Every day, the bank advertises their interest rate on savings accounts. When you make a deposit, the interest rate stays the same as long as you have the account open. All interest compounds and is paid annually.
+
+//   Write a function that will calculate the expected balance at the end of m years given a specific interest rate
+
+// Example: 
+
+// On Jan 3rd, the interest rate was 2%. Maria had 1200 dollars to deposit. She wants to calculate how much she will have after 5 years. 
+
+//   Amount to deposit: $1200
+
+// Interest rate: 2%
+
+// Length of time in years: 5
+
+// Balance at the end of 5 years: 1324.90
+
+const calculateExpectedBalance = () => {
+    
+}

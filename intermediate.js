@@ -383,3 +383,31 @@ String.prototype.toJadenCase = function () {
              .map((sentence) => sentence[0].toUpperCase() + sentence.slice(1))
              .join(" ")
 };
+
+// Ordered Count of Characters
+function orderedCount(text) {
+  // create a new array to push the small array of elements
+  let countedArr = [];
+  // loop through the given string 
+  for (let i = 0; i < text.length; i++) {
+    // create a count variable
+    let count = 0;
+    // a nested loop to go through the new array
+    for (let j = 0; j < countedArr.length; j++) {
+      // conditional checking if letter exists if not increase the count
+      if (countedArr[j][0] === text[i]) {
+        // increase count
+        count++;
+      }
+    }
+    if (count === 0) {
+      for (let j = i; j < text.length; j++) {
+        if (text[j] === text[i]) {
+          count++;
+        }
+      }
+      countedArr.push([text[i], count]);
+    }
+  }
+  return countedArr;
+}

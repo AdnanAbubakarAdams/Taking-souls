@@ -673,3 +673,15 @@ for (let score of scores) {
 }
 console.log(total / scores.length)
 
+// FUNCTIONS
+// => Mainly reusable chunks of code that we have wrapped up and given a name so we use them at any point
+// reusable procedures
+// * functions allow us to write reusable, modular code
+// * we define a "chunk" of code that we can then execute at a later point
+// * we use the all the time
+function singForMe() {
+    console.log("putuu")
+    console.log("pataa")
+    console.log("spataa")
+}
+console.log(singForMe())
