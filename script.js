@@ -685,3 +685,117 @@ function singForMe() {
     console.log("spataa")
 }
 console.log(singForMe())
+
+// Arguments ==> are inputs that are passed in place of parameters of a function
+const greet = (firstName, middleName, lastName) => {
+    console.log(`the KING'S name is: ${firstName} ${middleName} ${lastName}`)
+}
+greet("Adnan", "Abubakar", "Adams");
+
+// Define a function called rant which accepts a string argument called message.  The function should print out an uppercased version of message 3 times (with 3 separate calls to console.log).  For example, rant("I hate beets") should print out:
+// I HATE BEETS
+// I HATE BEETS
+// I HATE BEETS
+const rant = (message) => {
+    for (let i = 0; i < 3; i++) {
+        console.log(message.toUpperCase())
+    }
+ }
+ rant("I hate beets")
+
+ const repeat = (str, numTimes) => {
+    let result = "";
+    for (let i = 0 ; i < numTimes; i++) {
+        result += str;
+    }
+    console.log(result)
+ }
+ repeat(" i love my family", 5)
+
+ // THE RETURN KEY WORD ==> Built in methods return values when we call them. we can store those values... Also the return statement ends function execution and specifies the value to be returned by that function
+//  It's time to practice returning values from a function! Write a simple function multiply which accepts two numerical arguments and returns their product (multiply them together).
+const multiply = (num1, num2) => {
+    return num1 * num2
+}
+console.log(multiply(4,5) === 20) // true
+console.log(multiply(2,3) === 6) // true
+console.log(multiply(9,9) === 20) // false == 81
+
+
+// often struggle to know whether I should wear shorts or pants on a given day. (this is a complete lie.  It's really not that hard to decide.) Please help me decide by writing me a function called isShortsWeather. 
+// It should accept a single number argument, which we will call temperature(but you can name it whatever you want, of course). 
+// If temperature is greater than or equal to 75, return true. 
+// Otherwise, return false.  
+const isShortsWeather = (temperature) => {
+    if(temperature >= 75) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isShortsWeather(80)) // true
+console.log(isShortsWeather(48)) // true
+console.log(isShortsWeather(75)) // true
+
+// Please write a function called lastElement which accepts a single array argument.  The function should return the last element of the array (without removing the element).  If the array is empty, the function should return null.
+const lastElement = (array) => {
+    if (!array.length) return null;
+    return array[array.length - 1];
+    // let lastEle = array.pop() // modifies array.. its destructive
+    // return lastEle;
+}
+console.log(lastElement([3,5,7]))
+
+// Define a function called capitalize that accepts a string argument and returns a new string with the first letter capitalized (but the rest of the string unchanged).
+const capitalize = (str) => {
+    return str[0].toUpperCase() + str.slice(1)
+}
+console.log(capitalize("eggplant"))
+console.log(capitalize('pamplemousse'))
+console.log(capitalize('squid'))
+
+// Write a function called sumArray which accepts a single argument: an array of numbers.  It should return the sum of all the numbers in the array.
+const sumArray = (num) => {
+    let arrTot = 0;
+   for (let i = 0; i < num.length; i++) {
+       arrTot += num[i]
+   }
+   return arrTot;
+//    return num.reduce((a, b) => a + b, 0) one-liner
+}
+console.log(sumArray([1,2,3]) === 6) // true
+console.log(sumArray([21,20,3]) === 44) // true
+
+// Write a function called returnDay. this function takes in one parameter (a number from 1-7) and returns the day of the week (1 is Monday, 2 is Tuesday, etc.)  If the number is less than 1 or greater than 7, the function should return null. In some countries Sunday is treated as the first day of the week, but for this exercise we will use Monday as the first day.
+// DEFINE YOUR FUNCTION BELOW:
+
+const returnDay = (day) => {
+    switch (day) {
+        case 1 : 
+            return "Monday";
+            break;
+        case 2 : 
+            return "Tuesday";
+            break;
+        case 3 : 
+            return "Wednesday";
+            break;
+        case 4 : 
+            return "Thursday";
+            break;
+        case 5 : 
+            return "Friday";
+            break;
+        case 6 : 
+            return "Saturday";
+            break;
+        case 7 : 
+            return "Sunday";
+            break;
+        default :
+        return null;
+        break;
+    }
+}
+console.log(returnDay(1) === "Monday") // true
+console.log(returnDay(5)) // friday
