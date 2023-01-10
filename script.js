@@ -799,3 +799,79 @@ const returnDay = (day) => {
 }
 console.log(returnDay(1) === "Monday") // true
 console.log(returnDay(5)) // friday
+
+// SCOPE => variable visibility, the location where a variable is defined dictates where we have access to that variable 
+// GLOBAL SCOPE
+// BLOCK SCOPE
+// LEXICAL SCOPE
+
+
+// Define a function that returns the square of a number. Define the function as a function expression, stored in a variable called square. 
+const square = function(num) {
+    return Math.pow(num, 2)
+}
+console.log(square(4) === 16) // true
+console.log(square(2)) // 4
+
+// HIGHER ORDER FUNCTIONS => are functions that operate on or with other functons. they can accept other functions as arguments // return a function
+function callTwice(func) {
+    func();
+    func();
+}
+
+function callTenTimes(f) {
+    for (let i = 0; i < 10; i++) {
+        f()
+    }
+}
+
+function rollDie() {
+    const roll = Math.floor(Math.random() * 5) + 1;
+    console.log(roll)
+}
+console.log(callTwice(rollDie))
+console.log(callTenTimes(rollDie))
+
+
+// ARRAY CALL BACK METHODS
+// 1. FOREACH
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+numbers.forEach((num) => {
+    if(num % 2 === 0) {
+    console.log(num)
+    }
+});
+
+const movies = [
+    {
+        title: 'Amadeus',
+        score: 99
+    },
+    {
+        title: 'Stand By Me',
+        score: 85
+    },
+    {
+        title: 'Parasite',
+        score: 95
+    },
+    {
+        title: 'Alien',
+        score: 90
+    }
+]
+
+movies.forEach((movie) => {
+    console.log(`${movie.title} - ${movie.score}/100`)
+})
+
+// 2.MAP => map creates a new array with the results of calling a  callback on every element in the array
+const doubles = numbers.map((num) => {
+    return num * 2
+});
+console.log(doubles)
+
+const getArrayOfTitles = movies.map((movie) => {
+    return movie.title
+})
+console.log(getArrayOfTitles)
