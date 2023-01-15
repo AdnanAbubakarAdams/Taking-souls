@@ -845,19 +845,27 @@ numbers.forEach((num) => {
 const movies = [
     {
         title: 'Amadeus',
-        score: 99
+        score: 87
     },
     {
         title: 'Stand By Me',
-        score: 85
+        score: 80
     },
     {
         title: 'Parasite',
-        score: 95
+        score: 60
     },
     {
         title: 'Alien',
-        score: 90
+        score: 77
+    },
+    {
+        title: 'Apocalypto',
+        score: 98
+    },
+    {
+        title: 'Troy',
+        score: 94
     }
 ]
 
@@ -875,3 +883,21 @@ const getArrayOfTitles = movies.map((movie) => {
     return movie.title
 })
 console.log(getArrayOfTitles)
+
+// 3. FILTER => creates a new array with all elements that pass the test implemented by the provided function
+const numToFilter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+console.log(numToFilter.filter((num) => num < 10));
+const goodMovies = movies.filter((movie) => movie.score > 80).map(movie => movie.title)
+console.log(goodMovies)
+const badMovies = movies.filter((movie) => movie.score < 70);
+
+// 4. EVERY => test whether all elements in the array pass the provided function. it returns a boolean value
+// 5. SOME => Similar to everry, but returns true if ANY of the array elements pass the test function
+const allEvens = (array) => {
+    return array.every((arr) => arr % 2 === 0)
+}
+allEvens([2,4,6,8])
+allEvens([1,4,6,8])
+allEvens([1,2,3])
+
+// REDUCE => Executes a reducer function on each element of the array, resulting in a single value

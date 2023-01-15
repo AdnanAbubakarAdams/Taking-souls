@@ -453,4 +453,20 @@ function replaceAll(input, find, replace) {
     }
   }
   return str;
+  // let arr = input.split(find);
+  // if (find.length === 0) {
+  //   arr.unshift('');
+  //   arr.push('');
+  // }
+  // return arr.join(rep)
+}
+
+// STRANGE MATHEMATICS
+function strangeMath(n, k) {
+  const arr = [0]
+
+  for(let i = 1; i <= n; i++) {
+    arr.push(i)
+  }
+  return arr.sort().indexOf(k);
 }
