@@ -411,3 +411,46 @@ function orderedCount(text) {
   }
   return countedArr;
 }
+
+// MinMinMax
+function minMinMax(array) {
+  // solution goes here!
+//   console.log(array)
+  let smallestInArray = Math.min(...array);
+  let largestInArray = Math.max(...array)
+  let minimumNotInArray = 0;
+  console.log(smallestInArray, largestInArray);
+  for (let i = smallestInArray; i <= largestInArray; i++) {
+    if (!array.includes(i)) {
+      minimumNotInArray = i;
+      break;
+    }
+}
+  return [smallestInArray, minimumNotInArray, largestInArray];
+}
+
+
+// ReplaceAll(input, find, replace)
+function replaceAll(input, find, replace) {
+  // take care of the condition where theres no input
+  if (!input && !find) return replace;
+  
+  if (!find) return replace + input.split("").join(replace) + replace;
+  
+  let str = "";
+//   console.log(input, find, replace)
+  /// loop through each character of input
+  for (let i = 0; i < input.length; i++) {
+    // does inpput from i to i + find.length == find ?
+    if (input.slice(i, i+find.length) == find) {
+      // add replace to the str
+      str += replace;
+      // increment i by find.length -1;
+      i += find.length -1;
+    } else {
+      // add character[i] to str
+      str += input[i]
+    }
+  }
+  return str;
+}
