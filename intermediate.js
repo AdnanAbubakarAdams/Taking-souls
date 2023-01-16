@@ -463,10 +463,27 @@ function replaceAll(input, find, replace) {
 
 // STRANGE MATHEMATICS
 function strangeMath(n, k) {
-  const arr = [0]
+  // const arr = [0]
 
+  // for(let i = 1; i <= n; i++) {
+  //   arr.push(i)
+  // }
+  // return arr.sort().indexOf(k);
+  // create an empty array
+  let arr = [];
+  // fill the array with 1 through n
   for(let i = 1; i <= n; i++) {
-    arr.push(i)
+    arr.push(i);
   }
-  return arr.sort().indexOf(k);
+  // order the new arr lexographically
+  arr.sort()
+  // iterate through the array
+  for (let i = 0; i < arr.length; i++) {
+    // each time checking if the number is equal to k, if so return the position + 1
+    if(arr[i] === k) {
+      return i + 1
+    }
+  }
+  return k;
 }
+
