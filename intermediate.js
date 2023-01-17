@@ -487,3 +487,37 @@ function strangeMath(n, k) {
   return k;
 }
 
+// FACTORIAL FACTORY
+function factorial (n) {
+  if (n < 0) return null;
+  if (n === 0 || n === 1) return 1;
+  return n * factorial(n - 1)
+}
+
+// RECURSION#1 => FACTORIAL
+const factorial = n => {
+  if (n === 1 || n === 0) {
+    return 1;
+  }
+    return n * factorial(n - 1)
+};
+
+// RECURSIVE REPLICATION
+function replicate(times, number) {
+	// your solution here
+  const arr = [];
+  if (times <= 0) { 
+    return arr;
+    } else {
+  return [number].concat(replicate(times - 1, number))
+   }
+}
+
+// RECURSION#2 FIBONACCI
+const fibonacci = n => {
+  if (n <= 2){
+     return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2)
+ 
+};
