@@ -36,3 +36,29 @@ var merge = function (intervals) {
 
   return mergedArr;
 };
+
+// 344. REVERSE STRING
+var reverseString = function(s) {
+  //  return s.reverse()
+  let l = 0;
+  let r = s.length -1;
+  while(l <= r) {
+      [s[l], s[r]] = [s[r], s[l]];
+      l += 1;
+      r -= 1;
+  }
+};
+
+// 1342. NUMBER OF STEPS TO REDUCE TO A NUMBER TO ZERO
+var numberOfSteps = function(num) {
+  // BASE CASE
+  if (num === 0) return 0;
+  // Recursive Cases 
+  if (num % 2 === 0) {
+      const steps = numberOfSteps(num / 2);
+      return 1 + steps;
+  } else {
+      const steps = numberOfSteps(num - 1)
+      return 1 + steps;
+  }
+};

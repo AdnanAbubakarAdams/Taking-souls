@@ -521,3 +521,9 @@ const fibonacci = n => {
   return fibonacci(n - 1) + fibonacci(n - 2)
  
 };
+
+// SUM ALL THE ARRAYS!
+function arraySum(arr) {
+  // sum ALL the things!
+  return arr.flat().reduce((a ,b) => a + b, 0)
+}
