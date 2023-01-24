@@ -522,8 +522,35 @@ const fibonacci = n => {
  
 };
 
-// SUM ALL THE ARRAYS!
+// Sum ALL the arrays!
 function arraySum(arr) {
   // sum ALL the things!
   return arr.flat().reduce((a ,b) => a + b, 0)
+}
+
+// Sum ALL the arrays!
+function sumNumbersInArray(arr) {
+  let total = 0;
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      total += sumNumbersInArray(item);
+    } else if (typeof item === "number") {
+      total += item;
+    }
+  }
+  return total;
+}
+
+// Sum ALL the arrays!
+function arraySum(arr) {
+  // sum ALL the things!
+let sum = 0; 
+  for (let i = 0; i < arr.length; i++) {
+    if(Array.isArray(arr[i])) {
+      sum += arraySum(arr[i])
+    } else if (typeof arr[i] === "number"){
+      sum += arr[i]
+    }
+  }
+  return sum;
 }
