@@ -554,3 +554,16 @@ let sum = 0;
   }
   return sum;
 }
+
+//SUM OF INTEGERS IN STRING
+function sumOfIntegersInString(s){
+  return s
+    // splitting using regex to split at each instance not a number 
+    .split(/([^0-9])/g)
+    // mapping through the array and converting each element to number 
+    .map(x => parseInt(x))
+    // filtering every element that is not a number or return falsy value
+    .filter(Boolean)
+    // using reduce to sum up  all the numbers in the array
+    .reduce((a,b)=> a + b,0)
+}
