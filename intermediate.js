@@ -567,3 +567,18 @@ function sumOfIntegersInString(s){
     // using reduce to sum up  all the numbers in the array
     .reduce((a,b)=> a + b,0)
 }
+
+// COLLATZ CONJUCTURE LENGTH
+function collatz(n) {
+  // set a counter variable and equal it to 1
+   let results = 1;
+   // create a while loop to keep repeating an action till n hits 1
+   while (n > 1) {
+     // increase the counter
+     results++
+     // set a condition to check for when n is even and also when n is odd
+     n = n % 2 === 0 ? n / 2 : n * 3 + 1;
+   }
+   // return your counter which will be the length of the collatz
+   return results;
+ }
