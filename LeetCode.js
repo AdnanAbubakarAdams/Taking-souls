@@ -69,3 +69,32 @@ var fib = function(n) {
   if (n <= 2) return 1;
   return fib(n - 1) + fib(n - 2)
 };
+
+// VALID PARENTHESIS
+var isValid = function(s) {
+  // we create a hash table to store our brackets
+  let matchingObj = {
+      '(':')',
+      '{':'}',
+      '[':']'
+  }
+  // create a stack to push or remove from after looping through the string
+  let stack = [];
+  // create a for loop to go through the string 
+  for (let i = 0; i < s.length; i++) {
+      // set a condition to check if a bracket at an index has a key in hash table
+      if (s[i] in matchingObj) {
+          // if the bracket at this index has a key in the hash table push it to the stack
+          stack.push(matchingObj[s[i]]);
+          // else if it doesnt and the stack is not empty and the last element does not match the current element at current index pop it out of the stack
+      } else if(stack.length > 0 && stack[stack.length-1] === s[i]) {
+          stack.pop();
+          // else return false
+      } else {
+          return false;
+      }
+  }
+    // return stack.length === 0 || true;
+       return !stack.length;
+  // true if stack is empty
+};
