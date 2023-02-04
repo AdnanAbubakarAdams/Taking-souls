@@ -582,3 +582,15 @@ function collatz(n) {
    // return your counter which will be the length of the collatz
    return results;
  }
+
+ // SNAIL CRAWLS UP
+ function snail(column, day, night) {
+  let totalDays = 1;
+  let distanceCovered = day;
+  while(distanceCovered < column) {
+    totalDays++
+    distanceCovered += day - night;
+  }
+  return totalDays;
+//   return Math.ceil((column - night) / (day - night))
+}
