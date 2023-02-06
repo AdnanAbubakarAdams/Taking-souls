@@ -98,3 +98,18 @@ var isValid = function(s) {
        return !stack.length;
   // true if stack is empty
 };
+// 217. CONTAINS DUPLICATE
+function containsDuplicates(num) {
+  // create a new array to store elements while checking for duplicats
+  let newArr = [];
+  // loop through array to check and check if new array includes the ele at current index. push if it doesnt & return true
+  for (let i = 0; i < num.length; i++) {
+    if (!newArr.includes(num[i])) {
+      newArr.push(num[i])
+    }  else {
+      return true;
+    }
+  } 
+  // return false if array does not include duplicates;
+  return false;
+}
