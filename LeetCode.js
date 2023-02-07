@@ -113,3 +113,42 @@ function containsDuplicates(num) {
   // return false if array does not include duplicates;
   return false;
 }
+
+//  VALID ANAGRAM
+var isAnagram = function(s, t) {
+  // create a hash map to put char in as key value pairs
+  let hashMap = {};
+  // loop through both strings
+  for (let i = 0; i < s.length; i++) {
+    // create a variable to store element at current index
+    let char = s[i];
+    // set a condition to check if char is already in hashmap
+    if (char in hashMap) {
+      // if its in hashmap increase its count
+      hashMap[char] ++;
+    } else {
+      // if not in hashmap add it to it
+      hashMap[char] = 1;
+    }
+  }
+  // loop through string
+    for (let i = 0; i < t.length; i++) {
+      // create a variable to store element at current index
+      let char = t[i]
+      // set a condition to check if char is already in hashmap
+    if (char in hashMap) {
+      // if its in hashmap decrease its count
+      hashMap[char]--;
+    } else {
+      // else return false
+      return false;
+    }
+  }
+  // to check if value at that key exists or is 0
+  for (let key in hashMap) {
+    if (hashMap[key]) {
+      return false;
+    }
+  }
+  return true;
+};
