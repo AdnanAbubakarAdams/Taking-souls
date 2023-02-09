@@ -152,3 +152,19 @@ var isAnagram = function(s, t) {
   }
   return true;
 };
+
+// 2185. COUNTING WORDS WITH A GIVEN PREFIX
+var prefixCount = function(words, pref) {
+  // set a variable to store the count
+  let prefCount = 0;
+  // loop through the words to find the prefix
+  for (let i = 0; i < words.length; i++) {
+      // set a condition to check if part of the part of the string contains the prefix
+      if (words[i].substring(0, pref.length).includes(pref)) {
+          // if the word has the prefix increase the prefCount
+          prefCount++
+      }
+  }
+  // return the count
+  return prefCount;
+};
