@@ -181,3 +181,25 @@ var isPowerOfThree = function(n) {
     // when the remainder becomes 1 return true;
     return n === 1
 };
+
+// 231. POWER OF TWO
+var isPowerOfTwo = function(n) {
+  if (n < 1) return false;
+
+  while(n % 2 === 0) {
+      n /= 2;
+  }
+  return n === 1;
+  // return n % 2 === 0 && n / 2 === 1 ? true : false;
+};
+
+// 342. POWER OF FOUR
+var isPowerOfFour = function(n) {
+  if (n < 1) return false;
+
+  while (n % 4 === 0) {
+      n /= 4
+  }
+
+  return n === 1;
+};
