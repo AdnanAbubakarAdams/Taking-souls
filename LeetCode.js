@@ -152,3 +152,54 @@ var isAnagram = function(s, t) {
   }
   return true;
 };
+
+// 2185. COUNTING WORDS WITH A GIVEN PREFIX
+var prefixCount = function(words, pref) {
+  // set a variable to store the count
+  let prefCount = 0;
+  // loop through the words to find the prefix
+  for (let i = 0; i < words.length; i++) {
+      // set a condition to check if part of the part of the string contains the prefix
+      if (words[i].substring(0, pref.length).includes(pref)) {
+          // if the word has the prefix increase the prefCount
+          prefCount++
+      }
+  }
+  // return the count
+  return prefCount;
+};
+
+// 326. POWER OF THREE
+var isPowerOfThree = function(n) {
+    // condition to set any number less than 1 which cannot be a multiple of 1
+    if (n < 1) return false;
+    // a while loop that continues to run as long the n % 3 === 0
+    while(n % 3 === 0) {
+        // continuosly divide n by factor of 3 till the remainderis not 0
+        n /= 3
+    }
+    // when the remainder becomes 1 return true;
+    return n === 1
+};
+
+// 231. POWER OF TWO
+var isPowerOfTwo = function(n) {
+  if (n < 1) return false;
+
+  while(n % 2 === 0) {
+      n /= 2;
+  }
+  return n === 1;
+  // return n % 2 === 0 && n / 2 === 1 ? true : false;
+};
+
+// 342. POWER OF FOUR
+var isPowerOfFour = function(n) {
+  if (n < 1) return false;
+
+  while (n % 4 === 0) {
+      n /= 4
+  }
+
+  return n === 1;
+};
