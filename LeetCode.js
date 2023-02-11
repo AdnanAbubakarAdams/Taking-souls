@@ -168,3 +168,16 @@ var prefixCount = function(words, pref) {
   // return the count
   return prefCount;
 };
+
+// 326. POWER OF THREE
+var isPowerOfThree = function(n) {
+    // condition to set any number less than 1 which cannot be a multiple of 1
+    if (n < 1) return false;
+    // a while loop that continues to run as long the n % 3 === 0
+    while(n % 3 === 0) {
+        // continuosly divide n by factor of 3 till the remainderis not 0
+        n /= 3
+    }
+    // when the remainder becomes 1 return true;
+    return n === 1
+};
