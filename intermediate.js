@@ -594,3 +594,9 @@ function collatz(n) {
   return totalDays;
 //   return Math.ceil((column - night) / (day - night))
 }
+
+// UNSCRUMBLED EGG
+function unscrambleEggs(word){
+  //coding is feggunegg
+  return word.replace(/egg/g, "")
+}
