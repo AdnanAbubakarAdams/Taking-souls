@@ -171,7 +171,7 @@ var prefixCount = function(words, pref) {
 
 // 326. POWER OF THREE
 var isPowerOfThree = function(n) {
-    // condition to set any number less than 1 which cannot be a multiple of 1
+    // condition to set any number less than 1 which cannot be a multiple of 3
     if (n < 1) return false;
     // a while loop that continues to run as long the n % 3 === 0
     while(n % 3 === 0) {
@@ -203,3 +203,16 @@ var isPowerOfFour = function(n) {
 
   return n === 1;
 };
+
+// ADD STRINGS
+// var addStrings = function(num1, num2) {
+//   let total = +num1 + +num2;
+//   return total.toString()
+// };
+
+// 58. LENGTH OF LAST WORD
+var lengthOfLastWord = function(s) {
+  let splittedSentence = s.split(" ").filter(space => space.trim() != "");
+  let lastWord = splittedSentence[splittedSentence.length - 1];
+   return lastWord.length;
+ };
