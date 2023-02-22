@@ -153,6 +153,28 @@ var isAnagram = function(s, t) {
   return true;
 };
 
+
+// 49. GROUP ANAGRAM 
+var groupAnagrams = function(strs) {
+    // create a hast table in other words an object to store the sorted and grouped anagrams
+  const hashMap = {}
+  // loop through the string so we can sort it out and group str with same letters
+  for (let i = 0; i < strs.length; i++) {
+    // now lets sort them into arrays of words of same characters every index
+    const sortedArrayOfStrs = strs[i].split("").sort().join("");
+    // set a condition to check if the hashMap has property {key} sortedArrayOfStrs
+    if (!hashMap[sortedArrayOfStrs]) {
+      // if it doesnt create and new key pair value with the key being the sortedArrayOfStr and value to the current string
+      hashMap[sortedArrayOfStrs] = [strs[i]]
+      // else if it does push the current element into the array containing same elements
+    } else {
+      hashMap[sortedArrayOfStrs].push(strs[i])
+    }
+  }
+  // using the object methods return the values of the hashMap
+  return Object.values(hashMap)
+};
+
 // 2185. COUNTING WORDS WITH A GIVEN PREFIX
 var prefixCount = function(words, pref) {
   // set a variable to store the count
@@ -204,12 +226,6 @@ var isPowerOfFour = function(n) {
   return n === 1;
 };
 
-// ADD STRINGS
-// var addStrings = function(num1, num2) {
-//   let total = +num1 + +num2;
-//   return total.toString()
-// };
-
 // 58. LENGTH OF LAST WORD
 var lengthOfLastWord = function(s) {
   let splittedSentence = s.split(" ").filter(space => space.trim() != "");
@@ -224,4 +240,23 @@ var lengthOfLastWord = function(s) {
   console.log(mainString)
   let reversedString = s.toLowerCase().replace(/[^A-Z0-9]/ig, "").split("").reverse().join("")
   return mainString === reversedString;
+};
+
+// 1047. REMOVE ADJACENT DUPLICATES 
+var removeDuplicates = function(s) {
+  // let create and empty stack to hold the elements of the string
+  let stack = [];
+  // we loop through the string 
+  for (let i = 0; i < s.length; i++) {
+    // set a condition to check the length of the stack or if the stack is empty and also compare the last element of the stack to the current element of the string
+    if (stack.length > 0 && s[i] === stack[stack.length - 1]) {
+      // if they are the same we remove them from the stack
+      stack.pop();
+      // else if they are not the same we push into the stack
+    } else {
+      stack.push(s[i])
+    }
+  }
+  // now we return the stack by converting it into a string using the .join()
+  return stack.join("");
 };
