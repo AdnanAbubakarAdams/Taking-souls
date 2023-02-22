@@ -216,3 +216,12 @@ var lengthOfLastWord = function(s) {
   let lastWord = splittedSentence[splittedSentence.length - 1];
    return lastWord.length;
  };
+
+ // 125. VALID PALINDROME
+ var isPalindrome = function(s) {
+
+  let mainString = s.replace(/[^A-Z0-9]/ig, "").toLowerCase();
+  console.log(mainString)
+  let reversedString = s.toLowerCase().replace(/[^A-Z0-9]/ig, "").split("").reverse().join("")
+  return mainString === reversedString;
+};
