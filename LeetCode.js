@@ -260,3 +260,15 @@ var removeDuplicates = function(s) {
   // now we return the stack by converting it into a string using the .join()
   return stack.join("");
 };
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var makeFancyString = function(s) {
+  const matchingThreeOrMoreSameChar = /[^\w\s]|(.)\1\1+/gi
+  const fancyString = s.replace(matchingThreeOrMoreSameChar, (match) => {
+      return match.slice(0,2)
+  })
+  return fancyString
+};
