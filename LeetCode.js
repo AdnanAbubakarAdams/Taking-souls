@@ -261,6 +261,7 @@ var removeDuplicates = function(s) {
   return stack.join("");
 };
 
+
 /**
  * @param {string} s
  * @return {string}
@@ -271,4 +272,24 @@ var makeFancyString = function(s) {
       return match.slice(0,2)
   })
   return fancyString
+  
+// 1957. DELETE CHARACTERS TO MAKE FANCY STRING
+var makeFancyString = function(s) {
+  let finalStr = "";
+  let char = "";
+  let counter = 0;
+
+  for (let i = 0; i < s.length; i ++) {
+      if(char === s[i]) {
+          counter ++;
+          if (counter >= 3) {
+              continue;
+          }
+      } else {
+          char = s[i];
+          counter = 1;
+      }
+      finalStr += s[i];
+  }
+  return finalStr;
 };
