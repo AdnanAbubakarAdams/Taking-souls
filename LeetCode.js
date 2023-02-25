@@ -260,3 +260,24 @@ var removeDuplicates = function(s) {
   // now we return the stack by converting it into a string using the .join()
   return stack.join("");
 };
+
+// 1957. DELETE CHARACTERS TO MAKE FANCY STRING
+var makeFancyString = function(s) {
+  let finalStr = "";
+  let char = "";
+  let counter = 0;
+
+  for (let i = 0; i < s.length; i ++) {
+      if(char === s[i]) {
+          counter ++;
+          if (counter >= 3) {
+              continue;
+          }
+      } else {
+          char = s[i];
+          counter = 1;
+      }
+      finalStr += s[i];
+  }
+  return finalStr;
+};
