@@ -262,16 +262,14 @@ var removeDuplicates = function(s) {
 };
 
 
-/**
- * @param {string} s
- * @return {string}
- */
+
 var makeFancyString = function(s) {
   const matchingThreeOrMoreSameChar = /[^\w\s]|(.)\1\1+/gi
   const fancyString = s.replace(matchingThreeOrMoreSameChar, (match) => {
       return match.slice(0,2)
   })
   return fancyString
+}
   
 // 1957. DELETE CHARACTERS TO MAKE FANCY STRING
 var makeFancyString = function(s) {
