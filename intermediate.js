@@ -600,3 +600,22 @@ function unscrambleEggs(word){
   //coding is feggunegg
   return word.replace(/egg/g, "")
 }
+
+// REMOVE CONSECUTIVE DUPLICATE WORDS 
+const removeConsecutiveDuplicates = s => {
+  // your perfect code...
+  // split the string into in array
+  let splitted = s.split(" ")
+  console.log(splitted)
+  
+  let stack = [];
+  for (let i = 0; i < splitted.length; i++) {
+    if (splitted[i + 1] === splitted[i]) {
+      continue
+    } else {
+      stack.push(splitted[i])
+    }
+  }
+  return stack.join(" ")
+
+} 
