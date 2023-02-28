@@ -1,9 +1,12 @@
+// when we talk about data we need to know two things - the value of the data and the type of that value
 // PRIMITIVE TYPES IN JAVASCRIPT
 Number
 String
 Boolean
 null
 undefined
+
+
 
 // R E P L => read  evaluate print loop
 
