@@ -35,4 +35,23 @@ function validParentheses(parens) {
   }
 
   // COUNTING DUPLICATES 
+  function duplicateCount(text){
+  //...
+  let textConvert = text.toLowerCase();
+  let hashObj = {};
+  let count = 0
   
+  for (let i = 0; i < textConvert.length; i++) {
+    if (hashObj[textConvert[i]]) {
+      hashObj[textConvert[i]]++
+    } else {
+      hashObj[textConvert[i]] = 1;
+    }
+  }
+  for (let value in hashObj) {
+    if (hashObj[value] >= 2) {
+      count++;
+    }
+  }
+  return count;
+}

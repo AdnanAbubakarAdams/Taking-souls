@@ -291,3 +291,31 @@ var makeFancyString = function(s) {
   }
   return finalStr;
 };
+
+// 136. SINGLE NUMBER
+var singleNumber = function(nums) {
+  let stack = [];
+  let sorted = nums.sort()
+  for(let i = 0; i < sorted.length; i++) {
+      if (stack.length > 0 && stack[stack.length -1] === sorted[i]) {
+          stack.pop()
+      } else {
+          stack.push(sorted[i])
+      }
+  }
+  return stack.join("")
+};
+
+// 260. SINGLE NUMBER 2
+var singleNumber = function(nums) {
+  let stack = [];
+  let sorted = nums.sort()
+  for(let i = 0; i < sorted.length; i++) {
+      if (stack.length > 0 && stack[stack.length -1] === sorted[i]) {
+          stack.pop()
+      } else {
+          stack.push(sorted[i])
+      }
+  }
+  return stack
+};
