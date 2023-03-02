@@ -113,6 +113,23 @@ function containsDuplicates(num) {
   // return false if array does not include duplicates;
   return false;
 }
+// 217. CONTAINS DUPLICATE
+var containsDuplicate = function(nums) {
+  let obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] in obj) {
+      obj[nums[i]]++;
+    } else {
+      obj[nums[i]] = 1;
+    }
+  }
+  for (let value in obj) {
+    if (obj[value] >= 2) {
+      return true;
+    } 
+  }
+  return false;
+}
 
 //  VALID ANAGRAM
 var isAnagram = function(s, t) {
