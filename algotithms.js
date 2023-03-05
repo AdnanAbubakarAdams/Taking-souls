@@ -55,3 +55,36 @@ function validParentheses(parens) {
   }
   return count;
 }
+
+// REMOVE THE PARENTHESES
+function removeParentheses(str) {
+  // initialize an empty stack and an empty result string
+  let stack = [];
+  let result = "";
+
+  // iterate over each character in the string
+  for (let i = 0; i < str.length; i++) {
+    // if the current character is an opening parenthesis, push its index onto the stack
+    if (str[i] === "(") {
+      stack.push(i);
+    } 
+    // if the current character is a closing parenthesis, pop the index of the corresponding opening parenthesis from the stack
+    else if (str[i] === ")") {
+      let start = stack.pop();
+      // if the stack is now empty (i.e., there are no more opening parentheses), extract the substring between the opening and closing parentheses
+      if (stack.length === 0) {
+        // use the slice method to extract the substring
+        // replace any parenthetical substrings in the substring using a regular expression pattern
+        // and append the resulting substring to the result string
+        result += str.slice(start, i+1).replace(/\([^)]*\)/g, "");
+      }
+    } 
+    // if the current character is not a parenthesis and there are no opening parentheses on the stack, append it to the result string
+    else if (stack.length === 0) {
+      result += str[i];
+    }
+  }
+
+  // return the final result string
+  return result;
+}

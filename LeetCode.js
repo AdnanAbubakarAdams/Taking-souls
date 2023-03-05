@@ -336,3 +336,17 @@ var singleNumber = function(nums) {
   }
   return stack
 };
+
+// 557. REVERSE WORDS IN A STRING III
+var reverseWords = function(s) {
+  let reversedStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr.split(" ").reverse().join(" ");
+};
+
+// 747. TO LOWER CASE
+var toLowerCase = function(s) {
+  return s.toLowerCase()
+};
