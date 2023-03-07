@@ -360,3 +360,9 @@ var firstUniqChar = function(s) {
   }
   return -1
 };
+
+// 1816. TRUNCATE SENTENCE
+var truncateSentence = function(s, k) {
+  let splittedStr = s.split(" ");
+  return splittedStr.slice(0, k).join(" ");
+};
