@@ -845,26 +845,32 @@ numbers.forEach((num) => {
 const movies = [
     {
         title: 'Amadeus',
+        year: 1990,
         score: 87
     },
     {
         title: 'Stand By Me',
+        year: 1991,
         score: 80
     },
     {
         title: 'Parasite',
+        year: 1992,
         score: 60
     },
     {
         title: 'Alien',
+        year: 1993,
         score: 77
     },
     {
         title: 'Apocalypto',
+        year: 1994,
         score: 98
     },
     {
         title: 'Troy',
+        year: 1995,
         score: 94
     }
 ]
@@ -901,3 +907,74 @@ allEvens([1,4,6,8])
 allEvens([1,2,3])
 
 // REDUCE => Executes a reducer function on each element of the array, resulting in a single value
+// reduce((accumlator, currentValue), initialvalue)
+const prices = [9.99, 1.50, 19.99, 49.99, 30.50]
+// using a regular loop
+let totalPrices = 0;
+for (let price of prices) {
+ totalPrices += price;
+}
+console.log(totalPrices);
+// using the reduce method
+let reducedTotal = prices.reduce((acc, curr) => acc + curr);
+console.log(reducedTotal)
+// using reduce to return min value of an array
+let minPrice = prices.reduce((minimumPrice, currentPrice) => {
+    if (currentPrice < minimumPrice) {
+        return currentPrice;
+    } 
+    return minimumPrice;
+})
+console.log(minPrice)
+
+let highestRatedMovie = movies.reduce((bestMovie, currentMovie) => {
+    if (currentMovie.score > bestMovie.score){
+        return currentMovie;
+    }
+    return bestMovie;
+})
+console.log(highestRatedMovie) 
+
+// THE SPREAD OPERATOR
+/** this syntax allows an iterable such as an array to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected. */
+const nums = [20, 21, 24, 30, 55, 49, 90]
+console.log(Math.max(...nums));
+console.log(Math.min(...nums))
+
+// making copies with spread
+const cats = ["sisco", "blackie", "blue", "rocket"];
+const dogs = ["captain", "white", "queen", "tigerbay"];
+let allPets = [...cats, ...dogs];
+console.log(allPets);
+// WITH OBJECTS
+const formData = {
+    email: "adnanrod@gmail.com",
+    password: "unitedforlife",
+    username: "adnanR9"
+}
+const newUser = {...formData, id: 1234, isAdmin: true}
+console.log(newUser)
+
+// destrusturing 
+// ARRAYS
+const numsDes = [95, 93, 20, 21, 24, 30, 55, 49, 90];
+const [gold, silver] = numsDes;
+console.log(gold, silver);
+// OBJECTS
+const user = {
+    firstName: "Adnan",
+    lastName: "Abubakar Adams",
+    email: "adnan@gmail.com",
+    DOB: 1991,
+    city: "Bronx", 
+    state: "New-York"
+};
+const { firstName, lastName, email, city, DOB, state } = user;
+// update a property
+const { DOB: dob } = user
+console.log(user);
+// DESTRUCTURING PARAMS ==>STILL USING MOVIES UP THERE
+const topRankedMoviews = movies.filter(({title, year, scores}) =>  {
+    return `${title} was made in ${year}, and is rated: ${scores}`
+});
+console.log(topRankedMoviews)
