@@ -350,3 +350,19 @@ var reverseWords = function(s) {
 var toLowerCase = function(s) {
   return s.toLowerCase()
 };
+
+// 387. FIRST UNIQUE CHARACTER IN A STRING
+var firstUniqChar = function(s) {
+  for(let i = 0; i < s.length; i++) {
+      if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+          return i;
+      }
+  }
+  return -1
+};
+
+// 1816. TRUNCATE SENTENCE
+var truncateSentence = function(s, k) {
+  let splittedStr = s.split(" ");
+  return splittedStr.slice(0, k).join(" ");
+};
