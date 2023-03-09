@@ -366,3 +366,23 @@ var truncateSentence = function(s, k) {
   let splittedStr = s.split(" ");
   return splittedStr.slice(0, k).join(" ");
 };
+
+//2413 SMALLEST EVEN MULTIPLE
+var smallestEvenMultiple = function(n) {
+if (n % 2 === 0) return n;
+return n * 2;
+};
+
+// 1979. FIND GREATEST COMMON DIVISOR OF ARRAY
+var findGCD = function(nums) {
+  let sortedArr = nums.sort((a, b) => a - b)
+  let smallestNumFromArr = sortedArr[0];
+  let largestNumFromArr = sortedArr[sortedArr.length -1];
+  let commonDivisor;
+  for (let i = 1; i <= largestNumFromArr && i <= smallestNumFromArr; i++) {
+      if (largestNumFromArr % i === 0 && smallestNumFromArr % i === 0) {
+          commonDivisor = i;
+      }
+  }
+  return commonDivisor;
+};
