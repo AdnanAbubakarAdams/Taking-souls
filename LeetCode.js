@@ -386,3 +386,23 @@ var findGCD = function(nums) {
   }
   return commonDivisor;
 };
+
+var topKFrequent = function(nums, k) {
+  let countOfFrequency = {};
+  for (let num of nums) {
+      if (num in countOfFrequency) {
+          countOfFrequency[num]++
+      } else {
+          countOfFrequency[num] = 1
+      }
+  }
+let convertedObj = Object.entries(countOfFrequency)
+let mostFrequentElement = [];
+for(let i = 0; i < k; i++) {
+  mostFrequentElement.push(convertedObj[i][0])
+}
+return mostFrequentElement;
+// let sortedObj = all.sort((a,b) => b[1] - a[1])
+// console.log(sortedObj)
+
+};
