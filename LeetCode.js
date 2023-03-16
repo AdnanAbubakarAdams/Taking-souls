@@ -473,3 +473,38 @@ var majorityElement = function (nums) {
 
   return sorted[0][0];
 };
+
+// PALINDROME NUMBER
+var isPalindrome = function(x) {
+  let str = String(x)
+  let start = 0;
+  let end = str.length -1
+
+  while(start <= end) {
+
+      if (str[start] != str[end]) {
+          return false;
+      }
+      start++;
+      end--;
+  }
+
+  return true;
+};
+
+// FIND THE INDEX OF THE FIRST OCCURANCE IN A STRING
+var strStr = function(haystack, needle) {
+  return haystack.indexOf(needle);
+};
+
+//  1929. Concatenation of Array
+var getConcatenation = function(nums) {
+
+  let repeatedArr = [...nums];
+
+  for (let i = 0; i < nums.length; i++) {
+      repeatedArr.push(nums[i])
+  }
+
+  return repeatedArr;
+};
