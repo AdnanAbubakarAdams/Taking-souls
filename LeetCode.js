@@ -508,3 +508,41 @@ var getConcatenation = function(nums) {
 
   return repeatedArr;
 };
+
+// 1480. RUNNING SUM OF 1D ARRAY
+var runningSum = function(nums) {
+
+  let arrOfRunningTheSum = [];
+  let sumOfElementPlusNextElement = 0;
+
+  for (let element of nums) {
+      sumOfElementPlusNextElement += element;
+      arrOfRunningTheSum.push(sumOfElementPlusNextElement);
+  }
+
+  return arrOfRunningTheSum;
+};
+
+// 1108. DEFANGING AN IP ADDRESS
+var defangIPaddr = function(address) {
+  return address.split(".").join("[.]")
+};
+
+// 2011. FINAL VALUE OF VARIABLE AFTER PERFORMING OPERATIONS
+var finalValueAfterOperations = function(operations) {
+    
+  let totalValOfOperations = 0;
+
+for (let i = 0; i < operations.length; i++) {
+
+  if (operations[i] === "++X" || operations[i] === "X++") {
+    operations[i] = 1;
+  } 
+  if (operations[i] === "--X" || operations[i] === "X--" ) {
+    operations[i] = -1;
+  }
+      totalValOfOperations += operations[i]
+  }
+
+return totalValOfOperations;
+};
