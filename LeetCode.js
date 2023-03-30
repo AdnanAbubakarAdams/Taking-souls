@@ -475,74 +475,113 @@ var majorityElement = function (nums) {
 };
 
 // PALINDROME NUMBER
-var isPalindrome = function(x) {
-  let str = String(x)
+var isPalindrome = function (x) {
+  let str = String(x);
   let start = 0;
-  let end = str.length -1
+  let end = str.length - 1;
 
-  while(start <= end) {
-
-      if (str[start] != str[end]) {
-          return false;
-      }
-      start++;
-      end--;
+  while (start <= end) {
+    if (str[start] != str[end]) {
+      return false;
+    }
+    start++;
+    end--;
   }
 
   return true;
 };
 
 // FIND THE INDEX OF THE FIRST OCCURANCE IN A STRING
-var strStr = function(haystack, needle) {
+var strStr = function (haystack, needle) {
   return haystack.indexOf(needle);
 };
 
 //  1929. Concatenation of Array
-var getConcatenation = function(nums) {
-
+var getConcatenation = function (nums) {
   let repeatedArr = [...nums];
 
   for (let i = 0; i < nums.length; i++) {
-      repeatedArr.push(nums[i])
+    repeatedArr.push(nums[i]);
   }
 
   return repeatedArr;
 };
 
 // 1480. RUNNING SUM OF 1D ARRAY
-var runningSum = function(nums) {
-
+var runningSum = function (nums) {
   let arrOfRunningTheSum = [];
   let sumOfElementPlusNextElement = 0;
 
   for (let element of nums) {
-      sumOfElementPlusNextElement += element;
-      arrOfRunningTheSum.push(sumOfElementPlusNextElement);
+    sumOfElementPlusNextElement += element;
+    arrOfRunningTheSum.push(sumOfElementPlusNextElement);
   }
 
   return arrOfRunningTheSum;
 };
 
 // 1108. DEFANGING AN IP ADDRESS
-var defangIPaddr = function(address) {
-  return address.split(".").join("[.]")
+var defangIPaddr = function (address) {
+  return address.split(".").join("[.]");
 };
 
 // 2011. FINAL VALUE OF VARIABLE AFTER PERFORMING OPERATIONS
-var finalValueAfterOperations = function(operations) {
-    
+var finalValueAfterOperations = function (operations) {
   let totalValOfOperations = 0;
 
-for (let i = 0; i < operations.length; i++) {
-
-  if (operations[i] === "++X" || operations[i] === "X++") {
-    operations[i] = 1;
-  } 
-  if (operations[i] === "--X" || operations[i] === "X--" ) {
-    operations[i] = -1;
+  for (let i = 0; i < operations.length; i++) {
+    if (operations[i] === "++X" || operations[i] === "X++") {
+      operations[i] = 1;
+    }
+    if (operations[i] === "--X" || operations[i] === "X--") {
+      operations[i] = -1;
+    }
+    totalValOfOperations += operations[i];
   }
-      totalValOfOperations += operations[i]
+
+  return totalValOfOperations;
+};
+
+//860. LEMONADE CHANGE
+var lemonadeChange = function (bills) {
+  let fiveDollarBills = 0;
+  let tenDollarBills = 0;
+
+  for (let bill of bills) {
+    if (bill === 5) {
+      fiveDollarBills++;
+    } else if (bill === 10) {
+      tenDollarBills++;
+      fiveDollarBills--;
+    } else if (bill === 20) {
+      if (tenDollarBills > 0 && fiveDollarBills >= 1) {
+        tenDollarBills -= 1;
+        fiveDollarBills -= 1;
+      } else {
+        fiveDollarBills -= 3;
+      }
+    }
+    if (fiveDollarBills < 0) {
+      return false;
+    }
   }
 
-return totalValOfOperations;
+  return true;
+};
+
+// 66. PLUS ONE
+var plusOne = function(digits) {
+  // didnt work
+//   let convertedToStr = digits.join("");
+//   let addedOneToStr = Number(convertedToStr) + 1;
+//   let convertedToArr = addedOneToStr.toString().split("");
+// return convertedToArr.map(ele => Number(ele))
+
+// not working in leetcode 
+let lastEle = digits[digits.length-1] + 1
+  let sliced = digits.slice(0,digits.length-1) 
+  let combiningSlicedAndLastElement = sliced + lastEle;
+  let removalOfCommas = combiningSlicedAndLastElement.toString().split(",").join("")
+  
+  return removalOfCommas.split("").map(ele => Number(ele))
 };

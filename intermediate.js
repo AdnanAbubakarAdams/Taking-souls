@@ -356,11 +356,10 @@ var isAnagram = function (test, original) {
 };
 
 // BEGINNER SERIES #3 SUM OF NUMBERS
-function getSum( a,b )
-{
- let max = Math.max(a,b)
- let min = Math.min(a,b)
- return (max - min + 1) * (max + min) / 2
+function getSum(a, b) {
+  let max = Math.max(a, b);
+  let min = Math.min(a, b);
+  return ((max - min + 1) * (max + min)) / 2;
 }
 
 // LIST FILTERING
@@ -369,7 +368,7 @@ function filter_list(l) {
   let filteredArray = [];
   for (let i = 0; i < l.length; i++) {
     if (Number.isInteger(l[i])) {
-      filteredArray.push(l[i])
+      filteredArray.push(l[i]);
     }
   }
   return filteredArray;
@@ -378,17 +377,16 @@ function filter_list(l) {
 
 // JADEN CASING STRINGS
 String.prototype.toJadenCase = function () {
-  return this
-             .split(" ")
-             .map((sentence) => sentence[0].toUpperCase() + sentence.slice(1))
-             .join(" ")
+  return this.split(" ")
+    .map((sentence) => sentence[0].toUpperCase() + sentence.slice(1))
+    .join(" ");
 };
 
 // Ordered Count of Characters
 function orderedCount(text) {
   // create a new array to push the small array of elements
   let countedArr = [];
-  // loop through the given string 
+  // loop through the given string
   for (let i = 0; i < text.length; i++) {
     // create a count variable
     let count = 0;
@@ -415,9 +413,9 @@ function orderedCount(text) {
 // MinMinMax
 function minMinMax(array) {
   // solution goes here!
-//   console.log(array)
+  //   console.log(array)
   let smallestInArray = Math.min(...array);
-  let largestInArray = Math.max(...array)
+  let largestInArray = Math.max(...array);
   let minimumNotInArray = 0;
   console.log(smallestInArray, largestInArray);
   for (let i = smallestInArray; i <= largestInArray; i++) {
@@ -425,31 +423,30 @@ function minMinMax(array) {
       minimumNotInArray = i;
       break;
     }
-}
+  }
   return [smallestInArray, minimumNotInArray, largestInArray];
 }
-
 
 // ReplaceAll(input, find, replace)
 function replaceAll(input, find, replace) {
   // take care of the condition where theres no input
   if (!input && !find) return replace;
-  
+
   if (!find) return replace + input.split("").join(replace) + replace;
-  
+
   let str = "";
-//   console.log(input, find, replace)
+  //   console.log(input, find, replace)
   /// loop through each character of input
   for (let i = 0; i < input.length; i++) {
     // does inpput from i to i + find.length == find ?
-    if (input.slice(i, i+find.length) == find) {
+    if (input.slice(i, i + find.length) == find) {
       // add replace to the str
       str += replace;
       // increment i by find.length -1;
-      i += find.length -1;
+      i += find.length - 1;
     } else {
       // add character[i] to str
-      str += input[i]
+      str += input[i];
     }
   }
   return str;
@@ -472,60 +469,59 @@ function strangeMath(n, k) {
   // create an empty array
   let arr = [];
   // fill the array with 1 through n
-  for(let i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     arr.push(i);
   }
   // order the new arr lexographically
-  arr.sort()
+  arr.sort();
   // iterate through the array
   for (let i = 0; i < arr.length; i++) {
     // each time checking if the number is equal to k, if so return the position + 1
-    if(arr[i] === k) {
-      return i + 1
+    if (arr[i] === k) {
+      return i + 1;
     }
   }
   return k;
 }
 
 // FACTORIAL FACTORY
-function factorial (n) {
+function factorial(n) {
   if (n < 0) return null;
   if (n === 0 || n === 1) return 1;
-  return n * factorial(n - 1)
+  return n * factorial(n - 1);
 }
 
 // RECURSION#1 => FACTORIAL
-const factorial = n => {
+const factorial = (n) => {
   if (n === 1 || n === 0) {
     return 1;
   }
-    return n * factorial(n - 1)
+  return n * factorial(n - 1);
 };
 
 // RECURSIVE REPLICATION
 function replicate(times, number) {
-	// your solution here
+  // your solution here
   const arr = [];
-  if (times <= 0) { 
+  if (times <= 0) {
     return arr;
-    } else {
-  return [number].concat(replicate(times - 1, number))
-   }
+  } else {
+    return [number].concat(replicate(times - 1, number));
+  }
 }
 
 // RECURSION#2 FIBONACCI
-const fibonacci = n => {
-  if (n <= 2){
-     return 1;
+const fibonacci = (n) => {
+  if (n <= 2) {
+    return 1;
   }
-  return fibonacci(n - 1) + fibonacci(n - 2)
- 
+  return fibonacci(n - 1) + fibonacci(n - 2);
 };
 
 // Sum ALL the arrays!
 function arraySum(arr) {
   // sum ALL the things!
-  return arr.flat().reduce((a ,b) => a + b, 0)
+  return arr.flat().reduce((a, b) => a + b, 0);
 }
 
 // Sum ALL the arrays!
@@ -544,78 +540,100 @@ function sumNumbersInArray(arr) {
 // Sum ALL the arrays!
 function arraySum(arr) {
   // sum ALL the things!
-let sum = 0; 
+  let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    if(Array.isArray(arr[i])) {
-      sum += arraySum(arr[i])
-    } else if (typeof arr[i] === "number"){
-      sum += arr[i]
+    if (Array.isArray(arr[i])) {
+      sum += arraySum(arr[i]);
+    } else if (typeof arr[i] === "number") {
+      sum += arr[i];
     }
   }
   return sum;
 }
 
 //SUM OF INTEGERS IN STRING
-function sumOfIntegersInString(s){
-  return s
-    // splitting using regex to split at each instance not a number 
-    .split(/([^0-9])/g)
-    // mapping through the array and converting each element to number 
-    .map(x => parseInt(x))
-    // filtering every element that is not a number or return falsy value
-    .filter(Boolean)
-    // using reduce to sum up  all the numbers in the array
-    .reduce((a,b)=> a + b,0)
+function sumOfIntegersInString(s) {
+  return (
+    s
+      // splitting using regex to split at each instance not a number
+      .split(/([^0-9])/g)
+      // mapping through the array and converting each element to number
+      .map((x) => parseInt(x))
+      // filtering every element that is not a number or return falsy value
+      .filter(Boolean)
+      // using reduce to sum up  all the numbers in the array
+      .reduce((a, b) => a + b, 0)
+  );
 }
 
 // COLLATZ CONJUCTURE LENGTH
 function collatz(n) {
   // set a counter variable and equal it to 1
-   let results = 1;
-   // create a while loop to keep repeating an action till n hits 1
-   while (n > 1) {
-     // increase the counter
-     results++
-     // set a condition to check for when n is even and also when n is odd
-     n = n % 2 === 0 ? n / 2 : n * 3 + 1;
-   }
-   // return your counter which will be the length of the collatz
-   return results;
- }
+  let results = 1;
+  // create a while loop to keep repeating an action till n hits 1
+  while (n > 1) {
+    // increase the counter
+    results++;
+    // set a condition to check for when n is even and also when n is odd
+    n = n % 2 === 0 ? n / 2 : n * 3 + 1;
+  }
+  // return your counter which will be the length of the collatz
+  return results;
+}
 
- // SNAIL CRAWLS UP
- function snail(column, day, night) {
+// SNAIL CRAWLS UP
+function snail(column, day, night) {
   let totalDays = 1;
   let distanceCovered = day;
-  while(distanceCovered < column) {
-    totalDays++
+  while (distanceCovered < column) {
+    totalDays++;
     distanceCovered += day - night;
   }
   return totalDays;
-//   return Math.ceil((column - night) / (day - night))
+  //   return Math.ceil((column - night) / (day - night))
 }
 
 // UNSCRUMBLED EGG
-function unscrambleEggs(word){
+function unscrambleEggs(word) {
   //coding is feggunegg
-  return word.replace(/egg/g, "")
+  return word.replace(/egg/g, "");
 }
 
-// REMOVE CONSECUTIVE DUPLICATE WORDS 
-const removeConsecutiveDuplicates = s => {
+// REMOVE CONSECUTIVE DUPLICATE WORDS
+const removeConsecutiveDuplicates = (s) => {
   // your perfect code...
   // split the string into in array
-  let splitted = s.split(" ")
-  console.log(splitted)
-  
+  let splitted = s.split(" ");
+  console.log(splitted);
+
   let stack = [];
   for (let i = 0; i < splitted.length; i++) {
     if (splitted[i + 1] === splitted[i]) {
-      continue
+      continue;
     } else {
-      stack.push(splitted[i])
+      stack.push(splitted[i]);
     }
   }
-  return stack.join(" ")
+  return stack.join(" ");
+};
 
-} 
+// SIMPLE REMOVE DUPLICATES
+function solve(arr) {
+  // create a new Arr
+  const lastOccurranceOfElements = [];
+  const seenOccurranceOfElements = {};
+
+  // loop through the array from backwards
+  for (let i = arr.length - 1; i >= 0; i--) {
+    // set a condition to check if we have seen the element before?
+    if (!seenOccurranceOfElements[arr[i]]) {
+      // if we havent we add it to the begining of the new arr
+      lastOccurranceOfElements.unshift(arr[i]);
+      // we also mark it as seen in case we come across it again
+      seenOccurranceOfElements[arr[i]] = true;
+    }
+  }
+
+  return lastOccurranceOfElements;
+}
+
