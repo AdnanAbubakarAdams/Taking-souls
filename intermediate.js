@@ -637,3 +637,38 @@ function solve(arr) {
   return lastOccurranceOfElements;
 }
 
+// 349. INTERSECTION OF TWO ARRAYS
+var intersection = function(nums1, nums2) {
+  let commonEle = [];
+
+  for (let i = 0; i < nums1.length; i++) {
+      if (nums2.includes(nums1[i])) {
+          if(!commonEle.includes(nums1[i])) {
+              commonEle.push(nums1[i])
+          }
+      }
+  }
+
+  return commonEle;
+};
+
+// 350. INTERSECTION OF TWO ARRAY II
+var intersect = function(nums1, nums2) {
+  let commonEleWithDups = [];
+  let objOfEle = {}
+
+  for (let num of nums1) {
+      if (objOfEle[num]) {
+          objOfEle[num]++
+      } else {
+          objOfEle[num] = 1;
+      }
+  }
+  for (let num of nums2) {
+          if (objOfEle[num] > 0) {
+              commonEleWithDups.push(num)
+              objOfEle[num]--
+          }
+      }
+  return commonEleWithDups;
+};
