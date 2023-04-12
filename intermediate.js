@@ -672,3 +672,59 @@ var intersect = function(nums1, nums2) {
       }
   return commonEleWithDups;
 };
+
+// 1002. FIND COMMON CHARACTERS
+var commonChars = function(words) {
+  let commonCharInEachWord = [];
+  let firstWord = words[0];
+
+  for (let i = 0; i < firstWord.length; i++) {
+      if (words.every(word => word.includes(firstWord[i]))) {
+          commonCharInEachWord.push(firstWord[i]);
+          words = words.map(word => word.replace(firstWord[i], ''));
+      }
+  }
+  return commonCharInEachWord;
+};
+
+// 1446. CONSECUTIVE CHARACTERS
+var maxPower = function(s) {
+  if (s.length === 0) {
+      return 0
+  };
+
+  let count = 1;
+  let maxCount = 1;
+  
+  for(let i = 1; i < s.length; i++) {
+      if (s[i] === s[i-1]) {
+          count += 1;
+      } else {
+          count = 1;
+      }
+       maxCount = Math.max(maxCount, count)
+  }
+
+  return maxCount;
+};
+
+// 27. REMOVE ELEMENTS 
+var removeElement = function(nums, val) {
+    /**
+     *  for(let i = nums.length-1; i >= 0; i--) {
+        if (nums[i] === val) nums.splice(i, 1)
+    }
+
+    return nums.length;
+     */
+  let k = 0;
+  
+  for(let i = 0; i < nums.length; i ++) {
+      if (nums[i] !== val) {
+          nums[k] = nums[i];
+          k++;
+      }
+  }
+
+  return k;
+};
