@@ -585,3 +585,128 @@ let lastEle = digits[digits.length-1] + 1
   
   return removalOfCommas.split("").map(ele => Number(ele))
 };
+
+// 349. INTERSECTION OF TWO ARRAYS
+var intersection = function(nums1, nums2) {
+  let commonEle = [];
+
+  for (let i = 0; i < nums1.length; i++) {
+      if (nums2.includes(nums1[i])) {
+          if(!commonEle.includes(nums1[i])) {
+              commonEle.push(nums1[i])
+          }
+      }
+  }
+
+  return commonEle;
+};
+
+// 350. INTERSECTION OF TWO ARRAY II
+var intersect = function(nums1, nums2) {
+  let commonEleWithDups = [];
+  let objOfEle = {}
+
+  for (let num of nums1) {
+      if (objOfEle[num]) {
+          objOfEle[num]++
+      } else {
+          objOfEle[num] = 1;
+      }
+  }
+  for (let num of nums2) {
+          if (objOfEle[num] > 0) {
+              commonEleWithDups.push(num)
+              objOfEle[num]--
+          }
+      }
+  return commonEleWithDups;
+};
+
+// 1002. FIND COMMON CHARACTERS
+var commonChars = function(words) {
+  let commonCharInEachWord = [];
+  let firstWord = words[0];
+
+  for (let i = 0; i < firstWord.length; i++) {
+      if (words.every(word => word.includes(firstWord[i]))) {
+          commonCharInEachWord.push(firstWord[i]);
+          words = words.map(word => word.replace(firstWord[i], ''));
+      }
+  }
+  return commonCharInEachWord;
+};
+
+// 1446. CONSECUTIVE CHARACTERS
+var maxPower = function(s) {
+  if (s.length === 0) {
+      return 0
+  };
+
+  let count = 1;
+  let maxCount = 1;
+  
+  for(let i = 1; i < s.length; i++) {
+      if (s[i] === s[i-1]) {
+          count += 1;
+      } else {
+          count = 1;
+      }
+       maxCount = Math.max(maxCount, count)
+  }
+
+  return maxCount;
+};
+
+// 27. REMOVE ELEMENTS 
+var removeElement = function(nums, val) {
+    /**
+     *  for(let i = nums.length-1; i >= 0; i--) {
+        if (nums[i] === val) nums.splice(i, 1)
+    }
+
+    return nums.length;
+     */
+  let k = 0;
+  
+  for(let i = 0; i < nums.length; i ++) {
+      if (nums[i] !== val) {
+          nums[k] = nums[i];
+          k++;
+      }
+  }
+
+  return k;
+};
+
+// 1704. DETERMINE IF STRING HALVES ARE ALIKE
+var halvesAreAlike = function(s) {
+  // create or throw vowels into a new set
+let vowels = new Set(["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"])
+// create vars for the firsthalf of the str (a) n secondhalf of str (b) and the var to determine the midpoint
+let firstHalfOfString = 0;
+let secondHalfOfString = 0;
+let midpoint = s.length / 2
+// create two pointers left and right pointers
+let leftPointer = 0;
+let rightPointer = s.length - 1;
+
+// loop throught the midpoint
+for (let i = 0; i < midpoint; i++) {
+ // check if the set of vowels contains str @ left pointer
+ if (vowels.has(s[leftPointer])) {
+   // if it does increase the first half str
+   firstHalfOfString++
+}
+ // check if the set of vowels containts str @ right pointer
+ if (vowels.has(s[rightPointer])) {
+   // if it does you increase the secondhalf str
+   secondHalfOfString++
+ }
+// still inside the loop keep moving pointers
+// i.e left pointer ++ right pointer --
+ leftPointer++
+ rightPointer--
+}
+// return firsthalfstr === secondhalfstr
+return firstHalfOfString === secondHalfOfString;
+};
