@@ -710,3 +710,17 @@ for (let i = 0; i < midpoint; i++) {
 // return firsthalfstr === secondhalfstr
 return firstHalfOfString === secondHalfOfString;
 };
+
+// 1470. SHUFFLE THE ARRAY
+var shuffle = function(nums, n) {
+  // declare a var to save the new arr
+  let shuffledArray = [];
+
+  // loop through the array n times 
+  for (let i = 0; i < n; i++) {
+      // push the current index and the index + n
+      shuffledArray.push(nums[i], nums[i+n])
+      }
+  // return the new array
+  return shuffledArray;
+};
