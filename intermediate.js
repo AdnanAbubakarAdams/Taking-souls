@@ -637,5 +637,16 @@ function solve(arr) {
   return lastOccurranceOfElements;
 }
 
-
+// SUM EVEN NUMBERS
+function sumEvenNumbers(input) {
+  // [...]
+  let totalOfEvenNums = 0;
+  
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] % 2 === 0) {
+      totalOfEvenNums += input[i]
+    }
+  }
+  return totalOfEvenNums
+}
 

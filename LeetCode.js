@@ -724,3 +724,19 @@ var shuffle = function(nums, n) {
   // return the new array
   return shuffledArray;
 };
+
+// 2114. MAXIMUM NUMBER OF WORDS FOUND IN SENTENCES
+var mostWordsFound = function(sentences) {
+    
+  let countOfMaximumSentence = 0;
+
+  for (let i = 0; i < sentences.length; i++) {
+      let currentSentenceInArr = sentences[i].split(" ");
+
+      if (currentSentenceInArr.length > countOfMaximumSentence) {
+          countOfMaximumSentence = currentSentenceInArr.length;
+      }
+  }
+
+  return countOfMaximumSentence;
+};
