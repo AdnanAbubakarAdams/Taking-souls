@@ -1890,3 +1890,21 @@ function isVow(vows) {
     })
     return totalPoints;
   }
+
+  // REMOVE FIRST AND LAST CHARACTER PART TWO
+  function array(string) {
+    // TODO
+  //   let newStr = string.split(",");
+  //   let firstRep = newStr.shift();
+  //   let secondRep = newStr.pop();
+  //   console.log(firstRep, secondRep)
+  //   if (!string) return null;
+    return string.split(",").slice(1,-1).join(" ") || null;
+  }
+
+  // SORT ARRAY BY STRING LENGTH
+  function sortByLength (array) {
+    // Return an array containing the same strings, ordered from shortest to longest
+    
+    return array.sort((a, b) => a.length - b.length);
+  };
