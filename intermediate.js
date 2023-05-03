@@ -650,3 +650,18 @@ function sumEvenNumbers(input) {
   return totalOfEvenNums
 }
 
+// FLATTEN AND SORT ARRAY 
+function flattenAndSort(array) {
+  // Good luck, brave code warrior!
+//  return array.flat().sort((a, b) => a - b);
+  
+  let flattenArray = [];
+  
+  for(let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      flattenArray.push(array[i][j])
+    }
+  }
+  
+  return flattenArray.sort((a, b) => a - b)
+}

@@ -760,3 +760,36 @@ var numIdenticalPairs = function(nums) {
 var bulbSwitch = function(n) {
   return Math.floor(Math.sqrt(n));
 };
+
+// 1662. CHECK IF TWO STRINGS ARE EQUIVALENT
+var arrayStringsAreEqual = function(word1, word2) {
+  let firstWord = word1.reduce((a,b) => a + b);
+  let secondWord = word2.reduce((a,b) => a + b);
+  
+  return firstWord === secondWord
+};
+
+// 2215. FIND THE DIFFERENCE OF TWO ARRAYS
+var findDifference = function(nums1, nums2) {
+  let notInNums2 = [];
+  let notInNums1 = [];
+   
+  for (let num of nums1) {
+      if (!nums2.includes(num)) {
+          if (!notInNums2.includes(num)) {
+              notInNums2.push(num);
+          } 
+      }
+  }
+
+  for (let num of nums2) {
+      if (!nums1.includes(num)) {
+          if (!notInNums1.includes(num)) {
+               notInNums1.push(num)
+          }
+      }
+  }
+
+  return [[...notInNums2], [...notInNums1]];
+//    return combinedArr = [[...notInNums2], [...notInNums1]]
+};
