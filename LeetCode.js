@@ -793,3 +793,18 @@ var findDifference = function(nums1, nums2) {
   return [[...notInNums2], [...notInNums1]];
 //    return combinedArr = [[...notInNums2], [...notInNums1]]
 };
+
+// 219. CONTAINS DUPLICATE II
+var containsNearbyDuplicate = function(nums, k) {
+  let hashMap = {};
+
+for (let i = 0; i < nums.length; i++) {
+  if (i - hashMap[nums[i]] <= k) {
+    return true;
+  }
+  hashMap[nums[i]] = i
+}
+
+return false;
+};
+
