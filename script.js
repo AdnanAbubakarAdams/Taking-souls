@@ -978,3 +978,4 @@ const topRankedMoviews = movies.filter(({title, year, scores}) =>  {
     return `${title} was made in ${year}, and is rated: ${scores}`
 });
 console.log(topRankedMoviews)
+

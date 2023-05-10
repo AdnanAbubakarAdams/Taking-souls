@@ -808,3 +808,44 @@ for (let i = 0; i < nums.length; i++) {
 return false;
 };
 
+// 1636. Sort Array by Increasing Frequency
+var frequencySort = function(nums) {
+  let newObj = {};
+
+  for(let i = 0; i < nums.length; i++) {
+      if (newObj[nums[i]]) {
+          newObj[nums[i]]++;
+      } else {
+          newObj[nums[i]] = 1;
+      }
+  }
+
+   let sorted = nums.sort((a,b) => {
+      if(newObj[a] > newObj[b]){
+        // console.log(newObj[a], newObj[b])
+          return 1;
+      }else if(newObj[a] < newObj[b]){
+          return -1;
+      }else if(newObj[a] === newObj[b]){
+          return b-a
+      }
+  });
+
+  return sorted;
+
+};
+
+// 1572. MATRIX DIAGONAL SUM
+var diagonalSum = function(mat) {
+  let sumOfDiagonals = 0;
+
+  for (let i = 0; i < mat.length; i++) {
+      sumOfDiagonals += mat[i][i];
+
+      if (i !== mat.length-1 - i) {
+          sumOfDiagonals += mat[i][mat.length-1 - i];
+      }
+  }
+
+  return sumOfDiagonals;
+};

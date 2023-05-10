@@ -665,3 +665,9 @@ function flattenAndSort(array) {
   
   return flattenArray.sort((a, b) => a - b)
 }
+
+// DESCENDING ORDER
+function descendingOrder(n){
+  //...
+  return Number(n.toString().split('').sort((a, b) => b - a).join(''));
+}
