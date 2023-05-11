@@ -849,3 +849,32 @@ var diagonalSum = function(mat) {
 
   return sumOfDiagonals;
 };
+
+// 2160. Minimum Sum of Four Digit Number After Splitting Digits
+var minimumSum = function(num) {
+  let splittedNum = num.toString().split("").sort();
+  console.log(splittedNum);
+
+  return parseInt(splittedNum[0] + splittedNum[2]) + parseInt(splittedNum[1] + splittedNum[3])
+};
+
+// 258. Add Digits
+var addDigits = function(num) {
+  // recursive
+  if (num < 10) return num;
+
+  let splitNum = num.toString().split("");
+  let addingDigits = 0;
+
+  for (let num of splitNum) {
+      addingDigits += parseInt(num);
+  }
+
+  return addDigits(addingDigits)
+
+  // most efficient
+  // if (isNaN(num) || num === 0) return 0;
+  // if (num < 10) return num;
+  //  return num % 9 === 0 ? 9 : num % 9;
+
+};
