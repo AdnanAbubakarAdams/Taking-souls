@@ -1836,75 +1836,92 @@ const hotpo = (n) => {
 };
 
 // Get the mean of an array
-function getAverage(marks){
+function getAverage(marks) {
   //TODO : calculate the downward rounded average of the marks array
-  console.log(marks)
-  return Math.floor(marks.reduce((a, b) => a + b, 0) / marks.length.toFixed(0))
+  console.log(marks);
+  return Math.floor(marks.reduce((a, b) => a + b, 0) / marks.length.toFixed(0));
 }
 
-// Super Duper Easy 
-function problem(x){
+// Super Duper Easy
+function problem(x) {
   //your code here
-  console.log(x)
-  if(typeof x === "string") return "Error";
+  console.log(x);
+  if (typeof x === "string") return "Error";
   return x * 50 + 6;
-  
 }
 
 // Training JS#7 IF ELSE AND TERNARY OPERATOR
-function saleHotdogs(n){
-  return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n >= 10 ? n * 90 : n
+function saleHotdogs(n) {
+  return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n >= 10 ? n * 90 : n;
 }
 
 // IS THERE A VOWEL IN THERE?
 function isVow(vows) {
-  console.log(vows)
-   return vows.map(vow => /[aeiou]/.test(String.fromCharCode(vow)) ? String.fromCharCode(vow) : vow )
- }
+  console.log(vows);
+  return vows.map((vow) =>
+    /[aeiou]/.test(String.fromCharCode(vow)) ? String.fromCharCode(vow) : vow
+  );
+}
 
- // COUNT THE MONKEYS
- function monkeyCount(n) {
+// COUNT THE MONKEYS
+function monkeyCount(n) {
   // your code here
-    console.log(n);
-    let newArr = [];
-    for (let i = 1; i < n+1; i++) {
-      newArr.push(i);
+  console.log(n);
+  let newArr = [];
+  for (let i = 1; i < n + 1; i++) {
+    newArr.push(i);
+  }
+  return newArr;
+}
+
+// TOTAL AMOUNT OF POINTS
+function points(games) {
+  // your code here
+  console.log(games);
+  let totalPoints = 0;
+  games.forEach((game) => {
+    const [h, a] = game.split(":").map(Number); // turns them to an array of strings => 1:0 = ["1", "0"]
+    if (h > a) {
+      totalPoints += 3;
+    } else if (h === a) {
+      totalPoints += 1;
+    } else {
+      totalPoints += 0;
     }
-    return newArr;
-  }
+  });
+  return totalPoints;
+}
 
-  // TOTAL AMOUNT OF POINTS
-  function points(games) {
-    // your code here
-    console.log(games)
-    let totalPoints = 0;
-    games.forEach((game) => {
-      const [h,a] = game.split(":").map(Number) // turns them to an array of strings => 1:0 = ["1", "0"]
-      if (h > a) {
-        totalPoints +=3;
-      } else if (h === a) {
-        totalPoints += 1;
-      } else {
-        totalPoints += 0;
-      }
-    })
-    return totalPoints;
-  }
-
-  // REMOVE FIRST AND LAST CHARACTER PART TWO
-  function array(string) {
-    // TODO
+// REMOVE FIRST AND LAST CHARACTER PART TWO
+function array(string) {
+  // TODO
   //   let newStr = string.split(",");
   //   let firstRep = newStr.shift();
   //   let secondRep = newStr.pop();
   //   console.log(firstRep, secondRep)
   //   if (!string) return null;
-    return string.split(",").slice(1,-1).join(" ") || null;
-  }
+  return string.split(",").slice(1, -1).join(" ") || null;
+}
 
-  // SORT ARRAY BY STRING LENGTH
-  function sortByLength (array) {
-    // Return an array containing the same strings, ordered from shortest to longest
-    
-    return array.sort((a, b) => a.length - b.length);
+// SORT ARRAY BY STRING LENGTH
+function sortByLength(array) {
+  // Return an array containing the same strings, ordered from shortest to longest
+
+  return array.sort((a, b) => a.length - b.length);
+}
+
+// Be Concise IV - Index of an element in an array
+function find(array, element) {
+  let index = array.indexOf(element);
+
+  return index >= 0 ? index : "Not found";
+}
+
+// Currying functions: multiply all elements in an array
+function multiplyAll(array) {
+  return function (n) {
+    return array.map((el) => el * n);
   };
+}
+let multiply_all = multiplyAll([1, 2, 3]);
+multiply_all(2);
