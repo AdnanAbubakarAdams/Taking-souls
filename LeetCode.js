@@ -955,3 +955,165 @@ var alternateDigitSum = function(n) {
 
 return sumOfAlternatingDigit;
 };
+
+// 345. Reverse Vowels of a String
+var reverseVowels = function(s) {
+  // declare vars to save the pointer and vowels
+ let leftPointer = 0;
+ let rightPointer = s.length -1;
+ let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+ // split string into an array to loop through it
+ let splittedStr = s.split("");
+
+ while (leftPointer < rightPointer) {
+   if (vowels.indexOf(splittedStr[leftPointer]) !== -1 && vowels.indexOf(splittedStr[rightPointer]) !== -1) {
+     // using array distruction method swap the vowels in place
+     [splittedStr[leftPointer], splittedStr[rightPointer]] = [splittedStr[rightPointer], splittedStr[leftPointer]];
+     leftPointer++;
+     rightPointer--;
+   }
+   if (vowels.indexOf(splittedStr[leftPointer]) == -1) {
+     leftPointer++;
+   }
+
+   if (vowels.indexOf(splittedStr[rightPointer]) == -1) {
+     rightPointer--
+   }
+ }
+
+ return splittedStr.join("");
+   
+};
+
+// 389. Find the Difference
+var findTheDifference = function(s, t) {
+    
+  for (let char of s) {
+      t = t.replace(char, "");
+  }
+  return t;
+};
+
+// 392. Is Subsequence
+var isSubsequence = function(s, t) {
+  if (s.length > t.length) return false;
+
+let subsequence = 0;
+for(let i = 0; i < t.length; i++) {
+  if (s[subsequence] === t[i]) {
+    subsequence++
+  }
+}
+
+return subsequence === s.length;
+};
+
+// 412. FIZZ BUZZ
+var fizzBuzz = function(n) {
+  let fizzArray = [];
+
+  for(let i = 1; i <= n; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+          fizzArray.push("FizzBuzz");
+      } else if(i % 3 === 0) {
+          fizzArray.push("Fizz");
+      } else if (i % 5 === 0) {
+          fizzArray.push("Buzz");
+      } else {
+          fizzArray.push(i.toString());
+      }
+  }
+
+  return fizzArray;
+};
+
+// 844. Backspace String Compare
+var backspaceCompare = function(s, t) {
+  let stackOfS = [];
+  let stackOfT = [];
+
+  for (let i = 0; i < s.length; i++) {
+      if (s[i] === "#") {
+          stackOfS.pop();
+      } else {
+          stackOfS.push(s[i]);
+      }
+  }
+
+  for (let i = 0; i < t.length; i++) {
+      if (t[i] === "#") {
+          stackOfT.pop();
+      } else {
+          stackOfT.push(t[i])
+      }
+  }
+
+  return stackOfS.join("") === stackOfT.join("")
+};
+
+// 71. Simplify Path
+var simplifyPath = function(path) {
+  let stackOfPath = [];
+  let directories = path.split("/");
+
+  for (let directory of directories) {
+      if (directory !== "" && directory !== ".") {
+          if (directory === "..") {
+              stackOfPath.pop();
+          } else {
+              stackOfPath.push(directory);
+          }
+      }
+  }
+
+  return "/" + stackOfPath.join("/");
+};
+
+// 1869. Longer Contiguous Segments of Ones than Zeros
+var checkZeroOnes = function(s) {
+    
+  let countOf1 = 0;
+  let countOf0 = 0;
+
+  let longestConsecutiveSeqOf1 = 0;
+  let longestConsecutiveSeqOf0 = 0;
+
+  for (let str of s) {
+      if (str === "1") {
+          countOf1 ++;
+      } else {
+        // reset count
+        countOf1 = 0;
+      }
+
+      if (str === "0") {
+          countOf0 ++;
+      } else {
+        // reset count
+        countOf0 = 0;
+      }
+
+      longestConsecutiveSeqOf1 = Math.max(longestConsecutiveSeqOf1, countOf1);
+      longestConsecutiveSeqOf0 = Math.max(longestConsecutiveSeqOf0, countOf0);
+  }
+
+  return longestConsecutiveSeqOf1 > longestConsecutiveSeqOf0;
+};
+
+// 485. Max Consecutive Ones
+var findMaxConsecutiveOnes = function(nums) {
+  let countOf1 = 0;
+  let consecutiveCountOf1 = 0;
+
+  for(let num of nums) {
+      if (num === 1) {
+          countOf1++;
+      } else {
+          countOf1 = 0;
+      }
+
+      consecutiveCountOf1 = Math.max(consecutiveCountOf1, countOf1);
+  }
+
+  return consecutiveCountOf1;
+};
