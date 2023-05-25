@@ -671,3 +671,8 @@ function descendingOrder(n){
   //...
   return Number(n.toString().split('').sort((a, b) => b - a).join(''));
 }
+
+// IS THE EVERY VALUE IN THE ARRAY AND ARRAY
+const arrCheck = (value) => {
+  return value.every((val) => Array.isArray(val));
+} 

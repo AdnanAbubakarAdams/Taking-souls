@@ -1117,3 +1117,225 @@ var findMaxConsecutiveOnes = function(nums) {
 
   return consecutiveCountOf1;
 };
+
+// 414. Third Maximum Number
+var thirdMax = function(nums) {
+  let firstMax = -Infinity;
+  let secondMax = -Infinity;
+  let thirdMax = -Infinity;
+
+  for (let num of nums) {
+      if(num === firstMax || num === secondMax || num === thirdMax) continue;
+
+      if (firstMax < num) {
+          thirdMax = secondMax;
+          secondMax = firstMax;
+          firstMax = num;
+      } else if(secondMax < num) {
+          thirdMax = secondMax;
+          secondMax = num;
+      } else if(thirdMax < num) {
+          thirdMax = num;
+      }
+  }
+
+  if (thirdMax === -Infinity) {
+      return firstMax;
+  } else {
+      return thirdMax;
+  }
+};
+
+
+// 1544. Make The String Great
+var makeGood = function(s) {
+  // set a stack to add or pop to make a good str
+    let stackOfGoodStr = [''];
+
+  // loop through the converted string 
+    for (let i = 0; i < s.length; i++) {
+      let lastCharInStr = stackOfGoodStr[stackOfGoodStr.length-1];
+    // check if the last char of str is the as the current element
+      if (lastCharInStr.toLowerCase() === s[i].toLowerCase() && lastCharInStr !== s[i]) {
+    // if it is pop it
+        stackOfGoodStr.pop()
+      } else {
+    // else add it to the stack
+        stackOfGoodStr.push(s[i])
+      }
+      
+    }
+
+// return the stack.join
+    return stackOfGoodStr.join("");
+};
+
+// 946. Validate Stack Sequences
+var validateStackSequences = function(pushed, popped) {
+    let stackValidity = [];
+
+    let i = 0;
+    
+    for (let element of pushed) {
+        stackValidity.push(element);
+
+        while(stackValidity.length > 0 && stackValidity[stackValidity.length -1] === popped[i]) {
+            stackValidity.pop();
+
+            i++
+        }
+    }
+
+    return stackValidity.length === 0;
+};
+
+
+// 561. Array Partition
+var arrayPairSum = function(nums) {
+    nums.sort((a, b) => a - b);
+
+    let maximizedSum = 0;
+
+    for(let i = 0; i < nums.length; i+=2) {
+        maximizedSum += nums[i]
+    }
+
+    return maximizedSum;
+};
+
+// 896. Monotonic Array
+var isMonotonic = function(nums) {
+    let increasingFlag = true;
+    let decreasingFlag = true;
+
+    for (let i = 0; i < nums.length; i++) {
+        let currentElement = nums[i];
+        let previousElement = nums[i-1];
+
+        if (currentElement < previousElement) {
+            increasingFlag = false;
+        }
+
+        if (currentElement > previousElement) {
+            decreasingFlag = false;
+        }
+    }
+
+    return increasingFlag || decreasingFlag;
+};
+
+// 2525. Categorize Box According to Criteria
+var categorizeBox = function(length, width, height, mass) {
+  let volume = length * width * height;
+
+  // let category = "";
+
+  let isBulky = 
+  length >= 10 ** 4 ||
+  width >= 10 ** 4  ||
+  height >= 10 ** 4 ||
+  mass >= 10 ** 4   ||
+  volume >= 10 ** 9;
+
+  let isHeavy = mass >= 100;
+
+  if(isBulky && isHeavy) {
+      return "Both";
+  } else if(!isBulky && !isHeavy) {
+      return "Neither";
+  } else if(isBulky && !isHeavy) {
+      return "Bulky";
+  } else if(isHeavy && !isBulky) {
+      return "Heavy";
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// C++ FIZZ BUZZ MULTITHREAD
+// class FizzBuzz {
+// private:
+//     int n;
+//     int current_number;
+//     mutex number_mutex;
+//     const int number_of_threads = 4;
+//     bool done = true;
+    
+// public:
+//     FizzBuzz(int n) {
+//         this->n = n;
+//         if (n > 0){
+//             done = false;
+//         }
+//         current_number = 1;
+//     }
+
+// private: 
+//     void nextNumber(){
+//         if (current_number < n){
+//             scoped_lock lock(number_mutex);
+//             current_number++;
+//         } else{
+//             done = true;
+//         }
+//     }
+
+// public: 
+//     // printFizz() outputs "fizz".
+//     void fizz(function<void()> printFizz) {        
+//         while (!done){
+//             if (!(current_number % 3 ) && (current_number % 5)){
+//                 printFizz();
+//                 nextNumber();               
+//             }
+//         }
+//     }
+
+//     // printBuzz() outputs "buzz".
+//     void buzz(function<void()> printBuzz) {        
+//         while (!done){
+//             if ((current_number % 3 ) && !(current_number % 5)){
+//                 printBuzz();
+//                 nextNumber();               
+//             }
+//         }
+//     }
+    
+//     // printFizzBuzz() outputs "fizzbuzz".
+// 	void fizzbuzz(function<void()> printFizzBuzz) {
+//         while (!done){
+//             if (!(current_number % 3 ) && !(current_number % 5)){
+//                 printFizzBuzz();
+//                 nextNumber();               
+//             }
+//         }
+//     }
+
+//     // printNumber(x) outputs "x", where x is an integer.
+//     void number(function<void(int)> printNumber) {
+        
+//         while (!done){
+//             if ((current_number % 3 ) && (current_number % 5)){
+//                 printNumber(current_number);
+//                 nextNumber();               
+//             }
+//         }
+//     }
+// };
