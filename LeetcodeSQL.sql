@@ -42,3 +42,6 @@ FROM (SELECT DISTINCT Country FROM Customers);
 -- 183. Customers Who Never Order
 SELECT name as Customers FROM customers
 WHERE (SELECT COUNT(*) FROM orders WHERE customerId = customers.id) < 1;
+
+-- 595. Big Countries
+SELECT name, area, population from world where area >= 3000000 OR population >= 25000000

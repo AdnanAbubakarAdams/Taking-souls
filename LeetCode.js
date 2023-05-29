@@ -1250,6 +1250,115 @@ var categorizeBox = function(length, width, height, mass) {
   }
 };
 
+// 13. Roman to Integer
+var romanToInt = function(s) {
+  let symbols = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000
+};
+  
+  let convertedToInt = 0;
+
+  for(let i = 0; i < s.length; i++) {
+    if (symbols[s[i]] < symbols[s[i+1]]) {
+      convertedToInt -= symbols[s[i]];
+      console.log(convertedToInt)
+    } else {
+      convertedToInt += symbols[s[i]];
+      console.log(convertedToInt)
+    }
+  }
+
+  return convertedToInt;
+}
+
+// 12. Integer to Roman
+var intToRoman = function(num) {
+  // create a hash or object to save key value pairs for symbols and values
+const romanValues = {
+ M: 1000,
+ CM: 900,
+ D: 500,
+ CD: 400,
+ C: 100,
+ XC: 90,
+ L: 50,
+ XL: 40,
+ X: 10,
+ IX: 9,
+ V: 5,
+ IV: 4,
+ I: 1
+};
+
+// a var to save the string of roman numerals (symbols) that represent the values 
+let convertedToRomanNumerals = "";
+
+// using a for in loop we iterate over the hash or object
+for (let symbol in romanValues) {
+
+ // using a while loop to check if the current val of the obj is less than the give numerical val
+ while (num >= romanValues[symbol]) {
+   // if it is we append the current symbol representing that value from the object or hash
+   convertedToRomanNumerals += symbol;
+   // And also go on to substract the current val of the obj from the given numerical value till it becomes 0
+   num -= romanValues[symbol];
+   // console.log(romanValues[symbol])
+ }
+}
+
+return convertedToRomanNumerals;
+};
+
+// 905. Sort Array By Parity
+var sortArrayByParity = function(nums) {
+  let evenNums = [];
+  let oddNums = [];
+
+  for (let num of nums) {
+      if (num % 2 === 0) {
+          evenNums.push(num)
+      } else {
+          oddNums.push(num)
+      }
+  }
+
+  return evenNums.concat(...oddNums);
+};
+
+// 2164. Sort Even and Odd Indices Independently
+var sortEvenOdd = function(nums) {
+  let evenIndices = [];
+  let oddIndices = [];
+  let sortedEvenAndOdd = [];
+
+  for (let i = 0; i < nums.length; i++) {
+      if (i % 2 === 0) {
+          evenIndices.push(nums[i]);
+      } else {
+          oddIndices.push(nums[i]);
+      }
+  }
+
+  evenIndices = evenIndices.sort((a,b) => a - b);
+  oddIndices = oddIndices.sort((a,b) => b - a);
+
+  for (let i = 0; i < nums.length; i++) {
+      if (i % 2 === 0) {
+          sortedEvenAndOdd.push(evenIndices.shift());
+      } else {
+          sortedEvenAndOdd.push(oddIndices.shift());
+      }
+  }
+
+  return sortedEvenAndOdd;
+};
+
 
 
 
