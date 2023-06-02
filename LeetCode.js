@@ -1359,6 +1359,28 @@ var sortEvenOdd = function(nums) {
   return sortedEvenAndOdd;
 };
 
+// 394. Decode String
+var decodeString = function(s) {
+  const onlyLetters = /^[a-z]+$/;
+  // if only letters
+  if(s.match(onlyLetters))
+      return s;
+  
+  const encodedPattern = /[0-9]{1,}\[[a-z]{1,}\]/;
+
+  s = s.replace(encodedPattern, decodedPattern);
+
+  return decodeString(s)
+};
+
+const decodedPattern = (segment) => {
+  const parts = segment.replace("]", "").split("[")
+  const timesToRepeat = parts[0];
+  const letters = parts[1];
+  
+  return letters.repeat(timesToRepeat);
+}
+
 
 
 
