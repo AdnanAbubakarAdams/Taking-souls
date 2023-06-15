@@ -1381,6 +1381,21 @@ const decodedPattern = (segment) => {
   return letters.repeat(timesToRepeat);
 }
 
+// 2677. Chunk Array
+var chunk = function(arr, size) {
+  let arrayOfChunks = [];
+  
+  for (let i = 0; i < arr.length; i += size) {
+      arrayOfChunks.push(arr.slice(i, i + size))
+  }
+
+  return arrayOfChunks;
+};
+
+// 2703. Return Length of Arguments Passed
+var argumentsLength = function(...args) {
+  return args.length;
+};
 
 
 
