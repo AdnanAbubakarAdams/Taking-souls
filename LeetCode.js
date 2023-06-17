@@ -1415,6 +1415,53 @@ var expect = function(val) {
   }
 };
 
+// 2665. Counter II
+var createCounter = function(init) {
+  let valueUsed = init;
+
+  function increment() {
+      return ++valueUsed;
+  }
+
+  function decrement() {
+      return --valueUsed;
+  }
+
+  function reset() {
+      return ( valueUsed = init ) ;
+  }
+
+  return { increment, decrement, reset }
+};
+
+// using a class for function above
+// class Counter {
+//   constructor(init) {
+//     this.init = init;
+//     this.presentCount = init;
+//   }
+
+//   increment() {
+//     this.presentCount += 1;
+//     return this.presentCount;
+//   }
+
+//   decrement() {
+//     this.presentCount -= 1;
+//     return this.presentCount;
+//   }
+
+//   reset() {
+//     this.presentCount = this.init;
+//     return this.presentCount;
+//   }
+// }
+
+// var createCounter = function(init) {
+//   return new Counter(init);
+// };
+
+
 
 
 
