@@ -1397,6 +1397,72 @@ var argumentsLength = function(...args) {
   return args.length;
 };
 
+// 2704. To Be Or Not To Be
+var expect = function(val) {
+  return {
+      toBe : function(val2) {
+          if (val !== val2) {
+              throw new Error("Not Equal");
+          } 
+          return true;
+      },
+      notToBe : function(val2) {
+          if (val === val2) {
+              throw new Error("Equal");
+          } 
+          return true;
+      }
+  }
+};
+
+// 2665. Counter II
+var createCounter = function(init) {
+  let valueUsed = init;
+
+  function increment() {
+      return ++valueUsed;
+  }
+
+  function decrement() {
+      return --valueUsed;
+  }
+
+  function reset() {
+      return ( valueUsed = init ) ;
+  }
+
+  return { increment, decrement, reset }
+};
+
+// using a class for function above
+// class Counter {
+//   constructor(init) {
+//     this.init = init;
+//     this.presentCount = init;
+//   }
+
+//   increment() {
+//     this.presentCount += 1;
+//     return this.presentCount;
+//   }
+
+//   decrement() {
+//     this.presentCount -= 1;
+//     return this.presentCount;
+//   }
+
+//   reset() {
+//     this.presentCount = this.init;
+//     return this.presentCount;
+//   }
+// }
+
+// var createCounter = function(init) {
+//   return new Counter(init);
+// };
+
+
+
 
 
 
