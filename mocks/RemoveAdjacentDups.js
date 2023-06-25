@@ -17,7 +17,7 @@ const removeAdjacentDups = (str) => {
     // loop throgh the str 
     for (let i = 0; i < str.length; i++) {
         // if currentEle === last element in the stack
-        if (str[i] === charStack[charStack.length-1]) {
+        if (charStack.length > 0 && charStack[charStack.length-1] === str[i]) {
             // remove it or pop it out of the stack
             charStack.pop();
             // else push the current element
