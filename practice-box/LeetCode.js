@@ -1434,6 +1434,31 @@ var createCounter = function(init) {
   return { increment, decrement, reset }
 };
 
+// 38. Count and Say
+var countAndSay = function(n) {
+  if(n === 1) return "1";
+// recurssively calling the helper function
+return readStringDigit(countAndSay(n-1));
+};
+
+// HELPER FUNCTION
+function readStringDigit(str) {
+let letPointer = 0;
+let strRead = "";
+
+for(let rightPointer = 0; rightPointer <= str.length; rightPointer++) {
+  
+  if(str[rightPointer] !== str[letPointer]) {
+    
+    strRead += (rightPointer - letPointer) + str[letPointer];
+    
+    letPointer = rightPointer;
+  }
+}
+
+return strRead;
+}
+
 // using a class for function above
 // class Counter {
 //   constructor(init) {
