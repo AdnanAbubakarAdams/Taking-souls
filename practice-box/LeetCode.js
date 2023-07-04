@@ -1459,6 +1459,56 @@ for(let rightPointer = 0; rightPointer <= str.length; rightPointer++) {
 return strRead;
 }
 
+//  1920. Build Array from Permutation
+var buildArray = function(nums) {
+  // Create an empty array called builtArr
+let builtArr = [];
+
+// Start a for loop that iterates over the elements of the nums array
+// Initialize the loop variable i to 0
+// Continue the loop as long as i is less than the length of nums
+// Increment i by 1 after each iteration
+for(let i = 0; i < nums.length; i++) {
+ // Retrieve the element at index i of the nums array
+ // Use this value as an index to access another element from the nums array
+ // Push the retrieved element to the builtArr array
+ builtArr.push(nums[nums[i]]);
+}
+
+// Return the builtArr array as the result of the function
+return builtArr;
+};
+
+// 55. Jump Game
+var canJump = function(nums) {
+  // Keep track of the maximum index we can reach
+let maximumJump = 0;
+
+// Iterate over the array
+for (let i = 0; i < nums.length; i++) {
+  // If the current index is greater than the maximum reach
+  // it means we cannot go beyond this point and reach the end
+  if (i > maximumJump) {
+    return false;
+  }
+
+  // Update the maximum reach if necessary
+  maximumJump = Math.max(maximumJump, i + nums[i]);
+
+  // If the maximum reach is already beyond or at the last index,
+  // we can reach the end, so return true
+  if (maximumJump >= nums.length - 1) {
+    return true;
+  }
+}
+
+
+return false;
+};
+
+
+
+
 // using a class for function above
 // class Counter {
 //   constructor(init) {
