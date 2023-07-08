@@ -40,12 +40,15 @@ var merge = function (intervals) {
 // 344. REVERSE STRING
 var reverseString = function (s) {
   //  return s.reverse()
-  let l = 0;
-  let r = s.length - 1;
-  while (l <= r) {
-    [s[l], s[r]] = [s[r], s[l]];
-    l += 1;
-    r -= 1;
+  let leftPointer = 0;
+  let rightPointer = s.length - 1;
+
+  while (leftPointer <= rightPointer) {
+
+    [s[leftPointer], s[rightPointer]] = [s[rightPointer], s[leftPointer]];
+
+    leftPointer += 1;
+    rightPointer -= 1;
   }
 };
 
@@ -98,6 +101,7 @@ var isValid = function (s) {
   return !stack.length;
   // true if stack is empty
 };
+
 // 217. CONTAINS DUPLICATE
 function containsDuplicates(num) {
   // create a new array to store elements while checking for duplicats
@@ -113,6 +117,7 @@ function containsDuplicates(num) {
   // return false if array does not include duplicates;
   return false;
 }
+
 // 217. CONTAINS DUPLICATE
 var containsDuplicate = function (nums) {
   let obj = {};
@@ -1506,6 +1511,34 @@ for (let i = 0; i < nums.length; i++) {
 return false;
 };
 
+// 128. Longest Consecutive Sequence
+//Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+// You must write an algorithm that runs in O(n) time.
+// Example 1:
+// Input: nums = [100,4,200,1,3,2]
+// Output: 4
+// Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4
+var longestConsecutive = function(nums) {
+  if (nums.length === 0) return 0;
+
+  let sequenceCount = 1;
+  let maxCount = 1;
+  let sortedArr = nums.sort((a, b) => a - b)
+
+  for (let i = 0; i < sortedArr.length; i++) {
+
+      if(sortedArr[i] - sortedArr[i - 1] === 1) {
+          sequenceCount++;
+          maxCount = Math.max(maxCount, sequenceCount);
+      } else if(sortedArr[i] === sortedArr[i-1]) {
+          continue;
+      } else {
+          sequenceCount = 1
+      }
+  }
+
+  return maxCount;
+};
 
 
 
