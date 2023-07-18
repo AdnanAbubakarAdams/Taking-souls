@@ -149,7 +149,7 @@ const add7ToNumber = (num) => {
   
     return arr;
   };
-  console.log(swapOddElements([1,2,4,3]))
+  console.log(swapOddElements([1,2,4,3]));
   
 
   
