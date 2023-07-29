@@ -1646,6 +1646,69 @@ var map = function (arr, fn) {
   return madeArr;
 };
 
+// 2620. Counter
+// Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
+// Example 1:
+// Input: 
+// n = 10 
+// ["call","call","call"]
+// Output: [10,11,12]
+// Explanation: 
+// counter() = 10 // The first time counter() is called, it returns n.
+// counter() = 11 // Returns 1 more than the previous time.
+// counter() = 12 // Returns 1 more than the previous time.
+// Example 2:
+// Input: 
+// n = -2
+// ["call","call","call","call","call"]
+// Output: [-2,-1,0,1,2]
+// Explanation: counter() initially returns -2. Then increases after each sebsequent call.
+var createCounter = function(n) {
+  let num = n ;
+  return function() {
+      return num++
+  };
+  
+};
+// 2631. Group By
+// Write code that enhances all arrays such that you can call the array.groupBy(fn) method on any array and it will return a grouped version of the array.
+// A grouped array is an object where each key is the output of fn(arr[i]) and each value is an array containing all items in the original array with that key.
+// The provided callback fn will accept an item in the array and return a string key.
+// The order of each value list should be the order the items appear in the array. Any order of keys is acceptable.
+// Please solve it without lodash's _.groupBy function.
+// Input: 
+// array = [
+//   {"id":"1"},
+//   {"id":"1"},
+//   {"id":"2"}
+// ], 
+// fn = function (item) { 
+//   return item.id; 
+// }
+// Output: 
+// { 
+//   "1": [{"id": "1"}, {"id": "1"}],   
+//   "2": [{"id": "2"}] 
+// }
+// Explanation:
+// Output is from array.groupBy(fn).
+// The selector function gets the "id" out of each item in the array.
+// There are two objects with an "id" of 1. Both of those objects are put in the first array.
+// There is one object with an "id" of 2. That object is put in the second array.
+Array.prototype.groupBy = function(fn) {
+  const obj = {};
+
+  for(let item of this){
+      let key = fn(item);
+
+      if(Array.isArray(obj[key])){
+          obj[key].push(item);
+      }else obj[key] = [item];
+  }
+  
+  return obj;
+};
+
 
 
 
