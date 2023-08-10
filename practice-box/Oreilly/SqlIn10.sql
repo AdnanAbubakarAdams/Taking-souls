@@ -229,6 +229,131 @@ eg: SELECT prod_name, prod_id, prod_price FROM Products; will retrieve ddta acco
             ROWS that are eliminated by a WHERE clause will not be included in the group.
             SELECT vend_id, COUNT(*) AS num_prods FROM Products WHERE prod_price >= 4 GROUP BY vend_id HAVING COUNT(*) >= 2;
 
+    WORKING WITH SUBQUERIES
+        USE WHERE WITH SUBQUERIES
+        A WHERE clause filters data retrived by SELECT
+        Subqueries allow the result of one query to be used as filter conditions for another query
+
+
+    JOINING TABLES
+            PRIMARY AND FOREIGN KEYS
+            Tables are usually joined by keys
+            A primary key uniquely identifies every row in a table
+                There can only ever be one of each primary key value
+            A foreign key in a table contains the primary key value of a related table
+                Multiple rows in table can have same foreign key value
+        
+        CREATE A BASIC JOINING
+        The simplest join requires two tables that share key which are tested for Equality
+            Primary key in one table
+            Foreign key in another table
+        This is called an equijoin or an INNER JOIN
+        SELECT vend_name, prod_name, prod_price FROM Vendors, Products WHERE Vendors.vend_id = Products.vend_id;
+
+        JOIN MULTIPLE TABLES
+        SELECT prod_name, vend_name, prod_price, quantity FROM OrderItems, Products, Vendors WHERE Products.vend_id = Vendors.vend_id AND OrderItems.prod_id = Products.prod_id AND order_num = 20007;
+
+        SELECT cust_name, cust_contact FROM Customers, Orders, OrderItems WHERE Customers.cust_id = Orders.cust_id AND OrderItems.order_num = Orders.order_num AND prod_id = 'RGAN01';
+    NB: Joins are the glue that hold relational tables together
+        For joins to work, primary and foreign keys must bee defined (and used)
+        The simplest join is an equijoin(also called inner join)
+        As per ANSI SQL specification, the longer inner join syntax is preferred over the equijoin syntax
+        All DBMSs support both syntaxes
+
+        ADVANCED JOINS
+        USE TABLE ALIASES
+            Previously aliases were used to name (or rename) columns
+            Aliases can also be used to rename tables
+            SELECT cust_name, cust_contact FROM Customers AS C, Orders AS O, OrderItems AS OI WHERE C.cust_id = O.cust_id AND OI.order_num = O.order_num AND prod_id = 'RGAN01'
+        
+        CREATE A SELF JOIN
+        A self join is used to join a table to itself
+        When using self joins aliases must be used to uniquely name each table instance
+        SELECT c1.cust_id, c1.cust_name, c1.cust_contact FROM Customers AS c1, Customers AS c2 WHERE c1.cust_name = c2.cust_name AND c2.cust_contact = 'Jim Jones';
+
+        SELECT C.*, O.order_num, O.order_date, OI.prod_id, OI.quantity, OI.item_price FROM Customers AS C, Orders AS O, OrderItems AS OI WHERE C.cust_id = O.cust_id AND OI.order_num  = O.order_num AND prod_id = 'RGAN01';
+
+        CREATE AN OUTER JOIN
+            An equijoin or inner join joins two tables and only retrieves rows that have related rows in the other table
+            An outer join makes it possible to retrieve all the rows from one table regardless of whether or not they have related rows in the other table
+
+            SELECT Customers.cust_id, Orders.order_num FROM Customers LEFT OUTER JOIN Orders ON Customers.cust_id = Orders.cust_id;
+
+            SELECT Customers.cust_id, Orders.order_num FROM Customers RIGHT OUTER JOIN Orders ON Orders.cust_id = Customers.cust_id ;
+        
+        USE JOINS WITH AGGREGATE FUNCTIONS
+        SELECT Customers.cust_id, COUNT(Orders.order_num) AS num_ord FROM Customers INNER JOIN Orders ON Customers.cust_id = Orders.cust_id GROUP BY Customers.cust_id;
+        -- outer join TO RETURN CUSTOMERS WITH NO ORDERS
+        SELECT Customers.cust_id, COUNT(Orders.order_num) AS num_ord FROM Customers LEFT OUTER JOIN Orders ON Customers.cust_id = Orders.cust_id GROUP BY Customers.cust_id;
+
+        COMBINE QUERIES
+        USE UNIONS
+            To use a UNION, provide both complete queries with the keyword UNION between them
+            SELECT cust_name, cust_contact, cust_email FROM Customers WHERE cust_state IN ('IL', 'IN', 'MI') UNION 
+            SELECT cust_name, cust_contact, cust_email FROM Customers WHERE cust_name = 'Fun4All'
+
+
+    INSERTING DATA
+        INSERT A ROWS
+            Rows are inserted using the INSERT statement
+                INSERT requires that the new values be specified
+                INSERT can also accept the names of the columns for which values are specified
+                INSERT INTO Customers(cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country, cust_contact, cust_email) VALUES ('1000000006', 'Toy Land', '123 Any Street', 'New York', 'NY', '11111', 'USA', NULL, NULL);
+
+        INSERT RETRIEVED DATA
+            To insert data retrieved as a query use an INSERT SELECT combination
+            The SELECT must return the same number of columns as specified in INSERT
+                column names need not to be the same
+                column data types must be compatible
+                INSERT INTO Customers(cust_id, cust_contact,  cust_email, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country) SELECT cust_id, cust_contact,  cust_email, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country FROM CustNew;
+        
+        COPY TO ANOTHER TABLE
+            To copy data from one table to another use SELECT INTO
+            SELECT * INTO CustCopy FROM Customers;
+
+    NB: INSERT is used to insert a single row into a table
+        INSERT can be combined with SELECT to SELECT to insert multiple rows (query results)
+        SELECT INTO copies rows to another table
+            Best practices:
+            Always specify INSERT column names
+            If using INSERT SELECT, explicitly specify SELECT column names (no SELECT *)
+
+    UPDATING AND DELETING DATA
+        UPDATE A ROWS
+        nb: update and delete are very dangerous statements
+            it is far to easy to update or delete the wrong rows 
+            there is no undo
+        
+        Rows are updated using the UPDATE statement
+            UPDATE takes the name of the table to update
+            SET is used to provide one or more name = value pairs with the column to be updated
+            A WHERE statement specifies which rows are to be updated 
+                Omit the WHERE  and every single row in the table will be updated
+
+                UPDATE Customers SET cust_email = 'adnan@manchesterunited.com' WHERE cust_id = '100000005';
+
+                UPDATE Customers SET cust_contact = 'Adnan Rondo', cust_email = 'adnan@manchesterunited.com' WHERE cust_id = '100000005';
+
+        DELETE A ROW
+            Rows are deleted using the DELETE statement
+            DELETE takes the name of the table to deleted
+            A WHERE statement specifies which rows are to be deleted 
+                Omit the WHERE  and every single row in the table will be deleted
+
+                DELETE FROM Customers WHERE cust_id = '1000000006'
+    
+    SUMMARY OF UPDATE AND DELETE
+        UPDATE is used to update one or more rows in a table
+        DELETE is used to delete one or more rows from a table
+        UPDATE and DELETE use WHERE to specify affected rows
+        Best practices: 
+            Whenever possible, use primary keys for UPDATE and DELETE WHERE clause
+            Test the WHERE clause with SELECT before using it with UPDATE or DELETE
+            Foreign keys can help prevent accidental deletions
+            
+
+
+
 
 
 
