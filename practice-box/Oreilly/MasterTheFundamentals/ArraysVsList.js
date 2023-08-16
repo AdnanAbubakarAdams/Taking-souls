@@ -124,19 +124,35 @@ const checkIfArrayIsSorted = (arr) => {
 
     return true;
 }
-console.log(checkIfArrayIsSorted([14, 55, 67, 88, 91])) // true
-console.log(checkIfArrayIsSorted([4, 5, 7, 8, 1])) // false
+// console.log(checkIfArrayIsSorted([14, 55, 67, 88, 91])) // true
+// console.log(checkIfArrayIsSorted([4, 5, 7, 8, 1])) // false
 
 // return true if the array is sorted either ascending or descending order
 
 function isSorted(arr) {
+    let isAscending = true;
+    let isDecending = true;
+
     for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < arr[i + 1] || arr[i] > arr[i + 1]) {
-            return true;
-        } 
+        let previousElement = arr[i - 1];
+        let currentElement = arr[i];
+
+        if (previousElement < currentElement) {
+            isDecending = false;
+        }
+
+        if (previousElement > currentElement) {
+            isAscending = false;
+        }
     }
 
-    return false;
+    return isAscending || isDecending;
 }
+
+console.log(isSorted([]), "1st")
+console.log(isSorted([1]))
+console.log(isSorted([39,42]))
+console.log(isSorted([42, 39]))
+console.log(isSorted([1, 5, 2]), 'false')
 console.log(isSorted([1, 2, 3, 4, 5]))
-console.log(isSorted([5, 4, 3, 2, 1]))
+console.log(isSorted([5, 4, 3, 2, 1]), 'last')

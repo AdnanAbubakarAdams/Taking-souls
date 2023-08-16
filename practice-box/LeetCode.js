@@ -1813,6 +1813,107 @@ var countCharacters = function(words, chars) {
 
 };
 
+// 2798. Number of Employees Who Met the Target
+// There are n employees in a company, numbered from 0 to n - 1. Each employee i has worked for hours[i] hours in the company.
+// The company requires each employee to work for at least target hours.
+// You are given a 0-indexed array of non-negative integers hours of length n and a non-negative integer target.
+// Return the integer denoting the number of employees who worked at least target hours.
+// Example 1:
+// Input: hours = [0,1,2,3,4], target = 2
+// Output: 3
+// Explanation: The company wants each employee to work for at least 2 hours.
+// - Employee 0 worked for 0 hours and didn't meet the target.
+// - Employee 1 worked for 1 hours and didn't meet the target.
+// - Employee 2 worked for 2 hours and met the target.
+// - Employee 3 worked for 3 hours and met the target.
+// - Employee 4 worked for 4 hours and met the target.
+// There are 3 employees who met the target.
+// Example 2:
+// Input: hours = [5,1,4,2,2], target = 6
+// Output: 0
+// Explanation: The company wants each employee to work for at least 6 hours.
+// There are 0 employees who met the target.
+var numberOfEmployeesWhoMetTarget = function(hours, target) {
+  let employeesThatMetTarget = 0;
+
+  for (let i = 0; i < hours.length; i++) {
+      if (hours[i] >= target) {
+          employeesThatMetTarget++;
+      }
+  }
+
+  return employeesThatMetTarget;
+};
+
+// 1768. Merge Strings Alternately
+// You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+// Return the merged string.
+// Example 1:
+// Input: word1 = "abc", word2 = "pqr"
+// Output: "apbqcr"
+// Explanation: The merged string will be merged as so:
+// word1:  a   b   c
+// word2:    p   q   r
+// merged: a p b q c r
+// Example 2:
+// Input: word1 = "ab", word2 = "pqrs"
+// Output: "apbqrs"
+// Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+// word1:  a   b 
+// word2:    p   q   r   s
+// merged: a p b q   r   s
+// Example 3:
+// Input: word1 = "abcd", word2 = "pq"
+// Output: "apbqcd"
+// Explanation: Notice that as word1 is longer, "cd" is appended to the end.
+// word1:  a   b   c   d
+// word2:    p   q 
+// merged: a p b q c   d
+var mergeAlternately = function (word1, word2) {
+  let alternativelyCombined = "";
+  let maximumLengthOfWords = Math.max(word1.length, word2.length);
+  for (let i = 0; i < maximumLengthOfWords; i++) {
+    if (word1[i]) {
+      alternativelyCombined += word1[i];
+    }
+    if (word2[i]) {
+      alternativelyCombined += word2[i];
+    }
+  }
+
+  return alternativelyCombined;
+};
+
+// 2727. Is Object Empty
+// Given an object or an array, return if it is empty.
+// An empty object contains no key-value pairs.
+// An empty array contains no elements.
+// You may assume the object or array is the output of JSON.parse.
+// Example 1:
+// Input: obj = {"x": 5, "y": 42}
+// Output: false
+// Explanation: The object has 2 key-value pairs so it is not empty.
+// Example 2:
+// Input: obj = {}
+// Output: true
+// Explanation: The object doesn't have any key-value pairs so it is empty.
+var isEmpty = function(obj) {
+  if (Array.isArray(obj)) {
+      return obj.length === 0;
+  } else if(typeof obj === "object" && obj !== null) {
+      return Object.keys(obj).length === 0;
+  }
+
+  return false;
+};
+
+
+
+
+
+
+
+
 
 // using a class for function above
 // class Counter {
