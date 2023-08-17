@@ -1907,6 +1907,49 @@ var isEmpty = function(obj) {
   return false;
 };
 
+// 300. Longest Increasing Subsequence
+// Given an integer array nums, return the length of the longest strictly increasing 
+// subsequence
+// .
+// Example 1:
+// Input: nums = [10,9,2,5,3,7,101,18]
+// Output: 4
+// Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+// Example 2:
+// Input: nums = [0,1,0,3,2,3]
+// Output: 4
+// Example 3:
+// Input: nums = [7,7,7,7,7,7,7]
+// Output: 1
+var lengthOfLIS = function (nums) {
+  // implementing solution 2
+  let subsequence = [nums[0]];
+  // console.log(subsequence)
+  for (let i = 1; i < nums.length; i++) {
+    let currentValue = nums[i];
+    // important, this is from subsequence
+    let previousValue = subsequence[i - 1];
+    // console.log(currentValue, previousValue)
+    if (currentValue > previousValue) {
+      // meaning there is increasing
+      // because previousValue is < currentValue
+      // push into subsequence array
+      subsequence.push(currentValue);
+    } else {
+      // currentValue is smaller than previous
+      // so this is not a continously increasing value
+      // check from the beginning of our subsequence array
+      let j = 0;
+      while (currentValue > subsequence[j]) {
+        j++;
+      }
+      subsequence[j] = currentValue;
+    }
+  }
+  console.log(subsequence);
+  return subsequence.length;
+};
+
 
 
 
