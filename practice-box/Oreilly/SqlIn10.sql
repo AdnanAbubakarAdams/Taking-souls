@@ -123,7 +123,7 @@ eg: SELECT prod_name, prod_id, prod_price FROM Products; will retrieve ddta acco
     FILTERING for no value
         NULL is a special keyword that means that column has no value
             NULL is not the same as "" -- not same as an empty string
-        WHERE can be usede with NULL to find (or exclude) columns with no value
+        WHERE can be used with NULL to find (or exclude) columns with no value
         SELECT cust_name FROM CUSTOMERS WHERE cust_email IS NULL; 
 
     ADVANCE DATA FILTERING

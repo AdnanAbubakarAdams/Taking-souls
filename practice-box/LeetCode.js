@@ -1950,7 +1950,160 @@ var lengthOfLIS = function (nums) {
   return subsequence.length;
 };
 
+// 283. Move Zeroes
+// Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+// Note that you must do this in-place without making a copy of the array.
+// Example 1:
+// Input: nums = [0,1,0,3,12]
+// Output: [1,3,12,0,0]
+// Example 2:
+// Input: nums = [0]
+// Output: [0]
+var moveZeroes = function(nums) {
+  let pointer = 0;
 
+  for(let i = 0; i < nums.length; i++) {
+      if(nums[i] !== 0) {
+          nums[pointer] = nums[i];
+
+          pointer++;
+      };
+  };
+
+  for(let i = pointer; i < nums.length; i++) {
+      nums[i] = 0;
+  };
+
+  return nums;
+};
+
+// 2619. Array Prototype Last
+// Write code that enhances all arrays such that you can call the array.last() method on any array and it will return the last element. If there are no elements in the array, it should return -1.
+// You may assume the array is the output of JSON.parse.
+// Example 1:
+// Input: nums = [null, {}, 3]
+// Output: 3
+// Explanation: Calling nums.last() should return the last element: 3.
+// Example 2:
+// Input: nums = []
+// Output: -1
+// Explanation: Because there are no elements, return -1.
+Array.prototype.last = function() {
+  return this.length ? this[this.length -1] : -1
+};
+
+// 2007. Find Original Array From Doubled Array
+// An integer array original is transformed into a doubled array changed by appending twice the value of every element in original, and then randomly shuffling the resulting array.
+// Given an array changed, return original if changed is a doubled array. If changed is not a doubled array, return an empty array. The elements in original may be returned in any order.
+// Example 1:
+// Input: changed = [1,3,4,2,6,8]
+// Output: [1,3,4]
+// Explanation: One possible original array could be [1,3,4]:
+// - Twice the value of 1 is 1 * 2 = 2.
+// - Twice the value of 3 is 3 * 2 = 6.
+// - Twice the value of 4 is 4 * 2 = 8.
+// Other original arrays could be [4,3,1] or [3,1,4].
+// Example 2:
+// Input: changed = [6,3,0,1]
+// Output: []
+// Explanation: changed is not a doubled array.
+// Example 3:
+// Input: changed = [1]
+// Output: []
+// Explanation: changed is not a doubled array.
+var findOriginalArray = function(changed) {
+  let originalArr = [];
+  if (!changed || changed.length % 2 !== 0) return [];
+
+  let sortedArr = changed.sort((a, b) => a - b);
+  let obj = {};
+
+  for(let i = 0; i < sortedArr.length; i++) {
+      if(sortedArr[i] in obj) {
+          obj[sortedArr[i]]++;
+
+      } else {
+          obj[sortedArr[i]] = 1;
+      }
+  }
+
+  for (let i = 0; i < sortedArr.length; i++) {
+      let currentElement = sortedArr[i];
+
+      if (obj[currentElement]) {
+          let doubledValue = currentElement * 2;
+
+          if (obj[doubledValue]) {
+              obj[currentElement]--;
+              obj[doubledValue]--;
+
+              originalArr.push(currentElement)
+          } else {
+              return [];
+          }
+      }
+  }
+
+  return originalArr;
+
+};
+
+
+// 2529. Maximum Count of Positive Integer and Negative Integer
+// Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers.
+// In other words, if the number of positive integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg.
+// Note that 0 is neither positive nor negative.
+// Example 1:
+// Input: nums = [-2,-1,-1,1,2,3]
+// Output: 3
+// Explanation: There are 3 positive integers and 3 negative integers. The maximum count among them is 3.
+// Example 2:
+// Input: nums = [-3,-2,-1,0,0,1,2]
+// Output: 3
+// Explanation: There are 2 positive integers and 3 negative integers. The maximum count among them is 3.
+// Example 3:
+// Input: nums = [5,20,66,1314]
+// Output: 4
+// Explanation: There are 4 positive integers and 0 negative integers. The maximum count among them is 4.
+var maximumCount = function(nums) {
+  let countOfPositiveIntegers = 0;
+  let countOfNegativeIntegers = 0;
+
+  for(let i = 0; i < nums.length; i++) {
+      if (nums[i] === 0) {
+          continue;
+      } else if (nums[i] > 0) {
+          countOfPositiveIntegers++;
+      } else {
+          countOfNegativeIntegers++;
+      }
+  }
+
+  return Math.max(countOfPositiveIntegers,countOfNegativeIntegers)
+};
+
+// 1351. Count Negative Numbers in a Sorted Matrix
+// Given a m x n matrix grid which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.
+// Example 1:
+// Input: grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]
+// Output: 8
+// Explanation: There are 8 negatives number in the matrix.
+// Example 2:
+// Input: grid = [[3,2],[1,0]]
+// Output: 0
+var countNegatives = function(grid) {
+  let numberOfNegativeNumbersInGrid = 0;
+
+  for(let row = 0; row < grid.length; row++) {
+      for(let column = 0; column < grid[row].length; column++) {
+          if (grid[row][column] < 0) {
+              numberOfNegativeNumbersInGrid++;
+          }
+      }
+  }
+
+  return numberOfNegativeNumbersInGrid;
+};
 
 
 
