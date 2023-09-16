@@ -2129,6 +2129,55 @@ var searchMatrix = function(matrix, target) {
   return false;
 };
 
+// 2652. Sum Multiples
+// Given a positive integer n, find the sum of all integers in the range [1, n] inclusive that are divisible by 3, 5, or 7.
+// Return an integer denoting the sum of all numbers in the given range satisfying the constraint.
+// Example 1:
+// Input: n = 7
+// Output: 21
+// Explanation: Numbers in the range [1, 7] that are divisible by 3, 5, or 7 are 3, 5, 6, 7. The sum of these numbers is 21.
+// Example 2:
+// Input: n = 10
+// Output: 40
+// Explanation: Numbers in the range [1, 10] that are divisible by 3, 5, or 7 are 3, 5, 6, 7, 9, 10. The sum of these numbers is 40.
+// Example 3:
+// Input: n = 9
+// Output: 30
+// Explanation: Numbers in the range [1, 9] that are divisible by 3, 5, or 7 are 3, 5, 6, 7, 9. The sum of these numbers is 30.
+var sumOfMultiples = function(n) {
+  let sumNumsInRange = 0;
+
+  for(let i = 1; i <= n; i++) {
+    if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
+      sumNumsInRange += i;
+    }
+  }
+
+  return sumNumsInRange;
+};
+
+// 448. Find All Numbers Disappeared in an Array
+// Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
+// Example 1:
+// Input: nums = [4,3,2,7,8,2,3,1]
+// Output: [5,6]
+// Example 2:
+// Input: nums = [1,1]
+// Output: [2]
+var findDisappearedNumbers = function(nums) {
+  // console.log(nums.length)
+  let sortedNums = nums.sort((a, b) => a - b);
+  let newSetOfNums = new Set(sortedNums);
+  let disappearedNumsFound = [];
+
+  for(let i = 0; i < sortedNums.length; i++) {
+      if (!newSetOfNums.has(i + 1)) {
+          disappearedNumsFound.push(i + 1);
+      }
+  }
+
+  return disappearedNumsFound;
+};
 
 
 
